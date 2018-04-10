@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Webtalk v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Mon Apr  9 16:39:49 2018
+# Process ID: 11020
+# Current directory: C:/Users/Kevin/Documents/New School/Fifth Year/Spring Quarter/EE 521/RAT_Pipelining_Step1/Exp. 9 Interrupts/Exp. 9 Interrupts.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source C:/Users/Kevin/Documents/New School/Fifth Year/Spring Quarter/EE 521/RAT_Pipelining_Step1/Exp. 9 Interrupts/Exp. 9 Interrupts.sim/sim_1/behav/xsim/xsim.dir/CPU_SIM_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/Kevin/Documents/New School/Fifth Year/Spring Quarter/EE 521/RAT_Pipelining_Step1/Exp. 9 Interrupts/Exp. 9 Interrupts.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: C:/Users/Kevin/Documents/New School/Fifth Year/Spring Quarter/EE 521/RAT_Pipelining_Step1/Exp. 9 Interrupts/Exp. 9 Interrupts.sim/sim_1/behav/xsim\webtalk.jou
+#-----------------------------------------------------------
+source C:/Users/Kevin/Documents/New -notrace
+couldn't read file "C:/Users/Kevin/Documents/New": no such file or directory
+INFO: [Common 17-206] Exiting Webtalk at Mon Apr  9 16:39:49 2018...
