@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 04/09/2018 03:03:02 PM
+-- Create Date: 04/11/2018 04:00:27 PM
 -- Design Name: 
--- Module Name: pipeline_sec1 - Behavioral
+-- Module Name: stage1 - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -17,12 +17,14 @@
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
+
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.STD_LOGIC_ARITH.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
-entity pipeline_sec1 is
+entity stage1 is
     Port ( CLK     : in  STD_LOGIC;
        PC_INC      : in  STD_LOGIC;
        PC_LD       : in  STD_LOGIC;
@@ -32,9 +34,9 @@ entity pipeline_sec1 is
        FROM_STACK  : in  STD_LOGIC_VECTOR (9 downto 0);
        PC_COUNT    : out STD_LOGIC_VECTOR (9 downto 0);
        INSTRUCTION : out std_logic_vector(17 downto 0));
-end pipeline_sec1;
+end stage1;
 
-architecture Behavioral of pipeline_sec1 is
+architecture Behavioral of stage1 is
 signal PC_COUNT_sig : STD_LOGIC_VECTOR(9 downto 0);
 
 component PC is

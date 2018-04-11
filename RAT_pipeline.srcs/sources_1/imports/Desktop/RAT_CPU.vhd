@@ -21,8 +21,9 @@ end RAT_CPU;
 
 architecture Behavioral of RAT_CPU is
 
-   component pipeline_sec1 is  
-       Port ( CLK     : in  STD_LOGIC;
+   component stage1 is  
+       Port ( 
+          CLK     : in  STD_LOGIC;
           PC_INC      : in  STD_LOGIC;
           PC_LD       : in  STD_LOGIC;
           RST         : in  STD_LOGIC;
@@ -34,8 +35,9 @@ architecture Behavioral of RAT_CPU is
      
    end component;
    
-   component pipeline_sec234 is
-       Port ( CLK     : in  STD_LOGIC;
+   component stage2 is
+       Port ( 
+         CLK     : in  STD_LOGIC;
          INT_IN       : in STD_LOGIC;
          RESET        : in STD_LOGIC;
          PC_COUNT     : in  STD_LOGIC_VECTOR(9 downto 0);
@@ -51,6 +53,10 @@ architecture Behavioral of RAT_CPU is
          FROM_IMMED  : out  STD_LOGIC_VECTOR (9 downto 0);
          FROM_STACK  : out  STD_LOGIC_VECTOR (9 downto 0));
    end component;
+   
+   component stage34 is
+        Port ( );
+   end component;
 
 signal PC_INC_sig : STD_LOGIC;   
 signal PC_LD_sig : STD_LOGIC;   
@@ -64,7 +70,7 @@ signal s_rst : STD_LOGIC;
 
 begin
 
-pipe1 : pipeline_sec1
+fetch : stage1
     Port Map(
         CLK             => CLK,
         PC_INC          => PC_INC_sig,
@@ -76,7 +82,7 @@ pipe1 : pipeline_sec1
         PC_COUNT        => PC_COUNT_sig,
         INSTRUCTION     => INSTRUCTION_sig);
 
-pipe234 : pipeline_sec234 
+decode : stage2
     Port Map(
         CLK             => CLK,
         INT_IN          => INT_IN,
@@ -93,6 +99,9 @@ pipe234 : pipeline_sec234
         OUT_PORT        => OUT_PORT,
         FROM_IMMED      => FROM_IMMED_sig,
         FROM_STACK      => FROM_STACK_sig);
+ 
+exwr : stage34
+            Port Map();
 
 
 end Behavioral;

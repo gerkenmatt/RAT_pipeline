@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/Kevin/Documents/New School/Fifth Year/Spring Quarter/EE 521/RAT_Pipelining_Step1/Exp. 9 Interrupts/Exp. 9 Interrupts.runs/synth_1'
+HD_PWD='C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
