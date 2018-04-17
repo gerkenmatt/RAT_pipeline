@@ -25,7 +25,6 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity stage34 is
     Port ( CLK     : in  STD_LOGIC;
-
       INSTRUCTION  : in  STD_LOGIC_VECTOR(17 downto 0);
       ALU_SEL      : in STD_LOGIC_VECTOR(3 downto 0);
       ALU_OPY_SEL  : in STD_LOGIC;
@@ -45,8 +44,13 @@ entity stage34 is
       FLG_Z_LD     : in STD_LOGIC;
       FLG_LD_SEL   : in STD_LOGIC;
       FLG_SHAD_LD  : in STD_LOGIC;
+      C_FLAG_IN    : in STD_LOGIC;
       C_FLAG       : out STD_LOGIC;
-      Z_FLAG       : out STD_LOGIC);
+      Z_FLAG       : out STD_LOGIC;
+      ALU_RES      : out STD_LOGIC_VECTOR (7 downto 0);
+      FROM_IMMED   : out STD_LOGIC_VECTOR (9 downto 0);
+      FROM_STACK   : out STD_LOGIC_VECTOR (9 downto 0);
+      SP_OUT       : out STD_LOGIC_VECTOR (7 downto 0));
 end stage34;
 
 
@@ -77,14 +81,6 @@ component Flags
           C_FLAG      : out STD_LOGIC;
           Z_FLAG      : out STD_LOGIC);
 end component;
-
-component I_FLAG
-  Port (  I_SET : in STD_LOGIC;
-          I_CLR : in STD_LOGIC;
-          CLK : in STD_LOGIC;
-          I_OUT : out STD_LOGIC);
-end component;
-
 
 component SCRATCH_RAM
    Port ( CLK   : IN  STD_LOGIC;
@@ -124,12 +120,6 @@ end component;
    signal s_flg_ld_sel  : STD_LOGIC;
    signal s_flg_shad_ld : STD_LOGIC;
    
-   -- Interrupts
-   signal s_i_flg      : STD_LOGIC;
-   signal s_flg_i_set  : STD_LOGIC;
-   signal s_flg_i_clr  : STD_LOGIC; 
-   signal s_int        : STD_LOGIC;
-   
    -- ALU
    signal s_alu_opy_sel : STD_LOGIC;
    signal s_alu_res     : STD_LOGIC_VECTOR(7 downto 0);
@@ -158,7 +148,7 @@ end component;
    
 
    -- helpful aliases ------------------------------------------------------------------
-   alias s_ir_immed_bits : std_logic_vector(9 downto 0) is INSTRUCTION(12 downto 3); 
+   alias s_ir_immed_bits : std_logic_vector(9 downto 0) is INSTRUCTION(12 downto 3);
    
    
 
@@ -167,13 +157,11 @@ begin
    my_alu: ALU
    port map ( A => DX_OUT,       
               B => DY_OUT,       
-              Cin => s_c_flg,     
+              Cin => C_FLAG_IN,     
               SEL => ALU_SEL,     
               C => s_c,       
               Z => s_z,       
-              RESULT => s_alu_res );
-
-
+              RESULT => ALU_RES );
 
    my_flgs: Flags
    port map ( CLK         => CLK,
@@ -185,15 +173,8 @@ begin
               FLG_SHAD_LD => FLG_SHAD_LD,
               C           => s_c,
               Z           => s_z,
-              C_FLAG      => s_c_flg,
+              C_FLAG      => C_FLAG,
               Z_FLAG      => Z_FLAG);
-   
-   
-   my_i_flg: I_FLAG
-   port map ( I_SET => s_flg_i_set,
-              I_CLR => s_flg_i_clr,
-              CLK => CLK,
-              I_OUT => s_i_flg);
                          
    my_SCR: SCRATCH_RAM
    port map ( CLK      => CLK,
@@ -211,28 +192,26 @@ begin
               CLK      => CLK,
               DATA_OUT => s_sp_out);
 
-    with s_alu_opy_sel select
-        s_alu_b <= s_reg_y_out when '0',
+    with ALU_OPY_SEL select
+        s_alu_b <= DY_OUT when '0',
                    INSTRUCTION(7 downto 0) when '1',
                    x"00" when others;
 
     
-    with s_scr_data_sel select
-        s_scr_in <= "00" & s_reg_x_out when '0',
+    with SCR_DATA_SEL select
+        s_scr_in <= "00" & DX_OUT when '0',
                     PC_COUNT         when '1',
                     "00" & x"00"       when others;
     
-    with s_scr_addr_sel select
-        s_scr_addr <= s_reg_y_out            when "00",
+    with SCR_ADDR_SEL select
+        s_scr_addr <= DY_OUT            when "00",
                       INSTRUCTION(7 downto 0) when "01",
                       s_sp_out               when "10",
                       s_sp_out - 1           when "11",
                       x"00"                  when others;
     
-    C_FLAG <= s_c_flg;
     FROM_STACK <= s_scr_out;
     FROM_IMMED <= s_ir_immed_bits;
-
-
+    SP_OUT <= s_sp_out;
 
 end Behavioral;

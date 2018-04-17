@@ -31,6 +31,9 @@ entity stage2 is
       INSTRUCTION  : in  STD_LOGIC_VECTOR(17 downto 0);
       C_FLAG       : in STD_LOGIC;
       Z_FLAG       : in STD_LOGIC;
+      ALU_RES      : in   STD_LOGIC_VECTOR (7 downto 0);
+      SCR_OUT      : in   STD_LOGIC_VECTOR (9 downto 0);
+      SP_OUT       : in   STD_LOGIC_VECTOR (7 downto 0);
       PC_INC       : out  STD_LOGIC;
       PC_LD        : out  STD_LOGIC;
       PC_MUX_SEL   : out  STD_LOGIC_VECTOR (1 downto 0);
@@ -51,9 +54,9 @@ entity stage2 is
       RST          : out STD_LOGIC;
       DX_OUT       : out STD_LOGIC_VECTOR (7 downto 0);
       DY_OUT       : out STD_LOGIC_VECTOR (7 downto 0);
+      RF_D_IN      : out STD_LOGIC_VECTOR (7 downto 0);
       IO_STRB      : out STD_LOGIC;
-
-      OUT_PORT     : out STD_LOGIC_VECTOR (7 downto 0));
+      PORT_ID      : out STD_LOGIC_VECTOR (7 downto 0));
 end stage2;
 
 
@@ -112,6 +115,13 @@ component RegisterFile
           CLK    : in     STD_LOGIC);
 end component;
 
+component I_FLAG
+  Port (  I_SET : in STD_LOGIC;
+          I_CLR : in STD_LOGIC;
+          CLK : in STD_LOGIC;
+          I_OUT : out STD_LOGIC);
+end component;
+
 
    -- intermediate signals ----------------------------------
     
@@ -123,7 +133,9 @@ end component;
 
    -- Interrupts
    signal s_flg_i_set  : STD_LOGIC;
-   signal s_flg_i_clr  : STD_LOGIC; 
+   signal s_flg_i_clr  : STD_LOGIC;
+   signal s_flg_i      : STD_LOGIC;
+   signal s_int        : STD_LOGIC; 
 
    -- helpful aliases ------------------------------------------------------------------
    alias s_ir_immed_bits : std_logic_vector(9 downto 0) is INSTRUCTION(12 downto 3); 
@@ -137,7 +149,7 @@ begin
    port map ( CLK           => CLK, 
               C             => C_FLAG,
               Z             => Z_FLAG,
-              INT           => INT_IN, 
+              INT           => s_int, 
               RESET         => RESET, 
               OPCODE_HI_5   => INSTRUCTION(17 downto 13), 
               OPCODE_LO_2   => INSTRUCTION(1  downto  0), 
@@ -184,15 +196,19 @@ begin
 
     
     with s_rf_wr_sel select
-          s_reg_in <= s_alu_res             when "00",
-                      s_scr_out(7 downto 0) when "01",
-                      s_sp_out              when "10",
+          RF_D_IN <=  ALU_RES               when "00",
+                      SCR_OUT(7 downto 0)   when "01",
+                      SP_OUT                when "10",
                       IN_PORT               when "11",
                       x"00" when others;
-               
-    PORT_ID <= INSTRUCTION(7 downto 0);
-    s_int <= s_i_flg AND INT_IN;
-    OUT_PORT <= DX_OUT;
     
+    my_i_flag : I_FLAG
+    port map (I_SET => s_flg_i_set,
+              I_CLR => s_flg_i_clr,
+              CLK => CLK,
+              I_OUT => s_flg_i);
+    
+    PORT_ID <= INSTRUCTION(7 downto 0);
+    s_int <= s_flg_i AND INT_IN;
 
 end Behavioral;
