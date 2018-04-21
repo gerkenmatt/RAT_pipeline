@@ -158,6 +158,18 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
+      <File Path="$PPRDIR/../RAT_Pipeline_Improved/Exp. 9 Interrupts/Exp. 9 Interrupts.srcs/sources_1/new/buffer1.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../RAT_Pipeline_Improved/Exp. 9 Interrupts/Exp. 9 Interrupts.srcs/sources_1/new/buffer2.vhd">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
       <File Path="$PSRCDIR/sources_1/imports/Desktop/counter_for_one_shot.vhd">
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../../counter_for_one_shot.vhd"/>
@@ -225,6 +237,13 @@
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/stage1.vhd">
+        <FileInfo>
+          <Attr Name="AutoDisabled" Val="1"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PPRDIR/../RAT_Pipeline_Improved/Exp. 9 Interrupts/Exp. 9 Interrupts.srcs/sources_1/new/buffer3.vhd">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
           <Attr Name="UsedIn" Val="synthesis"/>
