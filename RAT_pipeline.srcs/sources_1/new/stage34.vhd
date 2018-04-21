@@ -25,7 +25,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity stage34 is
     Port ( CLK     : in  STD_LOGIC;
-      INSTRUCTION  : in  STD_LOGIC_VECTOR(17 downto 0);
+      INSTRUCTION  : in  STD_LOGIC_VECTOR(12 downto 0);
       ALU_SEL      : in STD_LOGIC_VECTOR(3 downto 0);
       ALU_OPY_SEL  : in STD_LOGIC;
       RST          : in STD_LOGIC;
@@ -156,7 +156,7 @@ begin
 
    my_alu: ALU
    port map ( A => DX_OUT,       
-              B => DY_OUT,       
+              B => s_alu_b,       
               Cin => C_FLAG_IN,     
               SEL => ALU_SEL,     
               C => s_c,       

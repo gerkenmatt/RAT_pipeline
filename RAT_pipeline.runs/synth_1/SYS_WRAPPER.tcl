@@ -42,10 +42,11 @@ read_vhdl -library xil_defaultlib {
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/counter_for_one_shot.vhd
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/debounce_one_shot_FSM.vhd
-  C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/pipeline_sec1.vhd
-  C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/pipeline_sec234.vhd
+  {C:/Users/gerke/Downloads/Exp. 9 Interrupts/Exp. 9 Interrupts/Exp. 9 Interrupts.srcs/sources_1/new/pipeline_sec1.vhd}
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/TestCases/prog_rom.vhd
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/reg_file.vhd
+  C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd
+  C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd
 }

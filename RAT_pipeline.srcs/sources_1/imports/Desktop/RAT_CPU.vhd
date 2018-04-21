@@ -21,7 +21,7 @@ end RAT_CPU;
 
 architecture Behavioral of RAT_CPU is
 
-   component stage1 is  
+   component stage1 is
        Port ( 
           CLK     : in  STD_LOGIC;
           PC_INC      : in  STD_LOGIC;
@@ -44,8 +44,14 @@ architecture Behavioral of RAT_CPU is
          C_FLAG       : in STD_LOGIC;
          Z_FLAG       : in STD_LOGIC;
          ALU_RES      : in   STD_LOGIC_VECTOR (7 downto 0);
-         SCR_OUT      : in   STD_LOGIC_VECTOR (9 downto 0);
+         SCR_OUT      : in   STD_LOGIC_VECTOR (7 downto 0);
          SP_OUT       : in   STD_LOGIC_VECTOR (7 downto 0);
+         RF_D_IN_WR   : in   STD_LOGIC_VECTOR (7 downto 0);
+         RF_D_IN_ADR  : in STD_LOGIC_VECTOR (4 downto 0);
+         RF_WR        : in   STD_LOGIC;
+         RF_WR_SEL    : in   STD_LOGIC_VECTOR (1 downto 0);
+         RF_WR_OUT    : out  STD_LOGIC;
+         RF_WR_SEL_OUT: out  STD_LOGIC_VECTOR (1 downto 0);
          PC_INC       : out  STD_LOGIC;
          PC_LD        : out  STD_LOGIC;
          PC_MUX_SEL   : out  STD_LOGIC_VECTOR (1 downto 0);
@@ -67,13 +73,14 @@ architecture Behavioral of RAT_CPU is
          DX_OUT       : out STD_LOGIC_VECTOR (7 downto 0);
          DY_OUT       : out STD_LOGIC_VECTOR (7 downto 0);
          RF_D_IN      : out STD_LOGIC_VECTOR (7 downto 0);
+         RF_D_ADR     : out STD_LOGIC_VECTOR (4 downto 0);
          IO_STRB      : out STD_LOGIC;
          PORT_ID      : out STD_LOGIC_VECTOR (7 downto 0));
    end component;
    
    component stage34 is
         Port (CLK     : in  STD_LOGIC;
-         INSTRUCTION  : in  STD_LOGIC_VECTOR(17 downto 0);
+         INSTRUCTION  : in  STD_LOGIC_VECTOR(12 downto 0);
          ALU_SEL      : in STD_LOGIC_VECTOR(3 downto 0);
          ALU_OPY_SEL  : in STD_LOGIC;
          RST          : in STD_LOGIC;
@@ -99,6 +106,78 @@ architecture Behavioral of RAT_CPU is
          FROM_IMMED   : out STD_LOGIC_VECTOR (9 downto 0);
          FROM_STACK   : out STD_LOGIC_VECTOR (9 downto 0);
          SP_OUT       : out STD_LOGIC_VECTOR (7 downto 0));
+   end component;
+
+   component buffer1 is
+        Port (CLK         : in  STD_LOGIC;
+            IR_IN       : in STD_LOGIC_VECTOR(17 downto 0);
+            PC_CNT_IN   : in STD_LOGIC_VECTOR(9 downto 0);
+            IR_OUT      : out STD_LOGIC_VECTOR(17 downto 0); 
+            PC_CNT_OUT  : out STD_LOGIC_VECTOR(9 downto 0));
+   end component;
+   
+   component buffer2 is
+       Port (CLK         : in STD_LOGIC;
+           IR_IN       : in STD_LOGIC_VECTOR(17 downto 0);
+           PC_CNT_IN   : in STD_LOGIC_VECTOR(9 downto 0);
+           REG_DX_IN   : in STD_LOGIC_VECTOR(7 downto 0);
+           REG_DY_IN   : in STD_LOGIC_VECTOR(7 downto 0);
+           RF_WR_IN    : in STD_LOGIC;
+           RF_WR_SEL_IN: in STD_LOGIC_VECTOR(1 downto 0);
+           ALU_OP_SEL_IN:in STD_LOGIC;
+           ALU_SEL_IN  : in STD_LOGIC_VECTOR(3 downto 0);
+           SP_LD_IN    : in STD_LOGIC;
+           SP_INCR_IN  : in STD_LOGIC;
+           SP_DECR_IN  : in STD_LOGIC;
+           SCR_WE_IN   : in STD_LOGIC;
+           SCR_ADDR_SEL_IN : in STD_LOGIC_VECTOR(1 downto 0);
+           SCR_DATA_SEL_IN : in STD_LOGIC;
+           FLG_C_SET_IN    : in STD_LOGIC;
+           FLG_C_CLR_IN    : in STD_LOGIC;
+           FLG_C_LD_IN     : in STD_LOGIC;
+           FLG_Z_LD_IN     : in STD_LOGIC;
+           FLG_LD_SEL_IN   : in STD_LOGIC;
+           FLG_SHAD_LD_IN  : in STD_LOGIC;
+           RST_IN          : in STD_LOGIC; 
+           
+           IR_OUT      : out STD_LOGIC_VECTOR(17 downto 0); 
+           PC_CNT_OUT  : out STD_LOGIC_VECTOR(9 downto 0);
+           REG_DX_OUT  : out STD_LOGIC_VECTOR(7 downto 0);
+           REG_DY_OUT  : out STD_LOGIC_VECTOR(7 downto 0);
+           RF_WR_OUT    : out STD_LOGIC;
+           RF_WR_SEL_OUT: out STD_LOGIC_VECTOR(1 downto 0);
+           ALU_OP_SEL_OUT:out STD_LOGIC;
+           ALU_SEL_OUT  : out STD_LOGIC_VECTOR(3 downto 0);
+           SP_LD_OUT    : out STD_LOGIC;
+           SP_INCR_OUT  : out STD_LOGIC;
+           SP_DECR_OUT  : out STD_LOGIC;
+           SCR_WE_OUT   : out STD_LOGIC;
+           SCR_ADDR_SEL_OUT : out STD_LOGIC_VECTOR(1 downto 0);
+           SCR_DATA_SEL_OUT : out STD_LOGIC;
+           FLG_C_SET_OUT    : out STD_LOGIC;
+           FLG_C_CLR_OUT   : out STD_LOGIC;
+           FLG_C_LD_OUT     : out STD_LOGIC;
+           FLG_Z_LD_OUT     : out STD_LOGIC;
+           FLG_LD_SEL_OUT   : out STD_LOGIC;
+           FLG_SHAD_LD_OUT  : out STD_LOGIC;
+           RST_OUT          : out STD_LOGIC);
+   end component;
+   
+   component buffer3 is
+      Port (CLK             : in STD_LOGIC;
+         RF_WR_IN        : in STD_LOGIC;
+         RF_WR_SEL_IN    : in STD_LOGIC_VECTOR(1 downto 0);
+         ALU_RES_IN      : in STD_LOGIC_VECTOR(7 downto 0);
+         SCR_DATA_IN     : in STD_LOGIC_VECTOR(9 downto 0);
+         SP_DATA_IN      : in STD_LOGIC_VECTOR(7 downto 0);
+         IR_IN           : in STD_LOGIC_VECTOR(17 downto 0);
+         
+         RF_WR_OUT       : out STD_LOGIC;
+         RF_WR_SEL_OUT   : out STD_LOGIC_VECTOR(1 downto 0);
+         ALU_RES_OUT     : out STD_LOGIC_VECTOR(7 downto 0);
+         SCR_DATA_OUT    : out STD_LOGIC_VECTOR(9 downto 0);
+         SP_DATA_OUT     : out STD_LOGIC_VECTOR(7 downto 0);
+         IR_OUT          : out STD_LOGIC_VECTOR(17 downto 0));
    end component;
 
 
@@ -171,16 +250,68 @@ signal SCR_ADDR_SEL_sig : STD_LOGIC_VECTOR(1 downto 0);
 -----------------------------------------------------------------
 signal DX_OUT_sig : STD_LOGIC_VECTOR(7 downto 0);
 signal DY_OUT_sig : STD_LOGIC_VECTOR(7 downto 0);
+signal RF_D_IN_WR_sig : STD_LOGIC_VECTOR(7 downto 0);
 signal RF_D_IN_sig : STD_LOGIC_VECTOR(7 downto 0);
 
 signal ALU_RES_sig : STD_LOGIC_VECTOR(7 downto 0);
 signal SCR_OUT_sig : STD_LOGIC_VECTOR(9 downto 0) := (others => '0');  
-signal SP_OUT_sig : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');   
+signal SP_OUT_sig : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+
+signal RF_WR_sig : STD_LOGIC;
+signal RF_WR_SEL_sig : STD_LOGIC_VECTOR(1 downto 0);
+signal RF_WR_OUT_sig : STD_LOGIC;
+signal RF_WR_SEL_OUT_sig : STD_LOGIC_VECTOR(1 downto 0);
+
+signal RF_D_IN_ADR_sig  : STD_LOGIC_VECTOR (4 downto 0);
+signal RF_D_ADR_sig  : STD_LOGIC_VECTOR (4 downto 0);
 -----------------------------------------------------------------
 
-  
+
 
 signal s_rst : STD_LOGIC;
+
+
+
+
+-----------------------------------------------------------------
+-- Buffering signals
+-----------------------------------------------------------------
+--buffer1 signals
+   signal s_buff1_inst_reg : std_logic_vector(17 downto 0) := (others => '0'); 
+   signal s_buff1_pc_count : std_logic_vector(9 downto 0)  := (others => '0'); 
+   --buffer2 signals
+   signal s_buff2_inst_reg : std_logic_vector(17 downto 0) := (others => '0'); 
+   signal s_buff2_pc_count : std_logic_vector(9 downto 0)  := (others => '0');
+   signal s_buff2_rf_wr_sel : STD_LOGIC_VECTOR(1 downto 0) := "00";
+   signal s_buff2_rf_wr     : STD_LOGIC := '0';
+   signal s_buff2_reg_in    : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+   signal s_buff2_reg_x_out : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+   signal s_buff2_reg_y_out : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
+   signal s_buff2_flg_c_set   : STD_LOGIC;
+   signal s_buff2_flg_c_clr   : STD_LOGIC;
+   signal s_buff2_flg_c_ld    : STD_LOGIC;
+   signal s_buff2_flg_z_ld    : STD_LOGIC;
+   signal s_buff2_flg_ld_sel  : STD_LOGIC;
+   signal s_buff2_flg_shad_ld : STD_LOGIC;
+   signal s_buff2_alu_opy_sel : STD_LOGIC;
+   signal s_buff2_alu_sel     : STD_LOGIC_VECTOR(3 downto 0);
+   signal s_buff2_sp_ld     : STD_LOGIC;
+   signal s_buff2_sp_incr   : STD_LOGIC;
+   signal s_buff2_sp_decr   : STD_LOGIC;
+   signal s_buff2_scr_we       : STD_LOGIC;
+   signal s_buff2_scr_addr_sel : STD_LOGIC_VECTOR(1 downto 0);
+   signal s_buff2_scr_data_sel : STD_LOGIC;
+   signal s_buff2_rst : STD_LOGIC;
+   
+   --buffer3 signals
+   signal s_buff3_inst_reg : std_logic_vector(17 downto 0) := (others => '0'); 
+   signal s_buff3_rf_wr_sel : STD_LOGIC_VECTOR(1 downto 0) := "00";
+   signal s_buff3_rf_wr     : STD_LOGIC := '0';
+   signal s_buff3_alu_res     : STD_LOGIC_VECTOR(7 downto 0);
+   signal s_buff3_scr_out      : STD_LOGIC_VECTOR(9 downto 0);
+   signal s_buff3_sp_out    : STD_LOGIC_VECTOR(7 downto 0);
+-----------------------------------------------------------------
+
 
 
 
@@ -198,6 +329,14 @@ fetch : stage1
         PC_COUNT        => PC_COUNT_sig,
         INSTRUCTION     => INSTRUCTION_sig);
 
+fetch_buffer : buffer1
+    Port Map(
+        CLK        => CLK,
+        IR_IN       => INSTRUCTION_sig,
+        PC_CNT_IN   => PC_COUNT_sig,
+        IR_OUT      => s_buff1_inst_reg,
+        PC_CNT_OUT  => s_buff1_pc_count);
+
 decode : stage2
     Port Map(
         CLK             => CLK,
@@ -208,8 +347,14 @@ decode : stage2
         C_FLAG          => C_FLAG_sig,
         Z_FLAG          => Z_FLAG_sig,
         ALU_RES         => ALU_RES_sig,
-        SCR_OUT         => SCR_OUT_sig,
+        SCR_OUT         => SCR_OUT_sig(7 downto 0),
         SP_OUT          => SP_OUT_sig,
+        RF_D_IN_WR      => RF_D_IN_WR_sig,
+        RF_D_IN_ADR     => RF_D_IN_ADR_sig,
+        RF_WR           => RF_WR_sig,
+        RF_WR_SEL       => RF_WR_SEL_sig,
+        RF_WR_OUT       => RF_WR_OUT_sig,
+        RF_WR_SEL_OUT   => RF_WR_SEL_OUT_sig,
         PC_INC          => PC_INC_sig,
         PC_LD           => PC_LD_sig,
         PC_MUX_SEL      => PC_MUX_SEL_sig,
@@ -231,12 +376,60 @@ decode : stage2
         DX_OUT          => DX_OUT_sig,
         DY_OUT          => DY_OUT_sig,
         RF_D_IN         => RF_D_IN_sig,
+        RF_D_ADR        => RF_D_ADR_sig,
         IO_STRB         => IO_STRB,
         PORT_ID         => PORT_ID);
  
+decode_buffer : buffer2
+    Port Map(
+        CLK             => CLK,
+        IR_IN           => s_buff1_inst_reg,
+        PC_CNT_IN       => s_buff1_pc_count,
+        REG_DX_IN       => DX_OUT_sig,
+        REG_DY_IN       => DY_OUT_sig,
+        RF_WR_IN        => RF_WR_OUT_sig,
+        RF_WR_SEL_IN    => RF_WR_SEL_OUT_sig,
+        ALU_OP_SEL_IN   => ALU_OPY_SEL_sig,
+        ALU_SEL_IN      => ALU_SEL_sig,
+        SP_LD_IN        => SP_LD_sig,
+        SP_INCR_IN      => SP_INCR_sig,
+        SP_DECR_IN      => SP_DECR_sig,
+        SCR_WE_IN       => SCR_WE_sig,
+        SCR_ADDR_SEL_IN => SCR_ADDR_SEL_sig,
+        SCR_DATA_SEL_IN => SCR_DATA_SEL_sig,
+        FLG_C_SET_IN    => FLG_C_SET_sig,
+        FLG_C_CLR_IN    => FLG_C_CLR_sig,
+        FLG_C_LD_IN     => FLG_C_LD_sig,
+        FLG_Z_LD_IN     => FLG_Z_LD_sig,
+        FLG_LD_SEL_IN   => FLG_LD_SEL_sig,
+        FLG_SHAD_LD_IN  => FLG_SHAD_LD_sig,
+        RST_IN          => RST,
+              
+        IR_OUT      => s_buff2_inst_reg, 
+        PC_CNT_OUT  => s_buff2_pc_count,
+        REG_DX_OUT  => s_buff2_reg_x_out,
+        REG_DY_OUT  => s_buff2_reg_y_out,
+        RF_WR_OUT   => s_buff2_rf_wr,
+        RF_WR_SEL_OUT => s_buff2_rf_wr_sel,
+        ALU_OP_SEL_OUT => s_buff2_alu_opy_sel,
+        ALU_SEL_OUT    => s_buff2_alu_sel,
+        SP_LD_OUT      => s_buff2_sp_ld ,
+        SP_INCR_OUT    => s_buff2_sp_incr,
+        SP_DECR_OUT    => s_buff2_sp_decr,
+        SCR_WE_OUT     => s_buff2_scr_we,
+        SCR_ADDR_SEL_OUT => s_buff2_scr_addr_sel,
+        SCR_DATA_SEL_OUT => s_buff2_scr_data_sel,
+        FLG_C_SET_OUT  => s_buff2_flg_c_set,
+        FLG_C_CLR_OUT  => s_buff2_flg_c_clr,
+        FLG_C_LD_OUT   => s_buff2_flg_c_ld,
+        FLG_Z_LD_OUT   => s_buff2_flg_z_ld,
+        FLG_LD_SEL_OUT => s_buff2_flg_ld_sel,
+        FLG_SHAD_LD_OUT => s_buff2_flg_shad_ld,
+        RST_OUT        => s_buff2_rst);
+ 
 exwr : stage34
     Port Map(CLK      => CLK,
-        INSTRUCTION   => INSTRUCTION_sig,
+        INSTRUCTION   => INSTRUCTION_sig(12 downto 0),
         ALU_SEL       => ALU_SEL_sig,
         ALU_OPY_SEL   => ALU_OPY_SEL_sig,
         RST           => RST,
@@ -262,9 +455,15 @@ exwr : stage34
         FROM_IMMED    => FROM_IMMED_sig,
         FROM_STACK    => FROM_STACK_sig,
         SP_OUT        => SP_OUT_sig);
-        
+
+    RF_D_IN_WR_sig <= RF_D_IN_sig;
+    RF_D_IN_ADR_sig <= RF_D_ADR_sig;
+    RF_WR_sig <= RF_WR_OUT_sig;
+    RF_WR_SEL_sig <= RF_WR_SEL_OUT_sig;
+    
     SCR_OUT_sig <= FROM_STACK_sig;
     C_FLAG_IN_sig <= C_FLAG_sig;
+    
     OUT_PORT <= DX_OUT_sig(7 downto 0);
 
 end Behavioral;

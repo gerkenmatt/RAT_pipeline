@@ -4,6 +4,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity RegisterFile is
     Port ( D_IN   : in     STD_LOGIC_VECTOR (7 downto 0);
+           D_ADR  : in     STD_LOGIC_VECTOR (4 downto 0);
            DX_OUT : out    STD_LOGIC_VECTOR (7 downto 0);
            DY_OUT : out    STD_LOGIC_VECTOR (7 downto 0);
            ADRX   : in     STD_LOGIC_VECTOR (4 downto 0);
@@ -21,7 +22,7 @@ begin
 	begin
 		if (rising_edge(clk)) then
 	       if (WE = '1') then
-		      REG(conv_integer(ADRX)) <= D_IN;
+		      REG(conv_integer(D_ADR)) <= D_IN;
 		   end if;
 		end if;
 	end process;
