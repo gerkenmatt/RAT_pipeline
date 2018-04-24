@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="CPU_SIM_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="CPU_SIM" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="944040000fs"></ZoomStartTime>
+      <ZoomEndTime time="1000640001fs"></ZoomEndTime>
+      <Cursor1Time time="1000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="148"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="5" />
+   <wvobject fp_name="/CPU_SIM/CLK_tb" type="logic">
+      <obj_property name="ElementShortName">CLK_tb</obj_property>
+      <obj_property name="ObjectShortName">CLK_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/hazard/stall_flag" type="logic">
+      <obj_property name="ElementShortName">stall_flag</obj_property>
+      <obj_property name="ObjectShortName">stall_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/hazard/branch_flag" type="array">
+      <obj_property name="ElementShortName">branch_flag[1:0]</obj_property>
+      <obj_property name="ObjectShortName">branch_flag[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/fetch/PC_COUNT" type="array">
+      <obj_property name="ElementShortName">PC_COUNT[9:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_COUNT[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/OUT_PORT" type="array">
+      <obj_property name="ElementShortName">OUT_PORT[7:0]</obj_property>
+      <obj_property name="ObjectShortName">OUT_PORT[7:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+</wave_config>

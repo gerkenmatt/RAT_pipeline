@@ -31,7 +31,7 @@ entity stage2 is
       INSTRUCTION  : in  STD_LOGIC_VECTOR(17 downto 0);
       C_FLAG       : in STD_LOGIC;
       Z_FLAG       : in STD_LOGIC;
-      RF_D_IN_WR   : in STD_LOGIC_VECTOR (7 downto 0);
+      --RF_D_IN_WR   : in STD_LOGIC_VECTOR (7 downto 0);
       RF_D_IN_ADR  : in STD_LOGIC_VECTOR (4 downto 0);
       RF_WR        : in   STD_LOGIC;
       RF_WR_SEL    : in   STD_LOGIC_VECTOR (1 downto 0);
@@ -60,8 +60,8 @@ entity stage2 is
       RST          : out STD_LOGIC;
       DX_OUT       : out STD_LOGIC_VECTOR (7 downto 0);
       DY_OUT       : out STD_LOGIC_VECTOR (7 downto 0);
-      RF_D_IN      : out STD_LOGIC_VECTOR (7 downto 0);
-      RF_D_ADR     : out STD_LOGIC_VECTOR (4 downto 0);
+      --RF_D_IN      : out STD_LOGIC_VECTOR (7 downto 0);
+      --RF_D_ADR     : out STD_LOGIC_VECTOR (4 downto 0);
       IO_STRB      : out STD_LOGIC;
       PORT_ID      : out STD_LOGIC_VECTOR (7 downto 0));
 end stage2;
@@ -114,9 +114,9 @@ end component;
 
 component RegisterFile 
    Port ( D_IN   : in     STD_LOGIC_VECTOR (7 downto 0);
-          D_ADR  : in     STD_LOGIC_VECTOR (4 downto 0);
           DX_OUT : out  STD_LOGIC_VECTOR (7 downto 0);
           DY_OUT : out    STD_LOGIC_VECTOR (7 downto 0);
+          ADRWR  : in     STD_LOGIC_VECTOR (4 downto 0);
           ADRX   : in     STD_LOGIC_VECTOR (4 downto 0);
           ADRY   : in     STD_LOGIC_VECTOR (4 downto 0);
           WE     : in     STD_LOGIC;
@@ -144,6 +144,8 @@ end component;
    signal s_flg_i_clr  : STD_LOGIC;
    signal s_flg_i      : STD_LOGIC;
    signal s_int        : STD_LOGIC; 
+
+   signal s_D_IN       : STD_LOGIC_VECTOR(7 downto 0);
 
    -- helpful aliases ------------------------------------------------------------------
    alias s_ir_immed_bits : std_logic_vector(9 downto 0) is INSTRUCTION(12 downto 3); 
@@ -195,10 +197,10 @@ begin
               RST          => RST);
               
    my_regfile: RegisterFile 
-   port map ( D_IN   => RF_D_IN_WR,
-              D_ADR  => RF_D_IN_ADR,   
+   port map ( D_IN   => s_D_IN,  
               DX_OUT => DX_OUT,   
-              DY_OUT => DY_OUT,   
+              DY_OUT => DY_OUT,
+              ADRWR => RF_D_IN_ADR,    
               ADRX   => s_adrx,   
               ADRY   => s_adry,    
               WE     => RF_WR,  
@@ -206,7 +208,7 @@ begin
 
     
     with RF_WR_SEL select
-          RF_D_IN <=  ALU_RES               when "00",
+          s_D_IN  <=  ALU_RES               when "00",
                       SCR_OUT               when "01",
                       SP_OUT                when "10",
                       IN_PORT               when "11",
@@ -218,7 +220,6 @@ begin
               CLK => CLK,
               I_OUT => s_flg_i);
     
-    RF_D_ADR <= s_adrx;
     PORT_ID <= INSTRUCTION(7 downto 0);
     s_int <= s_flg_i AND INT_IN;
 

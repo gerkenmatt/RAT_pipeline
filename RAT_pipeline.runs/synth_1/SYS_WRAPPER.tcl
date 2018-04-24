@@ -16,6 +16,9 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param synth.incrementalSynthesisCache C:/Users/gerke/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-7348-LAPTOP-PQR7H391/incrSyn
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -40,11 +43,15 @@ read_vhdl -library xil_defaultlib {
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_WRAPPER.vhd
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/SCRATCH_RAM.vhd
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd
+  C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer1.vhd
+  C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer2.vhd
+  C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer3.vhd
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/counter_for_one_shot.vhd
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/debounce_one_shot_FSM.vhd
-  {C:/Users/gerke/Downloads/Exp. 9 Interrupts/Exp. 9 Interrupts/Exp. 9 Interrupts.srcs/sources_1/new/pipeline_sec1.vhd}
+  C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/TestCases/prog_rom.vhd
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/reg_file.vhd
+  C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage1.vhd
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd
   C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd

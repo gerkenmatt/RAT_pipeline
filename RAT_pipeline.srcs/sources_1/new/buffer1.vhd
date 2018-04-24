@@ -21,6 +21,8 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -33,28 +35,23 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity buffer1 is
   Port (CLK         : in  STD_LOGIC;
-        IR_IN       : in STD_LOGIC_VECTOR(17 downto 0);
+        B1_EN       : in STD_LOGIC;
         PC_CNT_IN   : in STD_LOGIC_VECTOR(9 downto 0);
-        IR_OUT      : out STD_LOGIC_VECTOR(17 downto 0); 
         PC_CNT_OUT  : out STD_LOGIC_VECTOR(9 downto 0));
 end buffer1;
 
 architecture Behavioral of buffer1 is
 
-signal ir_sig : STD_LOGIC_VECTOR(17 downto 0);
 signal pc_sig : STD_LOGIC_VECTOR(9 downto 0);
-
 begin
 
-counter: process(CLK)
+counter: process(CLK, B1_EN)
 begin
-    if(RISING_EDGE(CLK)) then
-        ir_sig <= IR_IN;
-        pc_sig <= PC_CNT_IN;
+    if(RISING_EDGE(CLK)and (B1_EN = '1')) then
+            pc_sig <= PC_CNT_IN;
     end if;
 end process counter;
 
-IR_OUT <= ir_sig;
 PC_CNT_OUT <= pc_sig;
 
 end Behavioral;
