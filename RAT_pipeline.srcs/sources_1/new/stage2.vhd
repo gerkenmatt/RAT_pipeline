@@ -40,7 +40,7 @@ entity stage2 is
       SP_OUT       : in   STD_LOGIC_VECTOR (7 downto 0);
       RF_WR_OUT    : out  STD_LOGIC;
       RF_WR_SEL_OUT: out  STD_LOGIC_VECTOR (1 downto 0);
-      PC_INC       : out  STD_LOGIC;
+--      PC_INC       : out  STD_LOGIC;
       PC_LD        : out  STD_LOGIC;
       PC_MUX_SEL   : out  STD_LOGIC_VECTOR (1 downto 0);
       ALU_OPY_SEL  : out  STD_LOGIC;
@@ -81,7 +81,7 @@ component CONTROL_UNIT
           OPCODE_LO_2   : in   STD_LOGIC_VECTOR (1 downto 0);
           
           PC_LD         : out  STD_LOGIC;
-          PC_INC        : out  STD_LOGIC;		  
+--          PC_INC        : out  STD_LOGIC;		  
           PC_MUX_SEL    : out  STD_LOGIC_VECTOR (1 downto 0);
           
           SP_LD         : out  STD_LOGIC;
@@ -166,7 +166,7 @@ begin
               OPCODE_LO_2   => INSTRUCTION(1  downto  0), 
               
               PC_LD         => PC_LD, 
-              PC_INC        => PC_INC, 
+--              PC_INC        => PC_INC, 
               PC_MUX_SEL    => PC_MUX_SEL, 
               
               SP_LD         => SP_LD, 

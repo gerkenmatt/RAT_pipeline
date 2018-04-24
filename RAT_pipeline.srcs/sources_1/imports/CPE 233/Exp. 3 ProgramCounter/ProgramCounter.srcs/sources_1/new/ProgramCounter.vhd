@@ -12,7 +12,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity ProgramCounter is
     Port ( CLK      : in  STD_LOGIC;
            S1_EN    : in STD_LOGIC;
-           PC_INC   : in  STD_LOGIC;
+--           PC_INC   : in  STD_LOGIC;
            PC_LD    : in  STD_LOGIC;
            RST      : in  STD_LOGIC;
            D_IN     : in  STD_LOGIC_VECTOR(9 downto 0);

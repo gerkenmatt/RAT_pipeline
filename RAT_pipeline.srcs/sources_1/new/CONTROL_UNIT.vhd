@@ -19,7 +19,7 @@ entity CONTROL_UNIT is
            OPCODE_LO_2   : in   STD_LOGIC_VECTOR (1 downto 0);
            
            PC_LD         : out  STD_LOGIC;
-           PC_INC        : out  STD_LOGIC;		  
+--           PC_INC        : out  STD_LOGIC;		  
            PC_MUX_SEL    : out  STD_LOGIC_VECTOR (1 downto 0);
            
            SP_LD         : out  STD_LOGIC;
@@ -51,7 +51,7 @@ entity CONTROL_UNIT is
 end CONTROL_UNIT;
 
 architecture Behavioral of CONTROL_UNIT is
-TYPE state_type is (ST_FETCH, ST_EXEC, ST_INIT, ST_INT);
+TYPE state_type is (ST_EXEC, ST_INIT, ST_INT);
 signal PS, NS : state_type;
 
 signal op : STD_LOGIC_VECTOR(6 downto 0);
@@ -73,7 +73,8 @@ sync_process: process(CLK, RESET)
     
 comb_proc: process(op, PS, NS, INT, C, Z)
     begin
-        PC_INC        <= '0';   PC_MUX_SEL    <= "00";   PC_LD       <= '0';
+--        PC_INC        <= '0';  
+        PC_MUX_SEL    <= "00";   PC_LD       <= '0';
         SP_LD         <= '0';   SP_INCR       <= '0';    SP_DECR     <= '0';
         RF_WR         <= '0';   RF_WR_SEL     <= "00";
         ALU_OPY_SEL   <= '0';   ALU_SEL       <= x"0";
@@ -84,17 +85,18 @@ comb_proc: process(op, PS, NS, INT, C, Z)
         RST           <= '0';
         
         case PS is
-            when ST_FETCH =>
-                PC_INC <= '1';                        
-                NS <= ST_EXEC;
+--            when ST_FETCH =>
+----                PC_INC <= '1';                        
+--                NS <= ST_EXEC;
             when ST_EXEC =>
                 if(INT = '1') then
                     NS <= ST_INT;
-                else
-                    NS <= ST_FETCH;
+--                else
+--                    NS <= ST_FETCH;
                 end if;
             
-                PC_INC        <= '0';   PC_MUX_SEL    <= "00";   PC_LD       <= '0';
+--                PC_INC        <= '0';  
+                 PC_MUX_SEL    <= "00";   PC_LD       <= '0';
                 SP_LD         <= '0';   SP_INCR       <= '0';    SP_DECR     <= '0';
                 RF_WR         <= '0';   RF_WR_SEL     <= "00";
                 ALU_OPY_SEL   <= '0';   ALU_SEL       <= x"0";
@@ -396,7 +398,8 @@ comb_proc: process(op, PS, NS, INT, C, Z)
                     when "0101000" => -- WSP
                         SP_LD        <= '1';
                     when others =>
-                        PC_INC        <= '0';   PC_MUX_SEL    <= "00";   PC_LD       <= '0';
+--                        PC_INC        <= '0';   
+                        PC_MUX_SEL    <= "00";   PC_LD       <= '0';
                         SP_LD         <= '0';   SP_INCR       <= '0';    SP_DECR     <= '0';
                         RF_WR         <= '0';   RF_WR_SEL     <= "00";
                         ALU_OPY_SEL   <= '0';   ALU_SEL       <= x"0";
@@ -407,10 +410,10 @@ comb_proc: process(op, PS, NS, INT, C, Z)
                         RST           <= '0';
                 end case;
             when ST_INIT =>
-                NS          <= ST_FETCH;
+                NS          <= ST_EXEC;
                 RST         <= '1';
             when ST_INT  => -- TODO - Complete ST_INT
-                NS          <= ST_FETCH;
+                NS          <= ST_EXEC;
                 PC_LD       <= '1';
                 PC_MUX_SEL  <= "10";
                 FLG_SHAD_LD <= '1';
@@ -422,8 +425,9 @@ comb_proc: process(op, PS, NS, INT, C, Z)
                 
                 I_CLR       <= '1';
             when others =>
-                NS <= ST_FETCH;
-                PC_INC        <= '0';   PC_MUX_SEL    <= "00";   PC_LD       <= '0';
+--                NS <= ST_FETCH;
+--                PC_INC        <= '0';   
+                PC_MUX_SEL    <= "00";   PC_LD       <= '0';
                 SP_LD         <= '0';   SP_INCR       <= '0';    SP_DECR     <= '0';
                 RF_WR         <= '0';   RF_WR_SEL     <= "00";
                 ALU_OPY_SEL   <= '0';   ALU_SEL       <= x"0";
