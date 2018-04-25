@@ -12,6 +12,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity ProgramCounter is
     Port ( CLK      : in  STD_LOGIC;
            S1_EN    : in STD_LOGIC;
+           S1_EN_2       : in STD_LOGIC;
 --           PC_INC   : in  STD_LOGIC;
            PC_LD    : in  STD_LOGIC;
            RST      : in  STD_LOGIC;
@@ -25,9 +26,11 @@ signal count_sig : STD_LOGIC_VECTOR(9 downto 0) := "00" & x"00";
 
 begin
 
-counter: process(CLK, S1_EN)
+counter: process(CLK, S1_EN, S1_EN_2)
 begin
-    if(RISING_EDGE(CLK) and (S1_EN = '1')) then
+--    if(RISING_EDGE(CLK)S1_EN_2 = '0') then
+--        count_sig <= count_sig - 1;
+    if(RISING_EDGE(CLK) and (S1_EN = '1') and (S1_EN_2 = '1')) then
         if(RST = '1')       then count_sig <= "00" & x"00";
         elsif(PC_LD = '1')  then count_sig <= D_IN;
 --        elsif(PC_INC = '1') then count_sig <= count_sig + 1;

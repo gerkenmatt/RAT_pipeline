@@ -13,6 +13,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity PC is
     Port ( CLK         : in  STD_LOGIC;
            S1_EN       : in STD_LOGIC;
+           S1_EN_2     : in STD_LOGIC;
 --           PC_INC      : in  STD_LOGIC;
            PC_LD       : in  STD_LOGIC;
            RST         : in  STD_LOGIC;
@@ -29,6 +30,7 @@ component ProgramCounter is
     Port ( D_IN     : in  STD_LOGIC_VECTOR(9 downto 0);
            CLK      : in  STD_LOGIC;
            S1_EN       : in STD_LOGIC;
+           S1_EN_2     : in STD_LOGIC;
 --           PC_INC   : in  STD_LOGIC;
            PC_LD    : in  STD_LOGIC;
            RST      : in  STD_LOGIC;
@@ -49,6 +51,7 @@ cnt : ProgramCounter
         D_IN     => MUX_OUT_sig,
         CLK      => CLK,
         S1_EN    => S1_EN,
+        S1_EN_2     => S1_EN_2,
 --        PC_INC   => PC_INC,
         PC_LD    => PC_LD,
         RST      => RST,

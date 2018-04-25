@@ -91,8 +91,8 @@ comb_proc: process(op, PS, NS, INT, C, Z)
             when ST_EXEC =>
                 if(INT = '1') then
                     NS <= ST_INT;
---                else
---                    NS <= ST_FETCH;
+                else
+                    NS <= ST_EXEC;
                 end if;
             
 --                PC_INC        <= '0';  
@@ -425,7 +425,7 @@ comb_proc: process(op, PS, NS, INT, C, Z)
                 
                 I_CLR       <= '1';
             when others =>
---                NS <= ST_FETCH;
+                NS <= ST_EXEC;
 --                PC_INC        <= '0';   
                 PC_MUX_SEL    <= "00";   PC_LD       <= '0';
                 SP_LD         <= '0';   SP_INCR       <= '0';    SP_DECR     <= '0';

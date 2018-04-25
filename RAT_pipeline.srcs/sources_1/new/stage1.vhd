@@ -27,6 +27,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 entity stage1 is
     Port ( CLK     : in  STD_LOGIC;
        S1_EN       : in STD_LOGIC;
+       S1_EN_2     : in STD_LOGIC;
       -- PC_INC      : in  STD_LOGIC;
        PC_LD       : in  STD_LOGIC;
        RST         : in  STD_LOGIC;
@@ -43,6 +44,7 @@ signal PC_COUNT_sig : STD_LOGIC_VECTOR(9 downto 0);
 component PC is
     Port ( CLK     : in  STD_LOGIC;
        S1_EN       : in STD_LOGIC;
+       S1_EN_2     : in STD_LOGIC;
 --       PC_INC      : in  STD_LOGIC;
        PC_LD       : in  STD_LOGIC;
        RST         : in  STD_LOGIC;
@@ -64,6 +66,7 @@ cnt : PC
     Port Map(
         CLK        => CLK,
         S1_EN      => S1_EN,
+        S1_EN_2    => s1_EN_2,
 --        PC_INC     => PC_INC,
         PC_LD      => PC_LD,
         RST        => RST,

@@ -25,6 +25,7 @@ architecture Behavioral of RAT_CPU is
        Port ( 
           CLK     : in  STD_LOGIC;
           S1_EN       : in STD_LOGIC;
+          S1_EN_2       : in STD_LOGIC;
 --          PC_INC      : in  STD_LOGIC;
           PC_LD       : in  STD_LOGIC;
           RST         : in  STD_LOGIC;
@@ -190,6 +191,7 @@ architecture Behavioral of RAT_CPU is
           PREV_INSTR      : in STD_LOGIC_VECTOR(17 downto 0);
   
           PC_CLK          : out STD_LOGIC;
+          PC_CLK_2        : out STD_LOGIC;
           B1_CLK          : out STD_LOGIC;
           PREV_INSTR_OUT  : out STD_LOGIC_VECTOR(17 downto 0);
           INSTR_OUT       : out STD_LOGIC_VECTOR(17 downto 0));
@@ -327,8 +329,9 @@ signal s_rst : STD_LOGIC;
    
    --hazard signals
    signal s_prev_instr  : STD_LOGIC_VECTOR(17 downto 0) := (others => '0');
-   signal s_pc_clk  : STD_LOGIC := '0';
-   signal s_b1_clk  : STD_LOGIC := '0';
+   signal s_pc_clk  : STD_LOGIC := '1';
+   signal s_pc_clk_2 : STD_LOGIC := '1';
+   signal s_b1_clk  : STD_LOGIC := '1';
    signal s_instr_hzd : STD_LOGIC_VECTOR(17 downto 0) := (others => '0');
    
 -----------------------------------------------------------------
@@ -342,6 +345,7 @@ fetch : stage1
     Port Map(
         CLK             => CLK,
         S1_EN           => s_pc_clk,
+        S1_EN_2         => s_pc_clk_2,
 --        PC_INC          => PC_INC_sig,
         PC_LD           => PC_LD_sig,
         RST             => s_rst,
@@ -504,6 +508,7 @@ hazard : hazard_unit
         PREV_INSTR      => s_prev_instr,
     
         PC_CLK          => s_pc_clk,
+        PC_CLK_2        => s_pc_clk_2,
         B1_CLK          => s_b1_clk,
         PREV_INSTR_OUT  => s_prev_instr,
         INSTR_OUT       => s_instr_hzd);
