@@ -30,6 +30,14 @@ counter: process(CLK, S1_EN, S1_EN_2)
 begin
 --    if(RISING_EDGE(CLK)S1_EN_2 = '0') then
 --        count_sig <= count_sig - 1;
+--    if(FALLING_EDGE(S1_EN_2))then
+--        count_sig <= count_sig -1;
+--    end if;    
+    if(RISING_EDGE(CLK)) then
+        if(PC_LD = '1')  then 
+            count_sig <= D_IN; 
+        end if;
+    end if;
     if(RISING_EDGE(CLK) and (S1_EN = '1') and (S1_EN_2 = '1')) then
         if(RST = '1')       then count_sig <= "00" & x"00";
         elsif(PC_LD = '1')  then count_sig <= D_IN;

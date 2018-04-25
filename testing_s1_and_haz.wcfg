@@ -10,13 +10,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="670525766fs"></ZoomStartTime>
-      <ZoomEndTime time="831125767fs"></ZoomEndTime>
+      <ZoomStartTime time="704383050fs"></ZoomStartTime>
+      <ZoomEndTime time="807583051fs"></ZoomEndTime>
       <Cursor1Time time="3200000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="144"></NameColumnWidth>
-      <ValueColumnWidth column_width="93"></ValueColumnWidth>
+      <ValueColumnWidth column_width="89"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="9" />
    <wvobject fp_name="/CPU_SIM/CLK_tb" type="logic">
@@ -31,10 +31,6 @@
       <obj_property name="ElementShortName">branch_flag[1:0]</obj_property>
       <obj_property name="ObjectShortName">branch_flag[1:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/fetch/PC_COUNT" type="array">
-      <obj_property name="ElementShortName">PC_COUNT[9:0]</obj_property>
-      <obj_property name="ObjectShortName">PC_COUNT[9:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/CPU_SIM/uut/OUT_PORT" type="array">
       <obj_property name="ElementShortName">OUT_PORT[7:0]</obj_property>
       <obj_property name="ObjectShortName">OUT_PORT[7:0]</obj_property>
@@ -47,12 +43,16 @@
       <obj_property name="ElementShortName">B1_CLK</obj_property>
       <obj_property name="ObjectShortName">B1_CLK</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/hazard/INSTR" type="array">
-      <obj_property name="ElementShortName">INSTR[17:0]</obj_property>
-      <obj_property name="ObjectShortName">INSTR[17:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/CPU_SIM/uut/fetch/cnt/S1_EN_2" type="logic">
       <obj_property name="ElementShortName">S1_EN_2</obj_property>
       <obj_property name="ObjectShortName">S1_EN_2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/fetch/PC_COUNT" type="array">
+      <obj_property name="ElementShortName">PC_COUNT[9:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_COUNT[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/hazard/INSTR" type="array">
+      <obj_property name="ElementShortName">INSTR[17:0]</obj_property>
+      <obj_property name="ObjectShortName">INSTR[17:0]</obj_property>
    </wvobject>
 </wave_config>

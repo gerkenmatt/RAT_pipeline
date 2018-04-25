@@ -2,8 +2,8 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Tue Apr 24 20:55:53 2018
-# Process ID: 4732
+# Start of session at: Tue Apr 24 22:21:02 2018
+# Process ID: 3516
 # Current directory: C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.runs/synth_1
 # Command line: vivado.exe -log SYS_WRAPPER.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source SYS_WRAPPER.tcl
 # Log file: C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.runs/synth_1/SYS_WRAPPER.vds
@@ -15,21 +15,22 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 8368 
+INFO: Helper process launched with PID 11556 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 347.375 ; gain = 102.805
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 346.031 ; gain = 101.668
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'SYS_WRAPPER' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:23]
 INFO: [Synth 8-3491] module 'RAT_wrapper' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_WRAPPER.vhd:9' bound to instance 'rat' of component 'RAT_wrapper' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:79]
 INFO: [Synth 8-638] synthesizing module 'RAT_wrapper' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_WRAPPER.vhd:20]
 INFO: [Synth 8-3491] module 'RAT_CPU' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:12' bound to instance 'CPU' of component 'RAT_CPU' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_WRAPPER.vhd:70]
 INFO: [Synth 8-638] synthesizing module 'RAT_CPU' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:22]
-INFO: [Synth 8-3491] module 'stage1' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage1.vhd:27' bound to instance 'fetch' of component 'stage1' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:344]
+INFO: [Synth 8-3491] module 'stage1' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage1.vhd:27' bound to instance 'fetch' of component 'stage1' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:347]
 INFO: [Synth 8-638] synthesizing module 'stage1' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage1.vhd:41]
 INFO: [Synth 8-3491] module 'PC' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/PC.vhd:13' bound to instance 'cnt' of component 'PC' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage1.vhd:65]
 INFO: [Synth 8-638] synthesizing module 'PC' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/PC.vhd:26]
 INFO: [Synth 8-3491] module 'ProgramCounter' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:12' bound to instance 'cnt' of component 'ProgramCounter' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/PC.vhd:49]
 INFO: [Synth 8-638] synthesizing module 'ProgramCounter' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:23]
+WARNING: [Synth 8-6014] Unused sequential element count_sig_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:38]
 INFO: [Synth 8-256] done synthesizing module 'ProgramCounter' (1#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:23]
 INFO: [Synth 8-3491] module 'PC_MUX' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/PC_MUX.vhd:11' bound to instance 'mux' of component 'PC_MUX' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/PC.vhd:60]
 INFO: [Synth 8-638] synthesizing module 'PC_MUX' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/PC_MUX.vhd:18]
@@ -115,10 +116,10 @@ INFO: [Synth 8-638] synthesizing module 'prog_rom' [C:/Users/gerke/workspace/RAT
 INFO: [Synth 8-113] binding component instance 'ram_1024_x_18' to cell 'RAMB16_S18' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/TestCases/prog_rom.vhd:194]
 INFO: [Synth 8-256] done synthesizing module 'prog_rom' (4#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/TestCases/prog_rom.vhd:29]
 INFO: [Synth 8-256] done synthesizing module 'stage1' (5#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage1.vhd:41]
-INFO: [Synth 8-3491] module 'buffer1' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer1.vhd:36' bound to instance 'fetch_buffer' of component 'buffer1' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:358]
+INFO: [Synth 8-3491] module 'buffer1' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer1.vhd:36' bound to instance 'fetch_buffer' of component 'buffer1' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:361]
 INFO: [Synth 8-638] synthesizing module 'buffer1' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer1.vhd:43]
 INFO: [Synth 8-256] done synthesizing module 'buffer1' (6#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer1.vhd:43]
-INFO: [Synth 8-3491] module 'stage2' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:26' bound to instance 'decode' of component 'stage2' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:365]
+INFO: [Synth 8-3491] module 'stage2' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:26' bound to instance 'decode' of component 'stage2' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:368]
 INFO: [Synth 8-638] synthesizing module 'stage2' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:70]
 INFO: [Synth 8-3491] module 'CONTROL_UNIT' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/CONTROL_UNIT.vhd:12' bound to instance 'my_cu' of component 'CONTROL_UNIT' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:159]
 INFO: [Synth 8-638] synthesizing module 'CONTROL_UNIT' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/CONTROL_UNIT.vhd:53]
@@ -134,10 +135,10 @@ INFO: [Synth 8-638] synthesizing module 'FlagReg' [C:/Users/gerke/workspace/RAT_
 INFO: [Synth 8-256] done synthesizing module 'FlagReg' (9#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/FlagReg.vhd:20]
 INFO: [Synth 8-256] done synthesizing module 'I_FLAG' (10#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/I_FLAG.vhd:17]
 INFO: [Synth 8-256] done synthesizing module 'stage2' (11#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:70]
-INFO: [Synth 8-3491] module 'buffer2' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer2.vhd:35' bound to instance 'decode_buffer' of component 'buffer2' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:408]
-INFO: [Synth 8-638] synthesizing module 'buffer2' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer2.vhd:83]
-INFO: [Synth 8-256] done synthesizing module 'buffer2' (12#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer2.vhd:83]
-INFO: [Synth 8-3491] module 'stage34' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:26' bound to instance 'exwr' of component 'stage34' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:455]
+INFO: [Synth 8-3491] module 'buffer2' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer2.vhd:35' bound to instance 'decode_buffer' of component 'buffer2' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:411]
+INFO: [Synth 8-638] synthesizing module 'buffer2' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer2.vhd:85]
+INFO: [Synth 8-256] done synthesizing module 'buffer2' (12#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer2.vhd:85]
+INFO: [Synth 8-3491] module 'stage34' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:26' bound to instance 'exwr' of component 'stage34' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:460]
 INFO: [Synth 8-638] synthesizing module 'stage34' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:57]
 INFO: [Synth 8-3491] module 'ALU' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 6 ALU/Exp. 6 ALU.srcs/sources_1/new/ALU.vhd:35' bound to instance 'my_alu' of component 'ALU' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:157]
 INFO: [Synth 8-638] synthesizing module 'ALU' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 6 ALU/Exp. 6 ALU.srcs/sources_1/new/ALU.vhd:45]
@@ -159,12 +160,11 @@ INFO: [Synth 8-226] default block is never used [C:/Users/gerke/workspace/RAT_pi
 INFO: [Synth 8-226] default block is never used [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:202]
 INFO: [Synth 8-226] default block is never used [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:207]
 INFO: [Synth 8-256] done synthesizing module 'stage34' (17#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:57]
-INFO: [Synth 8-3491] module 'buffer3' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer3.vhd:35' bound to instance 'exec_buffer' of component 'buffer3' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:484]
+INFO: [Synth 8-3491] module 'buffer3' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer3.vhd:35' bound to instance 'exec_buffer' of component 'buffer3' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:489]
 INFO: [Synth 8-638] synthesizing module 'buffer3' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer3.vhd:56]
 INFO: [Synth 8-256] done synthesizing module 'buffer3' (18#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer3.vhd:56]
-INFO: [Synth 8-3491] module 'hazard_unit' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:35' bound to instance 'hazard' of component 'hazard_unit' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:505]
+INFO: [Synth 8-3491] module 'hazard_unit' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:35' bound to instance 'hazard' of component 'hazard_unit' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:510]
 INFO: [Synth 8-638] synthesizing module 'hazard_unit' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:48]
-WARNING: [Synth 8-614] signal 'branch_done' is read in the process but is not in the sensitivity list [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:110]
 INFO: [Synth 8-256] done synthesizing module 'hazard_unit' (19#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:48]
 INFO: [Synth 8-256] done synthesizing module 'RAT_CPU' (20#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:22]
 INFO: [Synth 8-256] done synthesizing module 'RAT_wrapper' (21#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_WRAPPER.vhd:20]
@@ -195,7 +195,7 @@ INFO: [Synth 8-226] default block is never used [C:/Users/gerke/workspace/RAT_pi
 INFO: [Synth 8-256] done synthesizing module 'sseg_dec_uni' (27#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:80]
 INFO: [Synth 8-256] done synthesizing module 'SYS_WRAPPER' (28#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:23]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 404.348 ; gain = 159.777
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 403.738 ; gain = 159.375
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -205,7 +205,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 404.348 ; gain = 159.777
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 403.738 ; gain = 159.375
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -224,24 +224,24 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   RAMB16_S18 => RAMB18E1: 1 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 738.383 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 737.848 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:39 ; elapsed = 00:00:45 . Memory (MB): peak = 738.383 ; gain = 493.813
+Finished Constraint Validation : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 737.848 ; gain = 493.484
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:39 ; elapsed = 00:00:45 . Memory (MB): peak = 738.383 ; gain = 493.813
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 737.848 ; gain = 493.484
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:39 ; elapsed = 00:00:45 . Memory (MB): peak = 738.383 ; gain = 493.813
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 737.848 ; gain = 493.484
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element count_sig_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:32]
+WARNING: [Synth 8-6014] Unused sequential element count_sig_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:38]
 INFO: [Synth 8-5546] ROM "PC_MUX_SEL" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "SP_LD" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "SP_INCR" won't be mapped to RAM because it is too sparse
@@ -274,8 +274,8 @@ INFO: [Synth 8-5545] ROM "div_cnt" won't be mapped to RAM because address size (
 INFO: [Synth 8-5544] ROM "SEGMENTS" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "SEGMENTS" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "dp_position" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-WARNING: [Synth 8-327] inferring latch for variable 'branch_ind_reg' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:86]
-WARNING: [Synth 8-327] inferring latch for variable 's_p2_clk_reg' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:114]
+WARNING: [Synth 8-327] inferring latch for variable 'branch_ind_reg' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:72]
+WARNING: [Synth 8-327] inferring latch for variable 's_p2_clk_reg' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:113]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -288,7 +288,7 @@ WARNING: [Synth 8-327] inferring latch for variable 's_p2_clk_reg' [C:/Users/ger
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'PS_reg' using encoding 'sequential' in module 'db_1shot_FSM'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:42 ; elapsed = 00:00:49 . Memory (MB): peak = 738.383 ; gain = 493.813
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:40 ; elapsed = 00:00:45 . Memory (MB): peak = 737.848 ; gain = 493.484
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -325,7 +325,7 @@ Detailed RTL Component Info :
 	                5 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 	                2 Bit    Registers := 6     
-	                1 Bit    Registers := 28    
+	                1 Bit    Registers := 29    
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 1     
 	   2 Input     18 Bit        Muxes := 2     
@@ -409,7 +409,7 @@ Detailed RTL Component Info :
 	                8 Bit    Registers := 2     
 	                4 Bit    Registers := 1     
 	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 14    
+	                1 Bit    Registers := 15    
 Module ALU 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -544,7 +544,7 @@ Start Cross Boundary and Area Optimization
 INFO: [Synth 8-5545] ROM "my_clk/div_cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "my_clk/tmp_clk" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5546] ROM "rat/CPU/decode/my_cu/PC_MUX_SEL" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element rat/CPU/fetch/cnt/cnt/count_sig_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:32]
+WARNING: [Synth 8-6014] Unused sequential element rat/CPU/fetch/cnt/cnt/count_sig_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:38]
 WARNING: [Synth 8-6014] Unused sequential element rat/CPU/exwr/my_SP/sp_sig_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd:32]
 WARNING: [Synth 8-6014] Unused sequential element my_debouncer/bounce_counter/s_count_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/counter_for_one_shot.vhd:44]
 INFO: [Synth 8-3886] merging instance 'rat/CPU/hazard/s_temp_instr_reg_rep_bsel[3]' (FD) to 'rat/CPU/hazard/s_prev_instr_reg[3]'
@@ -559,7 +559,7 @@ INFO: [Synth 8-3886] merging instance 'rat/CPU/hazard/s_temp_instr_reg_rep_bsel[
 INFO: [Synth 8-3886] merging instance 'rat/CPU/hazard/s_temp_instr_reg_rep_bsel[12]' (FD) to 'rat/CPU/hazard/s_prev_instr_reg[12]'
 WARNING: [Synth 8-3332] Sequential element (rat/r_SSEG_CR_reg[3]) is unused and will be removed from module SYS_WRAPPER.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:45 ; elapsed = 00:03:00 . Memory (MB): peak = 738.383 ; gain = 493.813
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:41 ; elapsed = 00:02:47 . Memory (MB): peak = 737.848 ; gain = 493.484
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -608,13 +608,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:04 ; elapsed = 00:03:20 . Memory (MB): peak = 771.555 ; gain = 526.984
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:57 ; elapsed = 00:03:04 . Memory (MB): peak = 772.828 ; gain = 528.465
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:03:05 ; elapsed = 00:03:21 . Memory (MB): peak = 793.945 ; gain = 549.375
+Finished Timing Optimization : Time (s): cpu = 00:02:57 ; elapsed = 00:03:05 . Memory (MB): peak = 795.488 ; gain = 551.125
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -649,7 +649,7 @@ Start Technology Mapping
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-4480] The timing for the instance rat/CPU/exwr/my_SCR/REG_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:03:06 ; elapsed = 00:03:22 . Memory (MB): peak = 855.746 ; gain = 611.176
+Finished Technology Mapping : Time (s): cpu = 00:02:59 ; elapsed = 00:03:07 . Memory (MB): peak = 856.379 ; gain = 612.016
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -673,7 +673,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:03:09 ; elapsed = 00:03:26 . Memory (MB): peak = 855.746 ; gain = 611.176
+Finished IO Insertion : Time (s): cpu = 00:03:02 ; elapsed = 00:03:10 . Memory (MB): peak = 856.379 ; gain = 612.016
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -686,7 +686,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:03:09 ; elapsed = 00:03:26 . Memory (MB): peak = 855.746 ; gain = 611.176
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:02 ; elapsed = 00:03:10 . Memory (MB): peak = 856.379 ; gain = 612.016
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -698,25 +698,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:10 ; elapsed = 00:03:26 . Memory (MB): peak = 855.746 ; gain = 611.176
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:03 ; elapsed = 00:03:10 . Memory (MB): peak = 856.379 ; gain = 612.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:03:11 ; elapsed = 00:03:27 . Memory (MB): peak = 855.746 ; gain = 611.176
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:04 ; elapsed = 00:03:12 . Memory (MB): peak = 856.379 ; gain = 612.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:03:11 ; elapsed = 00:03:27 . Memory (MB): peak = 855.746 ; gain = 611.176
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:04 ; elapsed = 00:03:12 . Memory (MB): peak = 856.379 ; gain = 612.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:03:11 ; elapsed = 00:03:27 . Memory (MB): peak = 855.746 ; gain = 611.176
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:04 ; elapsed = 00:03:12 . Memory (MB): peak = 856.379 ; gain = 612.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -735,18 +735,18 @@ Report Cell Usage:
 |1     |BUFG       |     2|
 |2     |CARRY4     |   180|
 |3     |LUT1       |   106|
-|4     |LUT2       |   518|
-|5     |LUT3       |   326|
-|6     |LUT4       |   103|
-|7     |LUT5       |   317|
-|8     |LUT6       |   476|
+|4     |LUT2       |   519|
+|5     |LUT3       |   337|
+|6     |LUT4       |   102|
+|7     |LUT5       |   318|
+|8     |LUT6       |   477|
 |9     |MUXF7      |     2|
 |10    |RAM32M     |     4|
 |11    |RAMB16_S18 |     1|
 |12    |RAMB18E1   |     1|
 |13    |FDCE       |     8|
-|14    |FDRE       |   240|
-|15    |FDSE       |     8|
+|14    |FDRE       |   248|
+|15    |FDSE       |     1|
 |16    |LDC        |     1|
 |17    |LDP        |     1|
 |18    |IBUF       |    19|
@@ -757,18 +757,18 @@ Report Instance Areas:
 +------+--------------------+---------------+------+
 |      |Instance            |Module         |Cells |
 +------+--------------------+---------------+------+
-|1     |top                 |               |  2341|
+|1     |top                 |               |  2355|
 |2     |  div               |MAIN_CLK_DIV   |     2|
 |3     |  my_debouncer      |db_1shot_FSM   |    35|
 |4     |    bounce_counter  |counter        |    31|
-|5     |  rat               |RAT_wrapper    |  1344|
-|6     |    CPU             |RAT_CPU        |   458|
-|7     |      decode        |stage2         |    12|
-|8     |        my_cu       |CONTROL_UNIT   |     7|
+|5     |  rat               |RAT_wrapper    |  1358|
+|6     |    CPU             |RAT_CPU        |   472|
+|7     |      decode        |stage2         |    13|
+|8     |        my_cu       |CONTROL_UNIT   |     8|
 |9     |        my_i_flag   |I_FLAG         |     1|
 |10    |          I_REG     |FlagReg_4      |     1|
 |11    |        my_regfile  |RegisterFile   |     4|
-|12    |      decode_buffer |buffer2        |   179|
+|12    |      decode_buffer |buffer2        |   181|
 |13    |      exec_buffer   |buffer3        |    36|
 |14    |      exwr          |stage34        |    41|
 |15    |        my_SCR      |SCRATCH_RAM    |     1|
@@ -779,23 +779,23 @@ Report Instance Areas:
 |20    |          SHAD_C    |FlagReg_1      |     1|
 |21    |          SHAD_Z    |FlagReg_2      |     1|
 |22    |          Z_REG     |FlagReg_3      |     2|
-|23    |      fetch         |stage1         |    20|
-|24    |        cnt         |PC             |    18|
-|25    |          cnt       |ProgramCounter |    18|
-|26    |        prog        |prog_rom       |     2|
+|23    |      fetch         |stage1         |    37|
+|24    |        cnt         |PC             |    32|
+|25    |          cnt       |ProgramCounter |    32|
+|26    |        prog        |prog_rom       |     5|
 |27    |      fetch_buffer  |buffer1        |    10|
-|28    |      hazard        |hazard_unit    |   160|
+|28    |      hazard        |hazard_unit    |   154|
 |29    |  sg                |sseg_dec_uni   |   911|
 |30    |    my_clk          |clk_div        |    52|
 |31    |    my_conv1        |bin2bcdconv    |   533|
 |32    |    my_conv2        |bin2bcdconv_0  |   313|
 +------+--------------------+---------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:03:11 ; elapsed = 00:03:27 . Memory (MB): peak = 855.746 ; gain = 611.176
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:04 ; elapsed = 00:03:12 . Memory (MB): peak = 856.379 ; gain = 612.016
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 9 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:45 ; elapsed = 00:03:12 . Memory (MB): peak = 855.746 ; gain = 277.141
-Synthesis Optimization Complete : Time (s): cpu = 00:03:11 ; elapsed = 00:03:28 . Memory (MB): peak = 855.746 ; gain = 611.176
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:40 ; elapsed = 00:02:57 . Memory (MB): peak = 856.379 ; gain = 277.906
+Synthesis Optimization Complete : Time (s): cpu = 00:03:05 ; elapsed = 00:03:12 . Memory (MB): peak = 856.379 ; gain = 612.016
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 209 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -811,8 +811,8 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 157 Infos, 11 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:03:16 ; elapsed = 00:03:35 . Memory (MB): peak = 855.746 ; gain = 623.855
+synth_design: Time (s): cpu = 00:03:09 ; elapsed = 00:03:20 . Memory (MB): peak = 856.379 ; gain = 625.016
 INFO: [Common 17-1381] The checkpoint 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.runs/synth_1/SYS_WRAPPER.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file SYS_WRAPPER_utilization_synth.rpt -pb SYS_WRAPPER_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.086 . Memory (MB): peak = 855.746 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue Apr 24 20:59:42 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.090 . Memory (MB): peak = 856.379 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 24 22:24:35 2018...

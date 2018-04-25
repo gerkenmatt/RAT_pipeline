@@ -67,10 +67,9 @@ begin
     stall: process(CLK)
     begin
         if(RISING_EDGE(CLK)) then
-            
             s_prev_instr <= INSTR;
             s_temp_instr <= INSTR;
-            if (src_reg = dst_reg and PREV_INSTR /= "000000000000000000") then            
+            if (src_reg = dst_reg and PREV_INSTR /= "000000000000000000" and branch_ind /= '1') then            
                 if (stall_flag = '1') then
                     PC_CLK <= '1';
                     B1_CLK <= '1';

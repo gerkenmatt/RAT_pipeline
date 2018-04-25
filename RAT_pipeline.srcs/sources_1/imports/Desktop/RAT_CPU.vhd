@@ -121,6 +121,7 @@ architecture Behavioral of RAT_CPU is
        Port (CLK         : in STD_LOGIC;
            IR_IN       : in STD_LOGIC_VECTOR(12 downto 0);
            PC_CNT_IN   : in STD_LOGIC_VECTOR(9 downto 0);
+           PC_LD_IN    : in STD_LOGIC;
            REG_DX_IN   : in STD_LOGIC_VECTOR(7 downto 0);
            REG_DY_IN   : in STD_LOGIC_VECTOR(7 downto 0);
            RF_WR_IN    : in STD_LOGIC;
@@ -143,6 +144,7 @@ architecture Behavioral of RAT_CPU is
            
            IR_OUT      : out STD_LOGIC_VECTOR(12 downto 0); 
            PC_CNT_OUT  : out STD_LOGIC_VECTOR(9 downto 0);
+           PC_LD_OUT   : out STD_LOGIC;
            REG_DX_OUT  : out STD_LOGIC_VECTOR(7 downto 0);
            REG_DY_OUT  : out STD_LOGIC_VECTOR(7 downto 0);
            RF_WR_OUT    : out STD_LOGIC;
@@ -296,6 +298,7 @@ signal s_rst : STD_LOGIC;
    --buffer2 signals
    signal s_buff2_inst_reg : std_logic_vector(12 downto 0) := (others => '0'); 
    signal s_buff2_pc_count : std_logic_vector(9 downto 0)  := (others => '0');
+   signal s_buff2_pc_ld    : std_logic := '0';
    signal s_buff2_rf_wr_sel : STD_LOGIC_VECTOR(1 downto 0) := "00";
    signal s_buff2_rf_wr     : STD_LOGIC := '0';
    signal s_buff2_reg_in    : STD_LOGIC_VECTOR(7 downto 0) := (others => '0');
@@ -347,7 +350,7 @@ fetch : stage1
         S1_EN           => s_pc_clk,
         S1_EN_2         => s_pc_clk_2,
 --        PC_INC          => PC_INC_sig,
-        PC_LD           => PC_LD_sig,
+        PC_LD           => s_buff2_pc_ld,
         RST             => s_rst,
         PC_MUX_SEL      => PC_MUX_SEL_sig,
         FROM_IMMED      => FROM_IMMED_sig,
@@ -410,6 +413,7 @@ decode_buffer : buffer2
         CLK             => CLK,
         IR_IN           => s_instr_hzd(12 downto 0),
         PC_CNT_IN       => s_buff1_pc_count,
+        PC_LD_IN        => PC_LD_sig,
         REG_DX_IN       => DX_OUT_sig,
         REG_DY_IN       => DY_OUT_sig,
         RF_WR_IN        => RF_WR_OUT_sig,
@@ -432,6 +436,7 @@ decode_buffer : buffer2
               
         IR_OUT      => s_buff2_inst_reg, 
         PC_CNT_OUT  => s_buff2_pc_count,
+        PC_LD_OUT   => s_buff2_pc_ld,
         REG_DX_OUT  => s_buff2_reg_x_out,
         REG_DY_OUT  => s_buff2_reg_y_out,
         RF_WR_OUT   => s_buff2_rf_wr,

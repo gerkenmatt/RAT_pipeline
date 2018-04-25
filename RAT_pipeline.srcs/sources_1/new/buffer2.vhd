@@ -36,6 +36,7 @@ entity buffer2 is
   Port (CLK         : in STD_LOGIC;
         IR_IN       : in STD_LOGIC_VECTOR(12 downto 0);
         PC_CNT_IN   : in STD_LOGIC_VECTOR(9 downto 0);
+        PC_LD_IN    : in STD_LOGIC;
         REG_DX_IN   : in STD_LOGIC_VECTOR(7 downto 0);
         REG_DY_IN   : in STD_LOGIC_VECTOR(7 downto 0);
         RF_WR_IN    : in STD_LOGIC;
@@ -58,6 +59,7 @@ entity buffer2 is
         
         IR_OUT      : out STD_LOGIC_VECTOR(12 downto 0); 
         PC_CNT_OUT  : out STD_LOGIC_VECTOR(9 downto 0);
+        PC_LD_OUT   : out STD_LOGIC;
         REG_DX_OUT  : out STD_LOGIC_VECTOR(7 downto 0);
         REG_DY_OUT  : out STD_LOGIC_VECTOR(7 downto 0);
         RF_WR_OUT    : out STD_LOGIC;
@@ -84,6 +86,7 @@ architecture Behavioral of buffer2 is
 
 signal s_IR_IN       : STD_LOGIC_VECTOR(12 downto 0);
 signal s_PC_CNT_IN   :  STD_LOGIC_VECTOR(9 downto 0);
+signal s_PC_LD_IN   :  STD_LOGIC;
 signal s_REG_DX_IN   :  STD_LOGIC_VECTOR(7 downto 0);
 signal s_REG_DY_IN   :  STD_LOGIC_VECTOR(7 downto 0);
 signal s_RF_WR_IN    :  STD_LOGIC;
@@ -113,6 +116,7 @@ begin
         if(RISING_EDGE(CLK)) then
             s_IR_IN <= IR_IN;
             s_PC_CNT_IN <= PC_CNT_IN;
+            s_PC_LD_IN <= PC_LD_IN;
             s_REG_DX_IN <= REG_DX_IN;
             s_REG_DY_IN <= REG_DY_IN;
             s_RF_WR_IN <= RF_WR_IN;
@@ -137,6 +141,7 @@ begin
 
     IR_OUT <= s_IR_IN;
     PC_CNT_OUT <= s_PC_CNT_IN;
+    PC_LD_OUT  <= s_PC_LD_IN;
     REG_DX_OUT <= s_REG_DX_IN;
     REG_DY_OUT <= s_REG_DY_IN;
     RF_WR_OUT <= s_RF_WR_IN;
