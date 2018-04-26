@@ -47,6 +47,8 @@ entity stage34 is
       C_FLAG_IN    : in STD_LOGIC;
       C_FLAG       : out STD_LOGIC;
       Z_FLAG       : out STD_LOGIC;
+      C_FLAG_ALU   : out STD_LOGIC;
+      Z_FLAG_ALU   : out STD_LOGIC;
       ALU_RES      : out STD_LOGIC_VECTOR (7 downto 0);
       FROM_IMMED   : out STD_LOGIC_VECTOR (9 downto 0);
       FROM_STACK   : out STD_LOGIC_VECTOR (9 downto 0);
@@ -213,5 +215,7 @@ begin
     FROM_STACK <= s_scr_out;
     FROM_IMMED <= s_ir_immed_bits;
     SP_OUT <= s_sp_out;
+    C_FLAG_ALU <= s_c;
+    Z_FLAG_ALU <= s_z;
 
 end Behavioral;

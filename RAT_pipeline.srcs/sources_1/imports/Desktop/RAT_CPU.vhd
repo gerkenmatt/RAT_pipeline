@@ -104,6 +104,8 @@ architecture Behavioral of RAT_CPU is
          C_FLAG_IN    : in STD_LOGIC;
          C_FLAG       : out STD_LOGIC;
          Z_FLAG       : out STD_LOGIC;
+         C_FLAG_ALU   : out STD_LOGIC;
+         Z_FLAG_ALU   : out STD_LOGIC;
          ALU_RES      : out STD_LOGIC_VECTOR (7 downto 0);
          FROM_IMMED   : out STD_LOGIC_VECTOR (9 downto 0);
          FROM_STACK   : out STD_LOGIC_VECTOR (9 downto 0);
@@ -238,6 +240,7 @@ signal SP_DECR_sig : STD_LOGIC;
 -----------------------------------------------------------------
 signal C_FLAG_sig : STD_LOGIC;
 signal C_FLAG_IN_sig : STD_LOGIC;
+signal C_FLAG_alu_sig : STD_LOGIC;
 
 signal FLG_C_SET_sig : STD_LOGIC;
 signal FLG_C_CLR_sig : STD_LOGIC;
@@ -245,6 +248,7 @@ signal FLG_C_LD_sig : STD_LOGIC;
 
 signal Z_FLAG_sig : STD_LOGIC;
 signal FLG_Z_LD_sig : STD_LOGIC;
+signal Z_FLAG_alu_sig : STD_LOGIC;
 
 signal FLG_LD_SEL_sig : STD_LOGIC;
 signal FLG_SHAD_LD_sig : STD_LOGIC;
@@ -372,8 +376,8 @@ decode : stage2
         RESET           => RST,
         IN_PORT         => IN_PORT,
         INSTRUCTION     => s_instr_hzd,
-        C_FLAG          => s_buff3_c_flg,
-        Z_FLAG          => s_buff3_z_flg,
+        C_FLAG          => C_FLAG_alu_sig, --s_buff3_c_flg,
+        Z_FLAG          => Z_FLAG_alu_sig, --s_buff3_z_flg,
         ALU_RES         => s_buff3_alu_res,
         SCR_OUT         => s_buff3_scr_out(7 downto 0), --we think its the bottom eight might be wrong
         SP_OUT          => s_buff3_sp_out,
@@ -481,6 +485,8 @@ exwr : stage34
         C_FLAG_IN     => s_buff3_c_flg,
         C_FLAG        => C_FLAG_sig,
         Z_FLAG        => Z_FLAG_sig,
+        C_FLAG_ALU    => C_FLAG_alu_sig,
+        Z_FLAG_ALU    => Z_FLAG_alu_sig,
         ALU_RES       => ALU_RES_sig,
         FROM_IMMED    => FROM_IMMED_sig,
         FROM_STACK    => FROM_STACK_sig,
