@@ -69,7 +69,8 @@ uut: RAT_CPU
       RST_tb <= '1';
       wait for 10 ns;
       RST_tb <= '0';
-      wait for 3600 ns;    
+--      wait for 3600 ns;    
+      wait for 1 ms;
 --      INT_IN_tb <= '1';
 --      wait for 30 ns;
 --      INT_IN_tb <= '0';
