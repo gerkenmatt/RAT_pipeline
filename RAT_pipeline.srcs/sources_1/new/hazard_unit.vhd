@@ -89,14 +89,14 @@ begin
                 if (data_flag = "10") then
                     PC_CLK <= '1'; 
                     B1_CLK <= '1';
+                    s_temp_instr <= PREV_INSTR;
                     data_done <= '1';
                     data_flag <= "00";
                 elsif (data_flag = "01") then
                     PC_CLK <= '0';
                     B1_CLK <= '0';
-                    s_temp_instr <= PREV_INSTR; --trying htis out not sure if it works
-                    --s_temp_instr(17 downto 13) <= "11111";--no op 
-                    --s_temp_instr(1 downto 0) <= "11";
+                    s_temp_instr(17 downto 13) <= "11111";--no op 
+                    s_temp_instr(1 downto 0) <= "11";
                     data_flag <= "10";
                 else
                     PC_CLK <= '0';
