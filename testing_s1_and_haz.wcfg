@@ -10,57 +10,97 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="949166666fs"></ZoomStartTime>
-      <ZoomEndTime time="1010166667fs"></ZoomEndTime>
-      <Cursor1Time time="1000000000fs"></Cursor1Time>
+      <ZoomStartTime time="745926750fs"></ZoomStartTime>
+      <ZoomEndTime time="826426751fs"></ZoomEndTime>
+      <Cursor1Time time="854827000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="144"></NameColumnWidth>
-      <ValueColumnWidth column_width="85"></ValueColumnWidth>
+      <ValueColumnWidth column_width="77"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="11" />
+   <WVObjectSize size="17" />
    <wvobject fp_name="/CPU_SIM/CLK_tb" type="logic">
       <obj_property name="ElementShortName">CLK_tb</obj_property>
       <obj_property name="ObjectShortName">CLK_tb</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/hazard/branch_flag" type="array">
-      <obj_property name="ElementShortName">branch_flag[1:0]</obj_property>
-      <obj_property name="ObjectShortName">branch_flag[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/hazard/PC_CLK" type="logic">
-      <obj_property name="ElementShortName">PC_CLK</obj_property>
-      <obj_property name="ObjectShortName">PC_CLK</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/fetch/cnt/S1_EN_2" type="logic">
-      <obj_property name="ElementShortName">S1_EN_2</obj_property>
-      <obj_property name="ObjectShortName">S1_EN_2</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/fetch/PC_COUNT" type="array">
-      <obj_property name="ElementShortName">PC_COUNT[9:0]</obj_property>
-      <obj_property name="ObjectShortName">PC_COUNT[9:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/CPU_SIM/uut/hazard/INSTR" type="array">
       <obj_property name="ElementShortName">INSTR[17:0]</obj_property>
       <obj_property name="ObjectShortName">INSTR[17:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/fetch/PC_LD" type="logic">
-      <obj_property name="ElementShortName">PC_LD</obj_property>
-      <obj_property name="ObjectShortName">PC_LD</obj_property>
+   <wvobject fp_name="/CPU_SIM/uut/fetch/PC_COUNT" type="array">
+      <obj_property name="ElementShortName">PC_COUNT[9:0]</obj_property>
+      <obj_property name="ObjectShortName">PC_COUNT[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/decode/Z_FLAG" type="logic">
-      <obj_property name="ElementShortName">Z_FLAG</obj_property>
-      <obj_property name="ObjectShortName">Z_FLAG</obj_property>
+   <wvobject fp_name="/CPU_SIM/uut/exwr/my_alu/RESULT" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">RESULT[7:0]</obj_property>
+      <obj_property name="ObjectShortName">RESULT[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#008080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="label">ALU RESULT</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/exwr/my_flgs/Z" type="logic">
-      <obj_property name="ElementShortName">Z</obj_property>
-      <obj_property name="ObjectShortName">Z</obj_property>
+   <wvobject fp_name="/CPU_SIM/uut/exwr/my_alu/A" type="array">
+      <obj_property name="ElementShortName">A[7:0]</obj_property>
+      <obj_property name="ObjectShortName">A[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/fetch/PC_MUX_SEL" type="array">
-      <obj_property name="ElementShortName">PC_MUX_SEL[1:0]</obj_property>
-      <obj_property name="ObjectShortName">PC_MUX_SEL[1:0]</obj_property>
+   <wvobject fp_name="/CPU_SIM/uut/exwr/my_alu/B" type="array">
+      <obj_property name="ElementShortName">B[7:0]</obj_property>
+      <obj_property name="ObjectShortName">B[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#00FFFF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/fetch/cnt/cnt/D_IN" type="array">
-      <obj_property name="ElementShortName">D_IN[9:0]</obj_property>
-      <obj_property name="ObjectShortName">D_IN[9:0]</obj_property>
+   <wvobject fp_name="/CPU_SIM/uut/decode/my_regfile/D_IN" type="array">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">D_IN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">D_IN[7:0]</obj_property>
+      <obj_property name="label">REG D IN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/decode/my_regfile/REG[17]" type="array">
+      <obj_property name="ElementShortName">[17][7:0]</obj_property>
+      <obj_property name="ObjectShortName">[17][7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/decode/my_regfile/REG[18]" type="array">
+      <obj_property name="ElementShortName">[18][7:0]</obj_property>
+      <obj_property name="ObjectShortName">[18][7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/decode/my_regfile/REG[19]" type="array">
+      <obj_property name="ElementShortName">[19][7:0]</obj_property>
+      <obj_property name="ObjectShortName">[19][7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFD700</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/hazard/test_ind" type="logic">
+      <obj_property name="ElementShortName">test_ind</obj_property>
+      <obj_property name="ObjectShortName">test_ind</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/hazard/data_done" type="logic">
+      <obj_property name="ElementShortName">data_done</obj_property>
+      <obj_property name="ObjectShortName">data_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/hazard/data_ind" type="logic">
+      <obj_property name="ElementShortName">data_ind</obj_property>
+      <obj_property name="ObjectShortName">data_ind</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/hazard/data_flag" type="array">
+      <obj_property name="ElementShortName">data_flag[1:0]</obj_property>
+      <obj_property name="ObjectShortName">data_flag[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/hazard/branch_ind" type="logic">
+      <obj_property name="ElementShortName">branch_ind</obj_property>
+      <obj_property name="ObjectShortName">branch_ind</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/hazard/branch_flag" type="array">
+      <obj_property name="ElementShortName">branch_flag[1:0]</obj_property>
+      <obj_property name="ObjectShortName">branch_flag[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/hazard/branch_done" type="logic">
+      <obj_property name="ElementShortName">branch_done</obj_property>
+      <obj_property name="ObjectShortName">branch_done</obj_property>
    </wvobject>
 </wave_config>
