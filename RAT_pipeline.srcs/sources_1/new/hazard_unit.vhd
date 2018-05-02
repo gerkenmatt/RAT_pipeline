@@ -100,7 +100,7 @@ begin
 --                    s_temp_instr(17 downto 13) <= "11111";--no op 
 --                    s_temp_instr(1 downto 0) <= "11";
                     s_temp_instr <= PREV_INSTR;
-                    
+                    s_prev_instr <= PREV_INSTR;
                     data_flag <= "11";
                 elsif (data_flag = "01") then
                     PC_CLK <= '0';
