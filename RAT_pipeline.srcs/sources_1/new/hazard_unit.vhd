@@ -36,6 +36,7 @@ entity hazard_unit is
   Port (CLK             : in STD_LOGIC;
         INSTR           : in STD_LOGIC_VECTOR(17 downto 0);
         PREV_INSTR      : in STD_LOGIC_VECTOR(17 downto 0);
+        PC_LD           : in STD_LOGIC;
     
         PC_CLK          : out STD_LOGIC;
         PC_CLK_2        : out STD_LOGIC;
@@ -60,6 +61,8 @@ signal s_d_p2_clk               : STD_LOGIC := '1';
 signal s_p2_clk               : STD_LOGIC := '1';
 signal branch_done            : STD_LOGIC := '0';
 signal data_done            : STD_LOGIC := '0';
+signal s_pc_ld              : STD_LOGIC_VECTOR(1 downto 0) := (others => '0');
+
 --signal test_ind            : STD_LOGIC := '0';
 alias src_reg : STD_LOGIC_VECTOR(4 downto 0) is INSTR (7 downto 3);
 alias cur_dst_reg : STD_LOGIC_VECTOR(4 downto 0) is INSTR (12 downto 8);
@@ -75,6 +78,15 @@ begin
         if(RISING_EDGE(CLK)) then
             s_prev_instr <= INSTR;
             s_temp_instr <= INSTR;
+            if(s_pc_ld = "10" ) then
+                s_temp_instr(17 downto 13) <= "11111";--no op 
+                s_temp_instr(1 downto 0) <= "11";
+                s_pc_ld <= "00";
+            elsif(s_pc_ld = "01" ) then
+                s_temp_instr(17 downto 13) <= "11111";--no op 
+                s_temp_instr(1 downto 0) <= "11";
+                s_pc_ld <= "10";
+            end if;
 --            if (((src_reg = dst_reg) or (cur_dst_reg = dst_reg)) and PREV_INSTR /= "000000000000000000" and branch_ind /= '1') then            
 --                if (stall_flag = '1') then
 --                    PC_CLK <= '1';
@@ -122,10 +134,16 @@ begin
             --elsif ((OP_HI = "00100") or (OP_HI = "00101") or (OP_HI = "01100")) then
             elsif (branch_ind = '1') then 
                 if (branch_flag = "10") then
+                    
                     PC_CLK <= '1'; 
                     branch_done <= '1';
                     branch_flag <= "00";
                 elsif (branch_flag = "01") then
+                    if (PC_LD = '1') then
+                        s_pc_ld <= "01";
+                        s_temp_instr(17 downto 13) <= "11111";--no op 
+                        s_temp_instr(1 downto 0) <= "11";
+                    end if;
                     PC_CLK <= '0';
                     branch_flag <= "10";
                 else

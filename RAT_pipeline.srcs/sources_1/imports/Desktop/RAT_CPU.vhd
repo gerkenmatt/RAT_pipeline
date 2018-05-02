@@ -193,6 +193,7 @@ architecture Behavioral of RAT_CPU is
       Port (CLK             : in STD_LOGIC;
           INSTR           : in STD_LOGIC_VECTOR(17 downto 0);
           PREV_INSTR      : in STD_LOGIC_VECTOR(17 downto 0);
+          PC_LD           : in STD_LOGIC;
   
           PC_CLK          : out STD_LOGIC;
           PC_CLK_2        : out STD_LOGIC;
@@ -517,6 +518,7 @@ hazard : hazard_unit
     Port Map (CLK       => CLK,
         INSTR           => INSTRUCTION_sig,
         PREV_INSTR      => s_prev_instr,
+        PC_LD           => PC_LD_sig,
     
         PC_CLK          => s_pc_clk,
         PC_CLK_2        => s_pc_clk_2,
