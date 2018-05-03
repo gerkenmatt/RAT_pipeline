@@ -10,13 +10,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="2787535899fs"></ZoomStartTime>
-      <ZoomEndTime time="2868835900fs"></ZoomEndTime>
-      <Cursor1Time time="2813936000fs"></Cursor1Time>
+      <ZoomStartTime time="14319166666fs"></ZoomStartTime>
+      <ZoomEndTime time="14410166667fs"></ZoomEndTime>
+      <Cursor1Time time="14395000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="144"></NameColumnWidth>
-      <ValueColumnWidth column_width="69"></ValueColumnWidth>
+      <ValueColumnWidth column_width="65"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="18" />
    <wvobject fp_name="/CPU_SIM/CLK_tb" type="logic">
