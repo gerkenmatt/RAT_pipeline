@@ -103,7 +103,8 @@ begin
                 if (data_flag = "11") then
                     PC_CLK <= '1'; 
                     B1_CLK <= '1';
-                    --s_temp_instr <= INSTR;
+                    --NEED to do the check here
+                    s_prev_instr <= PREV_INSTR;
                     data_done <= '1';
                     data_flag <= "00";
                 elsif (data_flag = "10") then
@@ -165,7 +166,7 @@ begin
     
     comb: process(OP_HI, branch_ind, branch_flag, branch_done)
         begin
-            if (((OP_HI = "00100") or (OP_HI = "00101") or (OP_HI = "01100")) and (branch_ind = '0') and (data_done ='0')) then
+            if (((OP_HI = "00100") or (OP_HI = "00101") or (OP_HI = "01100")) and (branch_ind = '0') and (data_ind ='0')) then
                 --check if branch flag is "10" and set PC_CLK back to '1' 
                 s_b_p2_clk <= '0';
                 branch_ind <= '1';
@@ -191,7 +192,7 @@ begin
             begin
                 if (((((src_reg = dst_reg) or (cur_dst_reg = dst_reg)) and PREV_INSTR /= "000000000000000000") and (data_ind = '0')and 
                 (OP_HI /= "11011" and PREV_INSTR(17 downto 13) /="00100" and OP_HI /="00100" and
-                                            (OP_HI /= "00101") and (OP_HI /= "01100")))) then
+                                            (OP_HI /= "00101") and (OP_HI /= "01100"))) and (data_done = '0')) then
                     --check if branch flag is "10" and set PC_CLK back to '1' 
                     s_d_p2_clk <= '0';
                     data_ind <= '1';
@@ -207,4 +208,6 @@ begin
     PC_CLK_2        <= s_p2_clk;
 
 end Behavioral;
+
+
 
