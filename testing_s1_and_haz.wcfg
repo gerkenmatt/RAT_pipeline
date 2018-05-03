@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="14162220000fs"></ZoomStartTime>
-      <ZoomEndTime time="14325620001fs"></ZoomEndTime>
-      <Cursor1Time time="1270600000fs"></Cursor1Time>
+      <ZoomStartTime time="2787535899fs"></ZoomStartTime>
+      <ZoomEndTime time="2868835900fs"></ZoomEndTime>
+      <Cursor1Time time="2813936000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="144"></NameColumnWidth>
-      <ValueColumnWidth column_width="65"></ValueColumnWidth>
+      <ValueColumnWidth column_width="69"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="20" />
+   <WVObjectSize size="18" />
    <wvobject fp_name="/CPU_SIM/CLK_tb" type="logic">
       <obj_property name="ElementShortName">CLK_tb</obj_property>
       <obj_property name="ObjectShortName">CLK_tb</obj_property>
@@ -82,14 +82,6 @@
       <obj_property name="CustomSignalColor">#FFD700</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/decode/my_cu/Z" type="logic">
-      <obj_property name="ElementShortName">Z</obj_property>
-      <obj_property name="ObjectShortName">Z</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/decode/my_cu/OPCODE_HI_5" type="array">
-      <obj_property name="ElementShortName">OPCODE_HI_5[4:0]</obj_property>
-      <obj_property name="ObjectShortName">OPCODE_HI_5[4:0]</obj_property>
-   </wvobject>
    <wvobject fp_name="/CPU_SIM/uut/hazard/data_done" type="logic">
       <obj_property name="ElementShortName">data_done</obj_property>
       <obj_property name="ObjectShortName">data_done</obj_property>
@@ -99,8 +91,8 @@
       <obj_property name="ObjectShortName">data_ind</obj_property>
    </wvobject>
    <wvobject fp_name="/CPU_SIM/uut/hazard/data_flag" type="array">
-      <obj_property name="ElementShortName">data_flag[2:0]</obj_property>
-      <obj_property name="ObjectShortName">data_flag[2:0]</obj_property>
+      <obj_property name="ElementShortName">data_flag[1:0]</obj_property>
+      <obj_property name="ObjectShortName">data_flag[1:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/CPU_SIM/uut/hazard/branch_ind" type="logic">
       <obj_property name="ElementShortName">branch_ind</obj_property>
