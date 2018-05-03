@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1660053749fs"></ZoomStartTime>
-      <ZoomEndTime time="1741353750fs"></ZoomEndTime>
-      <Cursor1Time time="1388254000fs"></Cursor1Time>
+      <ZoomStartTime time="2787535899fs"></ZoomStartTime>
+      <ZoomEndTime time="2868835900fs"></ZoomEndTime>
+      <Cursor1Time time="2813936000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="144"></NameColumnWidth>
       <ValueColumnWidth column_width="69"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="17" />
+   <WVObjectSize size="18" />
    <wvobject fp_name="/CPU_SIM/CLK_tb" type="logic">
       <obj_property name="ElementShortName">CLK_tb</obj_property>
       <obj_property name="ObjectShortName">CLK_tb</obj_property>
@@ -105,5 +105,9 @@
    <wvobject fp_name="/CPU_SIM/uut/hazard/branch_done" type="logic">
       <obj_property name="ElementShortName">branch_done</obj_property>
       <obj_property name="ObjectShortName">branch_done</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/hazard/PC_LD" type="logic">
+      <obj_property name="ElementShortName">PC_LD</obj_property>
+      <obj_property name="ObjectShortName">PC_LD</obj_property>
    </wvobject>
 </wave_config>
