@@ -14,31 +14,31 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 2332 
+INFO: Helper process launched with PID 9408 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:13 . Memory (MB): peak = 347.043 ; gain = 102.098
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 390.539 ; gain = 100.410
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'SYS_WRAPPER' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:23]
-INFO: [Synth 8-3491] module 'RAT_wrapper' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_WRAPPER.vhd:9' bound to instance 'rat' of component 'RAT_wrapper' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:79]
-INFO: [Synth 8-638] synthesizing module 'RAT_wrapper' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_WRAPPER.vhd:20]
-INFO: [Synth 8-3491] module 'RAT_CPU' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:12' bound to instance 'CPU' of component 'RAT_CPU' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_WRAPPER.vhd:70]
-INFO: [Synth 8-638] synthesizing module 'RAT_CPU' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:22]
-INFO: [Synth 8-3491] module 'stage1' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage1.vhd:27' bound to instance 'fetch' of component 'stage1' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:352]
-INFO: [Synth 8-638] synthesizing module 'stage1' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage1.vhd:41]
-INFO: [Synth 8-3491] module 'PC' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/PC.vhd:13' bound to instance 'cnt' of component 'PC' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage1.vhd:65]
-INFO: [Synth 8-638] synthesizing module 'PC' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/PC.vhd:26]
-INFO: [Synth 8-3491] module 'ProgramCounter' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:12' bound to instance 'cnt' of component 'ProgramCounter' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/PC.vhd:49]
-INFO: [Synth 8-638] synthesizing module 'ProgramCounter' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:23]
-WARNING: [Synth 8-6014] Unused sequential element count_sig_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:38]
-INFO: [Synth 8-256] done synthesizing module 'ProgramCounter' (1#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:23]
-INFO: [Synth 8-3491] module 'PC_MUX' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/PC_MUX.vhd:11' bound to instance 'mux' of component 'PC_MUX' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/PC.vhd:60]
-INFO: [Synth 8-638] synthesizing module 'PC_MUX' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/PC_MUX.vhd:18]
-INFO: [Synth 8-256] done synthesizing module 'PC_MUX' (2#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/PC_MUX.vhd:18]
-INFO: [Synth 8-256] done synthesizing module 'PC' (3#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/PC.vhd:26]
-INFO: [Synth 8-3491] module 'prog_rom' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/TestCases/prog_rom.vhd:21' bound to instance 'prog' of component 'prog_rom' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage1.vhd:78]
-INFO: [Synth 8-638] synthesizing module 'prog_rom' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/TestCases/prog_rom.vhd:29]
+INFO: [Synth 8-638] synthesizing module 'SYS_WRAPPER' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:23]
+INFO: [Synth 8-3491] module 'RAT_wrapper' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_WRAPPER.vhd:9' bound to instance 'rat' of component 'RAT_wrapper' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:79]
+INFO: [Synth 8-638] synthesizing module 'RAT_wrapper' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_WRAPPER.vhd:20]
+INFO: [Synth 8-3491] module 'RAT_CPU' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:12' bound to instance 'CPU' of component 'RAT_CPU' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_WRAPPER.vhd:70]
+INFO: [Synth 8-638] synthesizing module 'RAT_CPU' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:22]
+INFO: [Synth 8-3491] module 'stage1' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage1.vhd:27' bound to instance 'fetch' of component 'stage1' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:352]
+INFO: [Synth 8-638] synthesizing module 'stage1' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage1.vhd:41]
+INFO: [Synth 8-3491] module 'PC' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/PC.vhd:13' bound to instance 'cnt' of component 'PC' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage1.vhd:65]
+INFO: [Synth 8-638] synthesizing module 'PC' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/PC.vhd:26]
+INFO: [Synth 8-3491] module 'ProgramCounter' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:12' bound to instance 'cnt' of component 'ProgramCounter' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/PC.vhd:49]
+INFO: [Synth 8-638] synthesizing module 'ProgramCounter' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:23]
+WARNING: [Synth 8-6014] Unused sequential element count_sig_reg was removed.  [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:38]
+INFO: [Synth 8-256] done synthesizing module 'ProgramCounter' (1#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:23]
+INFO: [Synth 8-3491] module 'PC_MUX' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/PC_MUX.vhd:11' bound to instance 'mux' of component 'PC_MUX' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/PC.vhd:60]
+INFO: [Synth 8-638] synthesizing module 'PC_MUX' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/PC_MUX.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'PC_MUX' (2#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/PC_MUX.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'PC' (3#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/PC.vhd:26]
+INFO: [Synth 8-3491] module 'prog_rom' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/TestCases/prog_rom.vhd:21' bound to instance 'prog' of component 'prog_rom' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage1.vhd:78]
+INFO: [Synth 8-638] synthesizing module 'prog_rom' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/TestCases/prog_rom.vhd:29]
 	Parameter INIT bound to: 20'b00000000000000000000 
-	Parameter INITP_00 bound to: 256'b0000000000000000000000000000000000000000000000000000111111001111111110111111001111000010001000101111111011111110111111111111111100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter INITP_00 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001110111111111111111110101100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INITP_01 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INITP_02 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INITP_03 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
@@ -50,9 +50,9 @@ INFO: [Synth 8-638] synthesizing module 'prog_rom' [C:/Users/gerke/workspace/RAT
 	Parameter INIT_01 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INIT_02 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INIT_03 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
-	Parameter INIT_04 bound to: 256'b0111111000000010011111010000000101110011000001001101001000000001011111100000001001111101000000010111001000000011110100010000000101111110000000100111110100000001011100010000001001100010101010100110000100001111011010110000000101101010000000000111010000000000 
-	Parameter INIT_05 bound to: 256'b0111111000000010011111010000000100110100000000010000001100001010011111100000001001111101000000010000001100010000011111100000001001111101000000010100001100001001100000100100001100110001000000001000001001100011001100100000000010000010100000111101001100000001 
-	Parameter INIT_06 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000011111010000001001111101000000100111111000000001100000110000100001111111000000000101010001000000 
+	Parameter INIT_04 bound to: 256'b0000000000000000000000000000000000000000000000000101010001000000001101000000000101110011000001100111001000000100011100110000011001110010000001000111001100000110011100100000010001110011000001100111001000000100100100010000001011010001000000010111000100000101 
+	Parameter INIT_05 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
+	Parameter INIT_06 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INIT_07 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INIT_08 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter INIT_09 bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
@@ -112,109 +112,90 @@ INFO: [Synth 8-638] synthesizing module 'prog_rom' [C:/Users/gerke/workspace/RAT
 	Parameter INIT_3F bound to: 256'b0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 
 	Parameter SRVAL bound to: 20'b00000000000000000000 
 	Parameter WRITE_MODE bound to: WRITE_FIRST - type: string 
-INFO: [Synth 8-113] binding component instance 'ram_1024_x_18' to cell 'RAMB16_S18' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/TestCases/prog_rom.vhd:194]
-INFO: [Synth 8-256] done synthesizing module 'prog_rom' (4#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/TestCases/prog_rom.vhd:29]
-INFO: [Synth 8-256] done synthesizing module 'stage1' (5#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage1.vhd:41]
-INFO: [Synth 8-3491] module 'buffer1' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer1.vhd:36' bound to instance 'fetch_buffer' of component 'buffer1' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:366]
-INFO: [Synth 8-638] synthesizing module 'buffer1' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer1.vhd:43]
-INFO: [Synth 8-256] done synthesizing module 'buffer1' (6#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer1.vhd:43]
-INFO: [Synth 8-3491] module 'stage2' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:26' bound to instance 'decode' of component 'stage2' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:373]
-INFO: [Synth 8-638] synthesizing module 'stage2' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:70]
-INFO: [Synth 8-3491] module 'CONTROL_UNIT' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/CONTROL_UNIT.vhd:12' bound to instance 'my_cu' of component 'CONTROL_UNIT' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:159]
-INFO: [Synth 8-638] synthesizing module 'CONTROL_UNIT' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/CONTROL_UNIT.vhd:53]
-INFO: [Synth 8-256] done synthesizing module 'CONTROL_UNIT' (7#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/CONTROL_UNIT.vhd:53]
-INFO: [Synth 8-3491] module 'RegisterFile' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/reg_file.vhd:5' bound to instance 'my_regfile' of component 'RegisterFile' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:199]
-INFO: [Synth 8-638] synthesizing module 'RegisterFile' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/reg_file.vhd:16]
-INFO: [Synth 8-256] done synthesizing module 'RegisterFile' (8#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/reg_file.vhd:16]
-INFO: [Synth 8-226] default block is never used [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:211]
-INFO: [Synth 8-3491] module 'I_FLAG' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/I_FLAG.vhd:10' bound to instance 'my_i_flag' of component 'I_FLAG' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:217]
-INFO: [Synth 8-638] synthesizing module 'I_FLAG' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/I_FLAG.vhd:17]
-INFO: [Synth 8-3491] module 'FlagReg' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/FlagReg.vhd:11' bound to instance 'I_REG' of component 'FlagReg' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/I_FLAG.vhd:29]
-INFO: [Synth 8-638] synthesizing module 'FlagReg' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/FlagReg.vhd:20]
-INFO: [Synth 8-256] done synthesizing module 'FlagReg' (9#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/FlagReg.vhd:20]
-INFO: [Synth 8-256] done synthesizing module 'I_FLAG' (10#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/I_FLAG.vhd:17]
-INFO: [Synth 8-256] done synthesizing module 'stage2' (11#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:70]
-INFO: [Synth 8-3491] module 'buffer2' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer2.vhd:35' bound to instance 'decode_buffer' of component 'buffer2' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:416]
-INFO: [Synth 8-638] synthesizing module 'buffer2' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer2.vhd:85]
-INFO: [Synth 8-256] done synthesizing module 'buffer2' (12#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer2.vhd:85]
-INFO: [Synth 8-3491] module 'stage34' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:26' bound to instance 'exwr' of component 'stage34' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:465]
-INFO: [Synth 8-638] synthesizing module 'stage34' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:59]
-INFO: [Synth 8-3491] module 'ALU' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 6 ALU/Exp. 6 ALU.srcs/sources_1/new/ALU.vhd:35' bound to instance 'my_alu' of component 'ALU' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:159]
-INFO: [Synth 8-638] synthesizing module 'ALU' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 6 ALU/Exp. 6 ALU.srcs/sources_1/new/ALU.vhd:45]
-INFO: [Synth 8-256] done synthesizing module 'ALU' (13#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 6 ALU/Exp. 6 ALU.srcs/sources_1/new/ALU.vhd:45]
-INFO: [Synth 8-3491] module 'Flags' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/Flags.vhd:11' bound to instance 'my_flgs' of component 'Flags' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:168]
-INFO: [Synth 8-638] synthesizing module 'Flags' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/Flags.vhd:25]
-INFO: [Synth 8-3491] module 'FlagReg' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/FlagReg.vhd:11' bound to instance 'Z_REG' of component 'FlagReg' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/Flags.vhd:46]
-INFO: [Synth 8-3491] module 'FlagReg' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/FlagReg.vhd:11' bound to instance 'C_REG' of component 'FlagReg' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/Flags.vhd:55]
-INFO: [Synth 8-3491] module 'FlagReg' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/FlagReg.vhd:11' bound to instance 'SHAD_Z' of component 'FlagReg' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/Flags.vhd:64]
-INFO: [Synth 8-3491] module 'FlagReg' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/FlagReg.vhd:11' bound to instance 'SHAD_C' of component 'FlagReg' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/Flags.vhd:73]
-INFO: [Synth 8-256] done synthesizing module 'Flags' (14#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/Flags.vhd:25]
-INFO: [Synth 8-3491] module 'SCRATCH_RAM' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/SCRATCH_RAM.vhd:14' bound to instance 'my_SCR' of component 'SCRATCH_RAM' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:181]
-INFO: [Synth 8-638] synthesizing module 'SCRATCH_RAM' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/SCRATCH_RAM.vhd:22]
-INFO: [Synth 8-256] done synthesizing module 'SCRATCH_RAM' (15#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/SCRATCH_RAM.vhd:22]
-INFO: [Synth 8-3491] module 'SP' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd:13' bound to instance 'my_SP' of component 'SP' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:188]
-INFO: [Synth 8-638] synthesizing module 'SP' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd:23]
-INFO: [Synth 8-256] done synthesizing module 'SP' (16#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd:23]
-INFO: [Synth 8-226] default block is never used [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:198]
-INFO: [Synth 8-226] default block is never used [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:204]
-INFO: [Synth 8-226] default block is never used [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:209]
-INFO: [Synth 8-256] done synthesizing module 'stage34' (17#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:59]
-INFO: [Synth 8-3491] module 'buffer3' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer3.vhd:35' bound to instance 'exec_buffer' of component 'buffer3' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:496]
-INFO: [Synth 8-638] synthesizing module 'buffer3' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer3.vhd:56]
-INFO: [Synth 8-256] done synthesizing module 'buffer3' (18#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer3.vhd:56]
-INFO: [Synth 8-3491] module 'hazard_unit' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:35' bound to instance 'hazard' of component 'hazard_unit' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:517]
-INFO: [Synth 8-638] synthesizing module 'hazard_unit' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:49]
-WARNING: [Synth 8-6014] Unused sequential element data_done_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:96]
-WARNING: [Synth 8-6014] Unused sequential element data_flag_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:91]
-INFO: [Synth 8-256] done synthesizing module 'hazard_unit' (19#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:49]
-INFO: [Synth 8-256] done synthesizing module 'RAT_CPU' (20#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:22]
-INFO: [Synth 8-256] done synthesizing module 'RAT_wrapper' (21#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_WRAPPER.vhd:20]
-INFO: [Synth 8-3491] module 'MAIN_CLK_DIV' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/MAIN_CLK_DIV.vhd:11' bound to instance 'div' of component 'MAIN_CLK_DIV' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:92]
-INFO: [Synth 8-638] synthesizing module 'MAIN_CLK_DIV' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/MAIN_CLK_DIV.vhd:16]
-INFO: [Synth 8-256] done synthesizing module 'MAIN_CLK_DIV' (22#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/MAIN_CLK_DIV.vhd:16]
-INFO: [Synth 8-3491] module 'db_1shot_FSM' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/debounce_one_shot_FSM.vhd:26' bound to instance 'my_debouncer' of component 'db_1shot_FSM' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:99]
-INFO: [Synth 8-638] synthesizing module 'db_1shot_FSM' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/debounce_one_shot_FSM.vhd:32]
-INFO: [Synth 8-3491] module 'counter' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/counter_for_one_shot.vhd:27' bound to instance 'bounce_counter' of component 'Counter' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/debounce_one_shot_FSM.vhd:60]
-INFO: [Synth 8-638] synthesizing module 'counter' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/counter_for_one_shot.vhd:34]
-INFO: [Synth 8-256] done synthesizing module 'counter' (23#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/counter_for_one_shot.vhd:34]
-INFO: [Synth 8-256] done synthesizing module 'db_1shot_FSM' (24#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/debounce_one_shot_FSM.vhd:32]
-INFO: [Synth 8-3491] module 'sseg_dec_uni' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:63' bound to instance 'sg' of component 'sseg_dec_uni' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:106]
-INFO: [Synth 8-638] synthesizing module 'sseg_dec_uni' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:80]
-INFO: [Synth 8-3491] module 'bin2bcdconv' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:417' bound to instance 'my_conv1' of component 'bin2bcdconv' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:107]
-INFO: [Synth 8-638] synthesizing module 'bin2bcdconv' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:429]
-INFO: [Synth 8-256] done synthesizing module 'bin2bcdconv' (25#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:429]
-INFO: [Synth 8-3491] module 'bin2bcdconv' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:417' bound to instance 'my_conv2' of component 'bin2bcdconv' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:118]
-INFO: [Synth 8-3491] module 'clk_div' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:573' bound to instance 'my_clk' of component 'clk_div' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:127]
-INFO: [Synth 8-638] synthesizing module 'clk_div' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:578]
-INFO: [Synth 8-256] done synthesizing module 'clk_div' (26#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:578]
-INFO: [Synth 8-226] default block is never used [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:142]
-WARNING: [Synth 8-614] signal 'dp_position' is read in the process but is not in the sensitivity list [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:152]
-INFO: [Synth 8-226] default block is never used [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:305]
-INFO: [Synth 8-226] default block is never used [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:313]
-INFO: [Synth 8-226] default block is never used [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:340]
-INFO: [Synth 8-226] default block is never used [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:390]
-INFO: [Synth 8-256] done synthesizing module 'sseg_dec_uni' (27#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:80]
-INFO: [Synth 8-256] done synthesizing module 'SYS_WRAPPER' (28#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:23]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[17]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[16]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[15]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[14]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[13]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[12]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[11]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[10]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[9]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[8]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[7]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[6]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[5]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[4]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[3]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[2]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[1]
-WARNING: [Synth 8-3331] design hazard_unit has unconnected port PREV_INSTR[0]
+INFO: [Synth 8-113] binding component instance 'ram_1024_x_18' to cell 'RAMB16_S18' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/TestCases/prog_rom.vhd:194]
+INFO: [Synth 8-256] done synthesizing module 'prog_rom' (4#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/TestCases/prog_rom.vhd:29]
+INFO: [Synth 8-256] done synthesizing module 'stage1' (5#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage1.vhd:41]
+INFO: [Synth 8-3491] module 'buffer1' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer1.vhd:36' bound to instance 'fetch_buffer' of component 'buffer1' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:366]
+INFO: [Synth 8-638] synthesizing module 'buffer1' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer1.vhd:43]
+INFO: [Synth 8-256] done synthesizing module 'buffer1' (6#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer1.vhd:43]
+INFO: [Synth 8-3491] module 'stage2' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:26' bound to instance 'decode' of component 'stage2' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:373]
+INFO: [Synth 8-638] synthesizing module 'stage2' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:70]
+INFO: [Synth 8-3491] module 'CONTROL_UNIT' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/CONTROL_UNIT.vhd:12' bound to instance 'my_cu' of component 'CONTROL_UNIT' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:159]
+INFO: [Synth 8-638] synthesizing module 'CONTROL_UNIT' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/CONTROL_UNIT.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'CONTROL_UNIT' (7#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/CONTROL_UNIT.vhd:53]
+INFO: [Synth 8-3491] module 'RegisterFile' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/reg_file.vhd:5' bound to instance 'my_regfile' of component 'RegisterFile' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:199]
+INFO: [Synth 8-638] synthesizing module 'RegisterFile' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/reg_file.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'RegisterFile' (8#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/reg_file.vhd:16]
+INFO: [Synth 8-226] default block is never used [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:211]
+INFO: [Synth 8-3491] module 'I_FLAG' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/I_FLAG.vhd:10' bound to instance 'my_i_flag' of component 'I_FLAG' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:217]
+INFO: [Synth 8-638] synthesizing module 'I_FLAG' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/I_FLAG.vhd:17]
+INFO: [Synth 8-3491] module 'FlagReg' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/FlagReg.vhd:11' bound to instance 'I_REG' of component 'FlagReg' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/I_FLAG.vhd:29]
+INFO: [Synth 8-638] synthesizing module 'FlagReg' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/FlagReg.vhd:20]
+INFO: [Synth 8-256] done synthesizing module 'FlagReg' (9#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/FlagReg.vhd:20]
+INFO: [Synth 8-256] done synthesizing module 'I_FLAG' (10#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/I_FLAG.vhd:17]
+INFO: [Synth 8-256] done synthesizing module 'stage2' (11#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage2.vhd:70]
+INFO: [Synth 8-3491] module 'buffer2' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer2.vhd:35' bound to instance 'decode_buffer' of component 'buffer2' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:416]
+INFO: [Synth 8-638] synthesizing module 'buffer2' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer2.vhd:85]
+INFO: [Synth 8-256] done synthesizing module 'buffer2' (12#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer2.vhd:85]
+INFO: [Synth 8-3491] module 'stage34' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:26' bound to instance 'exwr' of component 'stage34' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:465]
+INFO: [Synth 8-638] synthesizing module 'stage34' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:59]
+INFO: [Synth 8-3491] module 'ALU' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 6 ALU/Exp. 6 ALU.srcs/sources_1/new/ALU.vhd:35' bound to instance 'my_alu' of component 'ALU' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:159]
+INFO: [Synth 8-638] synthesizing module 'ALU' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 6 ALU/Exp. 6 ALU.srcs/sources_1/new/ALU.vhd:45]
+INFO: [Synth 8-256] done synthesizing module 'ALU' (13#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 6 ALU/Exp. 6 ALU.srcs/sources_1/new/ALU.vhd:45]
+INFO: [Synth 8-3491] module 'Flags' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/Flags.vhd:11' bound to instance 'my_flgs' of component 'Flags' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:168]
+INFO: [Synth 8-638] synthesizing module 'Flags' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/Flags.vhd:25]
+INFO: [Synth 8-3491] module 'FlagReg' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/FlagReg.vhd:11' bound to instance 'Z_REG' of component 'FlagReg' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/Flags.vhd:46]
+INFO: [Synth 8-3491] module 'FlagReg' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/FlagReg.vhd:11' bound to instance 'C_REG' of component 'FlagReg' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/Flags.vhd:55]
+INFO: [Synth 8-3491] module 'FlagReg' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/FlagReg.vhd:11' bound to instance 'SHAD_Z' of component 'FlagReg' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/Flags.vhd:64]
+INFO: [Synth 8-3491] module 'FlagReg' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/FlagReg.vhd:11' bound to instance 'SHAD_C' of component 'FlagReg' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/Flags.vhd:73]
+INFO: [Synth 8-256] done synthesizing module 'Flags' (14#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/Flags.vhd:25]
+INFO: [Synth 8-3491] module 'SCRATCH_RAM' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/SCRATCH_RAM.vhd:14' bound to instance 'my_SCR' of component 'SCRATCH_RAM' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:181]
+INFO: [Synth 8-638] synthesizing module 'SCRATCH_RAM' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/SCRATCH_RAM.vhd:22]
+INFO: [Synth 8-256] done synthesizing module 'SCRATCH_RAM' (15#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/SCRATCH_RAM.vhd:22]
+INFO: [Synth 8-3491] module 'SP' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd:13' bound to instance 'my_SP' of component 'SP' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:188]
+INFO: [Synth 8-638] synthesizing module 'SP' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd:23]
+INFO: [Synth 8-256] done synthesizing module 'SP' (16#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd:23]
+INFO: [Synth 8-226] default block is never used [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:198]
+INFO: [Synth 8-226] default block is never used [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:204]
+INFO: [Synth 8-226] default block is never used [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:209]
+INFO: [Synth 8-256] done synthesizing module 'stage34' (17#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/stage34.vhd:59]
+INFO: [Synth 8-3491] module 'buffer3' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer3.vhd:35' bound to instance 'exec_buffer' of component 'buffer3' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:496]
+INFO: [Synth 8-638] synthesizing module 'buffer3' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer3.vhd:56]
+INFO: [Synth 8-256] done synthesizing module 'buffer3' (18#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer3.vhd:56]
+INFO: [Synth 8-3491] module 'hazard_unit' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:35' bound to instance 'hazard' of component 'hazard_unit' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:517]
+INFO: [Synth 8-638] synthesizing module 'hazard_unit' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:49]
+WARNING: [Synth 8-6014] Unused sequential element s_pc_ld_reg was removed.  [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:121]
+INFO: [Synth 8-256] done synthesizing module 'hazard_unit' (19#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:49]
+INFO: [Synth 8-256] done synthesizing module 'RAT_CPU' (20#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:22]
+INFO: [Synth 8-256] done synthesizing module 'RAT_wrapper' (21#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_WRAPPER.vhd:20]
+INFO: [Synth 8-3491] module 'MAIN_CLK_DIV' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/MAIN_CLK_DIV.vhd:11' bound to instance 'div' of component 'MAIN_CLK_DIV' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:92]
+INFO: [Synth 8-638] synthesizing module 'MAIN_CLK_DIV' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/MAIN_CLK_DIV.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'MAIN_CLK_DIV' (22#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/MAIN_CLK_DIV.vhd:16]
+INFO: [Synth 8-3491] module 'db_1shot_FSM' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/debounce_one_shot_FSM.vhd:26' bound to instance 'my_debouncer' of component 'db_1shot_FSM' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:99]
+INFO: [Synth 8-638] synthesizing module 'db_1shot_FSM' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/debounce_one_shot_FSM.vhd:32]
+INFO: [Synth 8-3491] module 'counter' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/counter_for_one_shot.vhd:27' bound to instance 'bounce_counter' of component 'Counter' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/debounce_one_shot_FSM.vhd:60]
+INFO: [Synth 8-638] synthesizing module 'counter' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/counter_for_one_shot.vhd:34]
+INFO: [Synth 8-256] done synthesizing module 'counter' (23#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/counter_for_one_shot.vhd:34]
+INFO: [Synth 8-256] done synthesizing module 'db_1shot_FSM' (24#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/debounce_one_shot_FSM.vhd:32]
+INFO: [Synth 8-3491] module 'sseg_dec_uni' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:63' bound to instance 'sg' of component 'sseg_dec_uni' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:106]
+INFO: [Synth 8-638] synthesizing module 'sseg_dec_uni' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:80]
+INFO: [Synth 8-3491] module 'bin2bcdconv' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:417' bound to instance 'my_conv1' of component 'bin2bcdconv' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:107]
+INFO: [Synth 8-638] synthesizing module 'bin2bcdconv' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:429]
+INFO: [Synth 8-256] done synthesizing module 'bin2bcdconv' (25#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:429]
+INFO: [Synth 8-3491] module 'bin2bcdconv' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:417' bound to instance 'my_conv2' of component 'bin2bcdconv' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:118]
+INFO: [Synth 8-3491] module 'clk_div' declared at 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:573' bound to instance 'my_clk' of component 'clk_div' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:127]
+INFO: [Synth 8-638] synthesizing module 'clk_div' [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:578]
+INFO: [Synth 8-256] done synthesizing module 'clk_div' (26#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:578]
+INFO: [Synth 8-226] default block is never used [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:142]
+WARNING: [Synth 8-614] signal 'dp_position' is read in the process but is not in the sensitivity list [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:152]
+INFO: [Synth 8-226] default block is never used [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:305]
+INFO: [Synth 8-226] default block is never used [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:313]
+INFO: [Synth 8-226] default block is never used [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:340]
+INFO: [Synth 8-226] default block is never used [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:390]
+INFO: [Synth 8-256] done synthesizing module 'sseg_dec_uni' (27#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/univ_sseg_dec.vhd:80]
+INFO: [Synth 8-256] done synthesizing module 'SYS_WRAPPER' (28#1) [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:23]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 404.465 ; gain = 159.520
+Finished RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 448.375 ; gain = 158.246
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -224,7 +205,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 404.465 ; gain = 159.520
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 448.375 ; gain = 158.246
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -233,9 +214,9 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/constrs_1/imports/Vivado/Basys3_Master.xdc]
-Finished Parsing XDC File [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/constrs_1/imports/Vivado/Basys3_Master.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/constrs_1/imports/Vivado/Basys3_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/SYS_WRAPPER_propImpl.xdc].
+Parsing XDC File [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/constrs_1/imports/Vivado/Basys3_Master.xdc]
+Finished Parsing XDC File [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/constrs_1/imports/Vivado/Basys3_Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/constrs_1/imports/Vivado/Basys3_Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/SYS_WRAPPER_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/SYS_WRAPPER_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
@@ -243,24 +224,24 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   RAMB16_S18 => RAMB18E1: 1 instances
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 739.180 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 782.887 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 739.180 ; gain = 494.234
+Finished Constraint Validation : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 782.887 ; gain = 492.758
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 739.180 ; gain = 494.234
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 782.887 ; gain = 492.758
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:44 ; elapsed = 00:00:49 . Memory (MB): peak = 739.180 ; gain = 494.234
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:30 . Memory (MB): peak = 782.887 ; gain = 492.758
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element count_sig_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:38]
+WARNING: [Synth 8-6014] Unused sequential element count_sig_reg was removed.  [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:38]
 INFO: [Synth 8-5546] ROM "PC_MUX_SEL" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "SP_LD" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "SP_INCR" won't be mapped to RAM because it is too sparse
@@ -277,11 +258,14 @@ INFO: [Synth 8-5546] ROM "FLG_LD_SEL" won't be mapped to RAM because it is too s
 INFO: [Synth 8-5546] ROM "I_SET" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "I_CLR" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "IO_STRB" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 6 ALU/Exp. 6 ALU.srcs/sources_1/new/ALU.vhd:53]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd:34]
-WARNING: [Synth 8-6014] Unused sequential element sp_sig_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd:32]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 6 ALU/Exp. 6 ALU.srcs/sources_1/new/ALU.vhd:53]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd:34]
+WARNING: [Synth 8-6014] Unused sequential element sp_sig_reg was removed.  [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd:32]
+INFO: [Synth 8-5544] ROM "s_temp_instr" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "data_flag" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "branch_flag" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "r_LEDS" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
-WARNING: [Synth 8-6014] Unused sequential element s_count_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/counter_for_one_shot.vhd:44]
+WARNING: [Synth 8-6014] Unused sequential element s_count_reg was removed.  [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/counter_for_one_shot.vhd:44]
 INFO: [Synth 8-802] inferred FSM for state register 'PS_reg' in module 'db_1shot_FSM'
 INFO: [Synth 8-5544] ROM "NS" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "NS" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
@@ -305,7 +289,7 @@ INFO: [Synth 8-5544] ROM "dp_position" won't be mapped to Block RAM because addr
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'PS_reg' using encoding 'sequential' in module 'db_1shot_FSM'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:47 ; elapsed = 00:00:53 . Memory (MB): peak = 739.180 ; gain = 494.234
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:29 ; elapsed = 00:00:32 . Memory (MB): peak = 782.887 ; gain = 492.758
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -342,10 +326,11 @@ Detailed RTL Component Info :
 	                5 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 	                2 Bit    Registers := 7     
-	                1 Bit    Registers := 28    
+	                1 Bit    Registers := 30    
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 1     
-	   2 Input     18 Bit        Muxes := 6     
+	   2 Input     18 Bit        Muxes := 9     
+	   4 Input     18 Bit        Muxes := 2     
 	   4 Input     16 Bit        Muxes := 1     
 	   7 Input     14 Bit        Muxes := 1     
 	   2 Input     14 Bit        Muxes := 104   
@@ -364,9 +349,9 @@ Detailed RTL Component Info :
 	  14 Input      3 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 4     
 	   5 Input      2 Bit        Muxes := 1     
-	   4 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 2     
 	  51 Input      2 Bit        Muxes := 2     
-	   2 Input      2 Bit        Muxes := 18    
+	   2 Input      2 Bit        Muxes := 13    
 	   3 Input      2 Bit        Muxes := 1     
 	  48 Input      1 Bit        Muxes := 2     
 	   4 Input      1 Bit        Muxes := 6     
@@ -471,11 +456,12 @@ Detailed RTL Component Info :
 +---Registers : 
 	               18 Bit    Registers := 2     
 	                2 Bit    Registers := 2     
-	                1 Bit    Registers := 3     
+	                1 Bit    Registers := 5     
 +---Muxes : 
-	   2 Input     18 Bit        Muxes := 6     
+	   2 Input     18 Bit        Muxes := 9     
+	   4 Input     18 Bit        Muxes := 2     
 	   3 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 5     
+	   4 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 6     
 Module RAT_wrapper 
 Detailed RTL Component Info : 
@@ -561,20 +547,17 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "my_clk/div_cnt" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "my_clk/tmp_clk" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-WARNING: [Synth 8-6014] Unused sequential element rat/CPU/exec_buffer/s_Z_FLG_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer3.vhd:79]
-WARNING: [Synth 8-6014] Unused sequential element rat/CPU/hazard/s_prev_instr_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:79]
+WARNING: [Synth 8-6014] Unused sequential element rat/CPU/exec_buffer/s_Z_FLG_reg was removed.  [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer3.vhd:79]
 INFO: [Synth 8-5546] ROM "rat/CPU/decode/my_cu/PC_MUX_SEL" won't be mapped to RAM because it is too sparse
-WARNING: [Synth 8-6014] Unused sequential element rat/CPU/fetch/cnt/cnt/count_sig_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:38]
-WARNING: [Synth 8-6014] Unused sequential element rat/CPU/exwr/my_SP/sp_sig_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd:32]
-WARNING: [Synth 8-6014] Unused sequential element my_debouncer/bounce_counter/s_count_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/counter_for_one_shot.vhd:44]
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (\rat/CPU/hazard/B1_CLK_reg )
-WARNING: [Synth 8-3332] Sequential element (rat/CPU/hazard/B1_CLK_reg) is unused and will be removed from module SYS_WRAPPER.
+WARNING: [Synth 8-6014] Unused sequential element rat/CPU/fetch/cnt/cnt/count_sig_reg was removed.  [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:38]
+WARNING: [Synth 8-6014] Unused sequential element rat/CPU/exwr/my_SP/sp_sig_reg was removed.  [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd:32]
+WARNING: [Synth 8-6014] Unused sequential element my_debouncer/bounce_counter/s_count_reg was removed.  [C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/counter_for_one_shot.vhd:44]
 WARNING: [Synth 8-3332] Sequential element (rat/r_SSEG_CR_reg[3]) is unused and will be removed from module SYS_WRAPPER.
 WARNING: [Synth 8-3332] Sequential element (rat/CPU/exwr/my_flgs/Z_REG/OUT_FLAG_reg) is unused and will be removed from module SYS_WRAPPER.
 WARNING: [Synth 8-3332] Sequential element (rat/CPU/exwr/my_flgs/SHAD_Z/OUT_FLAG_reg) is unused and will be removed from module SYS_WRAPPER.
 WARNING: [Synth 8-3332] Sequential element (rat/CPU/decode_buffer/s_FLG_Z_LD_IN_reg) is unused and will be removed from module SYS_WRAPPER.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:52 ; elapsed = 00:03:13 . Memory (MB): peak = 739.180 ; gain = 494.234
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:25 ; elapsed = 00:02:29 . Memory (MB): peak = 782.887 ; gain = 492.758
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -623,13 +606,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:13 ; elapsed = 00:03:38 . Memory (MB): peak = 773.438 ; gain = 528.492
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:38 ; elapsed = 00:02:44 . Memory (MB): peak = 815.746 ; gain = 525.617
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:03:14 ; elapsed = 00:03:39 . Memory (MB): peak = 796.094 ; gain = 551.148
+Finished Timing Optimization : Time (s): cpu = 00:02:39 ; elapsed = 00:02:45 . Memory (MB): peak = 839.035 ; gain = 548.906
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -664,7 +647,7 @@ Start Technology Mapping
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-4480] The timing for the instance rat/CPU/exwr/my_SCR/REG_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:03:17 ; elapsed = 00:03:42 . Memory (MB): peak = 856.445 ; gain = 611.500
+Finished Technology Mapping : Time (s): cpu = 00:02:40 ; elapsed = 00:02:46 . Memory (MB): peak = 898.246 ; gain = 608.117
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -688,7 +671,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:03:20 ; elapsed = 00:03:45 . Memory (MB): peak = 856.445 ; gain = 611.500
+Finished IO Insertion : Time (s): cpu = 00:02:42 ; elapsed = 00:02:48 . Memory (MB): peak = 898.246 ; gain = 608.117
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -701,7 +684,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:03:20 ; elapsed = 00:03:45 . Memory (MB): peak = 856.445 ; gain = 611.500
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:42 ; elapsed = 00:02:48 . Memory (MB): peak = 898.246 ; gain = 608.117
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -713,25 +696,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:20 ; elapsed = 00:03:45 . Memory (MB): peak = 856.445 ; gain = 611.500
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:42 ; elapsed = 00:02:48 . Memory (MB): peak = 898.246 ; gain = 608.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:03:22 ; elapsed = 00:03:47 . Memory (MB): peak = 856.445 ; gain = 611.500
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:43 ; elapsed = 00:02:49 . Memory (MB): peak = 898.246 ; gain = 608.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:03:22 ; elapsed = 00:03:47 . Memory (MB): peak = 856.445 ; gain = 611.500
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:43 ; elapsed = 00:02:49 . Memory (MB): peak = 898.246 ; gain = 608.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:03:22 ; elapsed = 00:03:47 . Memory (MB): peak = 856.445 ; gain = 611.500
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:43 ; elapsed = 00:02:49 . Memory (MB): peak = 898.246 ; gain = 608.117
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -749,19 +732,19 @@ Report Cell Usage:
 +------+-----------+------+
 |1     |BUFG       |     2|
 |2     |CARRY4     |   180|
-|3     |LUT1       |   108|
-|4     |LUT2       |   511|
-|5     |LUT3       |   319|
-|6     |LUT4       |    94|
-|7     |LUT5       |   329|
-|8     |LUT6       |   454|
-|9     |MUXF7      |    12|
-|10    |MUXF8      |     3|
+|3     |LUT1       |   107|
+|4     |LUT2       |   513|
+|5     |LUT3       |   323|
+|6     |LUT4       |   114|
+|7     |LUT5       |   335|
+|8     |LUT6       |   469|
+|9     |MUXF7      |     7|
+|10    |MUXF8      |     1|
 |11    |RAM32M     |     4|
 |12    |RAMB16_S18 |     1|
 |13    |RAMB18E1   |     1|
 |14    |FDCE       |     8|
-|15    |FDRE       |   232|
+|15    |FDRE       |   245|
 |16    |FDSE       |     7|
 |17    |IBUF       |    19|
 |18    |OBUF       |    28|
@@ -771,18 +754,18 @@ Report Instance Areas:
 +------+--------------------+---------------+------+
 |      |Instance            |Module         |Cells |
 +------+--------------------+---------------+------+
-|1     |top                 |               |  2312|
+|1     |top                 |               |  2364|
 |2     |  div               |MAIN_CLK_DIV   |     2|
 |3     |  my_debouncer      |db_1shot_FSM   |    35|
 |4     |    bounce_counter  |counter        |    31|
-|5     |  rat               |RAT_wrapper    |  1315|
-|6     |    CPU             |RAT_CPU        |   429|
-|7     |      decode        |stage2         |    17|
-|8     |        my_cu       |CONTROL_UNIT   |    12|
+|5     |  rat               |RAT_wrapper    |  1367|
+|6     |    CPU             |RAT_CPU        |   481|
+|7     |      decode        |stage2         |    16|
+|8     |        my_cu       |CONTROL_UNIT   |    11|
 |9     |        my_i_flag   |I_FLAG         |     1|
 |10    |          I_REG     |FlagReg_2      |     1|
 |11    |        my_regfile  |RegisterFile   |     4|
-|12    |      decode_buffer |buffer2        |   188|
+|12    |      decode_buffer |buffer2        |   189|
 |13    |      exec_buffer   |buffer3        |    42|
 |14    |      exwr          |stage34        |    39|
 |15    |        my_SCR      |SCRATCH_RAM    |     1|
@@ -791,25 +774,25 @@ Report Instance Areas:
 |18    |        my_flgs     |Flags          |     3|
 |19    |          C_REG     |FlagReg        |     2|
 |20    |          SHAD_C    |FlagReg_1      |     1|
-|21    |      fetch         |stage1         |    22|
+|21    |      fetch         |stage1         |    27|
 |22    |        cnt         |PC             |    20|
 |23    |          cnt       |ProgramCounter |    20|
-|24    |        prog        |prog_rom       |     2|
+|24    |        prog        |prog_rom       |     7|
 |25    |      fetch_buffer  |buffer1        |    10|
-|26    |      hazard        |hazard_unit    |   111|
+|26    |      hazard        |hazard_unit    |   158|
 |27    |  sg                |sseg_dec_uni   |   911|
 |28    |    my_clk          |clk_div        |    52|
 |29    |    my_conv1        |bin2bcdconv    |   533|
 |30    |    my_conv2        |bin2bcdconv_0  |   313|
 +------+--------------------+---------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:03:22 ; elapsed = 00:03:47 . Memory (MB): peak = 856.445 ; gain = 611.500
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:43 ; elapsed = 00:02:49 . Memory (MB): peak = 898.246 ; gain = 608.117
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 13 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:02:51 ; elapsed = 00:03:32 . Memory (MB): peak = 856.445 ; gain = 276.785
-Synthesis Optimization Complete : Time (s): cpu = 00:03:22 ; elapsed = 00:03:47 . Memory (MB): peak = 856.445 ; gain = 611.500
+Synthesis finished with 0 errors, 0 critical warnings and 11 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:23 ; elapsed = 00:02:38 . Memory (MB): peak = 898.246 ; gain = 273.605
+Synthesis Optimization Complete : Time (s): cpu = 00:02:43 ; elapsed = 00:02:49 . Memory (MB): peak = 898.246 ; gain = 608.117
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 220 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 213 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -819,10 +802,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAMB16_S18 => RAMB18E1: 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-148 Infos, 35 Warnings, 0 Critical Warnings and 0 Errors encountered.
+150 Infos, 14 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:03:27 ; elapsed = 00:03:54 . Memory (MB): peak = 856.445 ; gain = 624.633
-INFO: [Common 17-1381] The checkpoint 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.runs/synth_1/SYS_WRAPPER.dcp' has been generated.
+synth_design: Time (s): cpu = 00:02:46 ; elapsed = 00:02:54 . Memory (MB): peak = 898.246 ; gain = 620.289
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.runs/synth_1/SYS_WRAPPER.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file SYS_WRAPPER_utilization_synth.rpt -pb SYS_WRAPPER_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.081 . Memory (MB): peak = 856.445 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Tue May  8 09:11:40 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.053 . Memory (MB): peak = 898.246 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Thu May 10 08:28:40 2018...

@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/constrs_1/imports/Vivado/Basys3_Master.xdc rfile:../../../RAT_pipeline.srcs/constrs_1/imports/Vivado/Basys3_Master.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/constrs_1/imports/Vivado/Basys3_Master.xdc rfile:../../../RAT_pipeline.srcs/constrs_1/imports/Vivado/Basys3_Master.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:7 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN W5 [get_ports CLK]
 set_property src_info {type:XDC file:1 line:12 export:INPUT save:INPUT read:READ} [current_design]

@@ -60,7 +60,7 @@ signal s_b_p2_clk               : STD_LOGIC := '1';
 signal s_d_p2_clk               : STD_LOGIC := '1';
 signal s_p2_clk               : STD_LOGIC := '1';
 signal branch_done            : STD_LOGIC := '0';
-signal data_done            : STD_LOGIC := '0';
+--signal data_run            : STD_LOGIC := '0';
 signal s_pc_ld              : STD_LOGIC_VECTOR(1 downto 0) := (others => '0');
 signal ophi : STD_LOGIC_VECTOR(4 downto 0):= (others => '0');
 
@@ -77,114 +77,104 @@ begin
     stall: process(CLK)
     begin
         if(RISING_EDGE(CLK)) then
-        s_prev_instr <= INSTR;
-        s_temp_instr <= INSTR;
-        if(branch_ind = '1') then
-            s_prev_instr <= PREV_INSTR;
-        end if;
-            if(s_pc_ld = "10" ) then
+            s_prev_instr <= INSTR;
+            s_temp_instr <= INSTR;
+--            if (data_flag = "01") then
+--               data_run <= '1'; 
+--            end if;
+--            if (data_flag = "00" and data_run = '1') then
+--                data_run <= '0';
+--            end if;
+            if (data_flag = "11") then
+                PC_CLK <= '1'; 
+                B1_CLK <= '1';
+                --NEED to do the check here
                 s_temp_instr(17 downto 13) <= "11111";--no op 
                 s_temp_instr(1 downto 0) <= "11";
-                s_pc_ld <= "00";
-            elsif(s_pc_ld = "01" ) then
-                s_temp_instr(17 downto 13) <= "11111";--no op 
-                s_temp_instr(1 downto 0) <= "11";
-                s_pc_ld <= "10";
-            end if;
-            if (data_ind = '1') then
-                if (data_flag = "11") then
-                    PC_CLK <= '1'; 
-                    B1_CLK <= '1';
-                    --NEED to do the check here
-                    s_prev_instr <= PREV_INSTR;
-                    data_done <= '1';
-                    data_flag <= "00";
-                elsif (data_flag = "10") then
-                    PC_CLK <= '0';
-                    B1_CLK <= '0';
-                    s_temp_instr <= PREV_INSTR;
-                    s_prev_instr <= PREV_INSTR;
-                    data_flag <= "11";
-                elsif (data_flag = "01") then
-                    PC_CLK <= '0';
-                    B1_CLK <= '0';
-                    s_temp_instr(17 downto 13) <= "11111";--no op 
-                    s_temp_instr(1 downto 0) <= "11";
-                    s_prev_instr <= PREV_INSTR;
-                    data_done <= '0';
-                    data_flag <= "10";
-                else
-                    PC_CLK <= '0';
-                    B1_CLK <= '0';
-                    s_temp_instr(17 downto 13) <= "11111";--no op 
-                    s_temp_instr(1 downto 0) <= "11";
-                    data_done <= '0';
-                    data_flag <= "01";
-                end if;
-
-            elsif (branch_ind = '1') then 
-                if (branch_flag = "10") then  
-                    PC_CLK <= '1'; 
-                    branch_done <= '1';
-                    branch_flag <= "00";
-                elsif (branch_flag = "01") then
-                    if (PC_LD = '1') then
-                        s_pc_ld <= "01";
-                        s_temp_instr(17 downto 13) <= "11111";--no op 
-                        s_temp_instr(1 downto 0) <= "11";
-                    end if;
-                    PC_CLK <= '0';
-                    branch_flag <= "10";
-                else
-                    PC_CLK <= '0';
-                    branch_done <= '0';
-                    branch_flag <= "01";
-                end if;
-            elsif (branch_ind = '0' or data_ind = '0') then 
-                branch_done <= '0';
-                data_done <='0';
+                s_prev_instr <= PREV_INSTR;
+                data_flag <= "00";
+            elsif (data_flag = "10") then
                 PC_CLK <= '1';
                 B1_CLK <= '1';
+                s_temp_instr <= PREV_INSTR;
+                s_prev_instr <= PREV_INSTR;
+                data_flag <= "11";
+            elsif (data_flag = "01") then
+                PC_CLK <= '0';
+                B1_CLK <= '0';
+                s_temp_instr(17 downto 13) <= "11111";--no op 
+                s_temp_instr(1 downto 0) <= "11";
+                s_prev_instr <= PREV_INSTR;
+                data_flag <= "10";
             else
                 PC_CLK <= '1';
                 B1_CLK <= '1';
-            end if;   
+            end if;
+            if (branch_ind = '1') then 
+                            if (branch_flag = "10") then  
+                                PC_CLK <= '1'; 
+                                branch_done <= '1';
+                                branch_flag <= "00";
+                                s_prev_instr <= PREV_INSTR;
+                            elsif (branch_flag = "01") then
+                                if (PC_LD = '1') then
+                                    s_pc_ld <= "01";
+                                    s_temp_instr(17 downto 13) <= "11111";--no op 
+                                    s_temp_instr(1 downto 0) <= "11";
+                                    s_prev_instr <= PREV_INSTR;
+                                end if;
+                                PC_CLK <= '0';
+                                branch_flag <= "10";
+                            else
+                                PC_CLK <= '0';
+                                branch_done <= '0';
+                                branch_flag <= "01";
+                            end if;
+                      end if;
+            if (data_ind = '1') then
+                    PC_CLK <= '0';
+                    B1_CLK <= '0';
+                    s_temp_instr(17 downto 13) <= "11111";--no op 
+                    s_temp_instr(1 downto 0) <= "11";
+                    data_flag <= "01";
+            end if;
         end if;
     end process stall;
     
     comb: process(CLK)
-        begin
-        if(FALLING_EDGE(CLK)) then
-            if (((OP_HI = "00100") or (OP_HI = "00101") or (OP_HI = "01100")) and (branch_ind = '0') and (data_ind ='0')) then
-                --check if branch flag is "10" and set PC_CLK back to '1' 
-                s_b_p2_clk <= '0';
-                branch_ind <= '1';
-        
-            elsif (branch_done = '1' and branch_flag="00") then
-                s_b_p2_clk <= '1';
-                branch_ind <='0';
+            begin
+            if(FALLING_EDGE(CLK)) then
+                if (((OP_HI = "00100") or (OP_HI = "00101") or (OP_HI = "01100")) and (data_flag = "00")) then
+                    s_b_p2_clk <= '0';
+                    branch_ind <= '1';
+                end if;
             end if;
-            end if;
-    end process comb;
+            if(RISING_EDGE(CLK)) then
+                if (branch_done = '1' and branch_flag="00") then
+                   s_b_p2_clk <= '1';
+                   branch_ind <='0';
+               end if;
+           end if;
+        end process comb;
+    
      
     comb2: process(CLK)
             begin
             if(FALLING_EDGE(CLK)) then
-                if (((((src_reg = dst_reg) or (cur_dst_reg = dst_reg)) and PREV_INSTR /= "000000000000000000") and (data_ind = '0')and 
-                (OP_HI /= "11011" and PREV_INSTR(17 downto 13) /="00100" and PREV_INSTR(17 downto 13) /="11111" and OP_HI /="00100" and (OP_HI /="00000") and
-                (OP_HI /= "00101") and (OP_HI /= "01100"))) and (OP_HI /="11111") and (data_done = '0') and (branch_ind = '0')) then
+                if (((src_reg = dst_reg) or (cur_dst_reg = dst_reg)) and PREV_INSTR /= "000000000000000000" and
+                data_flag = "00") then
                     s_d_p2_clk <= '0';
                     data_ind <= '1';
-            
-                elsif (data_done = '1' and data_flag="00") then
-                    s_d_p2_clk <= '1';
-                    data_ind <='0';
                 end if;
-                end if;
+                if (data_flag="01") then
+                   s_d_p2_clk <= '1';
+                   data_ind <='0';
+               end if;
+            end if;
         end process comb2;
+        
     ophi <= OP_HI;
     s_p2_clk <=  (s_d_p2_clk AND s_b_p2_clk);
---    s_p2_clk <=  (s_b_p2_clk);
     INSTR_OUT       <= s_temp_instr;
     PREV_INSTR_OUT  <= s_prev_instr;
     PC_CLK_2        <= s_p2_clk;
