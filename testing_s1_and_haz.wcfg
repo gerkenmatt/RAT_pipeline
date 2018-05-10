@@ -10,40 +10,22 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="721200000fs"></ZoomStartTime>
-      <ZoomEndTime time="801500001fs"></ZoomEndTime>
-      <Cursor1Time time="1000000000fs"></Cursor1Time>
+      <ZoomStartTime time="1804460000fs"></ZoomStartTime>
+      <ZoomEndTime time="1848960001fs"></ZoomEndTime>
+      <Cursor1Time time="1044360000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="139"></NameColumnWidth>
+      <NameColumnWidth column_width="135"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="16" />
+   <WVObjectSize size="11" />
    <wvobject fp_name="/CPU_SIM/CLK_tb" type="logic">
       <obj_property name="ElementShortName">CLK_tb</obj_property>
       <obj_property name="ObjectShortName">CLK_tb</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/fetch/cnt/cnt/S1_EN" type="logic">
-      <obj_property name="ElementShortName">S1_EN</obj_property>
-      <obj_property name="ObjectShortName">S1_EN</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/fetch/cnt/cnt/S1_EN_2" type="logic">
-      <obj_property name="ElementShortName">S1_EN_2</obj_property>
-      <obj_property name="ObjectShortName">S1_EN_2</obj_property>
-   </wvobject>
    <wvobject fp_name="/CPU_SIM/uut/fetch/PC_COUNT" type="array">
       <obj_property name="ElementShortName">PC_COUNT[9:0]</obj_property>
       <obj_property name="ObjectShortName">PC_COUNT[9:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/hazard/INSTR" type="array">
-      <obj_property name="ElementShortName">INSTR[17:0]</obj_property>
-      <obj_property name="ObjectShortName">INSTR[17:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/hazard/PREV_INSTR_OUT" type="array">
-      <obj_property name="ElementShortName">PREV_INSTR_OUT[17:0]</obj_property>
-      <obj_property name="ObjectShortName">PREV_INSTR_OUT[17:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/CPU_SIM/uut/decode/my_cu/OPCODE_HI_5" type="array">
       <obj_property name="ElementShortName">OPCODE_HI_5[4:0]</obj_property>
@@ -83,10 +65,6 @@
    <wvobject fp_name="/CPU_SIM/uut/hazard/branch_flag" type="array">
       <obj_property name="ElementShortName">branch_flag[1:0]</obj_property>
       <obj_property name="ObjectShortName">branch_flag[1:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/hazard/branch_done" type="logic">
-      <obj_property name="ElementShortName">branch_done</obj_property>
-      <obj_property name="ObjectShortName">branch_done</obj_property>
    </wvobject>
    <wvobject fp_name="/CPU_SIM/uut/hazard/PC_LD" type="logic">
       <obj_property name="ElementShortName">PC_LD</obj_property>

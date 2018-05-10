@@ -397,6 +397,17 @@ comb_proc: process(op, PS, NS, INT, C, Z)
                         FLG_Z_LD     <= '1';
                     when "0101000" => -- WSP
                         SP_LD        <= '1';
+                    when "1111111" =>
+--                        PC_INC        <= '0';   
+                        PC_MUX_SEL    <= "00";   PC_LD       <= '0';
+                        SP_LD         <= '0';   SP_INCR       <= '0';    SP_DECR     <= '0';
+                        RF_WR         <= '0';   RF_WR_SEL     <= "00";
+                        ALU_OPY_SEL   <= '0';   ALU_SEL       <= "1111";
+                        SCR_WE        <= '0';   SCR_ADDR_SEL  <= "00";  SCR_DATA_SEL  <= '0';
+                        FLG_C_SET     <= '0';   FLG_C_LD      <= '0';   FLG_C_CLR     <= '0';
+                        FLG_Z_LD      <= '0';   FLG_LD_SEL    <= '0';   FLG_SHAD_LD   <= '0';
+                        I_SET         <= '0';   I_CLR         <= '0';   IO_STRB       <= '0';
+                        RST           <= '0';
                     when others =>
 --                        PC_INC        <= '0';   
                         PC_MUX_SEL    <= "00";   PC_LD       <= '0';

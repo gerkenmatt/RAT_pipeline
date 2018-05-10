@@ -79,16 +79,9 @@ begin
         if(RISING_EDGE(CLK)) then
             s_prev_instr <= INSTR;
             s_temp_instr <= INSTR;
---            if (data_flag = "01") then
---               data_run <= '1'; 
---            end if;
---            if (data_flag = "00" and data_run = '1') then
---                data_run <= '0';
---            end if;
             if (data_flag = "11") then
                 PC_CLK <= '1'; 
                 B1_CLK <= '1';
-                --NEED to do the check here
                 s_temp_instr(17 downto 13) <= "11111";--no op 
                 s_temp_instr(1 downto 0) <= "11";
                 s_prev_instr <= PREV_INSTR;
@@ -108,7 +101,6 @@ begin
                 data_flag <= "10";
             elsif (branch_flag = "10") then  
                     PC_CLK <= '1'; 
---                  branch_done <= '1';
                     branch_flag <= "00";
                     s_prev_instr <= PREV_INSTR;
             elsif (branch_flag = "01") then
@@ -133,7 +125,6 @@ begin
             end if;
             if (branch_ind = '1') then
                     PC_CLK <= '0';
---                    branch_done <= '0';
                     branch_flag <= "01";
             end if;
         end if;

@@ -36,6 +36,7 @@ entity ALU is
     Port ( SEL : in STD_LOGIC_VECTOR (3 downto 0);
            A   : in STD_LOGIC_VECTOR (7 downto 0);
            B   : in STD_LOGIC_VECTOR (7 downto 0);
+           ZIN : in STD_LOGIC;
            CIN : in STD_LOGIC;
            C   : out STD_LOGIC;
            Z   : out STD_LOGIC;
@@ -66,6 +67,7 @@ begin
     when "1100" => result_sig <= A(0) & A(0) & A(7 downto 1);           -- ROR
     when "1101" => result_sig <= A(0) & A(7) & A(7) & A(6 downto 1);    -- ASR
     when "1110" => result_sig <= CIN & B;                               -- MOV
+    when "1111" => result_sig <= CIN & "0000000" & ZIN;                               -- no OP
     when others => result_sig <= '0' & x"00";                           -- UNUSED
 end case;
     

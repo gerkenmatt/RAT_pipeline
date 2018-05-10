@@ -62,6 +62,7 @@ signal PC_COUNT_sig : STD_LOGIC_VECTOR(9 downto 0);
 component ALU
    Port ( A : in  STD_LOGIC_VECTOR (7 downto 0);
           B : in  STD_LOGIC_VECTOR (7 downto 0);
+          Zin : in STD_LOGIC;
           Cin : in  STD_LOGIC;
           SEL : in  STD_LOGIC_VECTOR(3 downto 0);
           C : out  STD_LOGIC;
@@ -128,7 +129,7 @@ end component;
    signal s_alu_sel     : STD_LOGIC_VECTOR(3 downto 0);
    signal s_alu_b       : STD_LOGIC_VECTOR(7 downto 0);
    signal s_c           : STD_LOGIC;
-   signal s_z           : STD_LOGIC;
+   signal s_z           : STD_LOGIC :='0';
 
    -- Stack Pointer
    signal s_sp_ld     : STD_LOGIC;
@@ -158,7 +159,8 @@ begin
 
    my_alu: ALU
    port map ( A => DX_OUT,       
-              B => s_alu_b,       
+              B => s_alu_b,
+              Zin => s_z,       
               Cin => C_FLAG_IN,     
               SEL => ALU_SEL,     
               C => s_c,       
