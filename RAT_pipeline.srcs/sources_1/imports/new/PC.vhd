@@ -20,6 +20,7 @@ entity PC is
            PC_MUX_SEL  : in  STD_LOGIC_VECTOR (1 downto 0);
            FROM_IMMED  : in  STD_LOGIC_VECTOR (9 downto 0);
            FROM_STACK  : in  STD_LOGIC_VECTOR (9 downto 0);
+           FROM_BR_PRED: in  STD_LOGIC_VECTOR (9 downto 0);
            PC_COUNT    : out STD_LOGIC_VECTOR (9 downto 0));
 end PC;
 
@@ -38,10 +39,11 @@ component ProgramCounter is
 end component;
 
 component PC_MUX is
-    Port ( FROM_IMMED : in  STD_LOGIC_VECTOR (9 downto 0);
-           FROM_STACK : in  STD_LOGIC_VECTOR (9 downto 0);
-           MUX_SEL    : in  STD_LOGIC_VECTOR (1 downto 0);
-           MUX_OUT    : out STD_LOGIC_VECTOR (9 downto 0));
+    Port ( FROM_IMMED   : in  STD_LOGIC_VECTOR (9 downto 0);
+           FROM_STACK   : in  STD_LOGIC_VECTOR (9 downto 0);
+           FROM_BR_PRED : in  STD_LOGIC_VECTOR (9 downto 0);
+           MUX_SEL      : in  STD_LOGIC_VECTOR (1 downto 0);
+           MUX_OUT      : out STD_LOGIC_VECTOR (9 downto 0));
 end component;
 
 begin
@@ -59,9 +61,10 @@ cnt : ProgramCounter
 
 mux : PC_MUX
     Port Map(
-        FROM_IMMED => FROM_IMMED,
-        FROM_STACK => FROM_STACK,
-        MUX_SEL    => PC_MUX_SEL,
-        MUX_OUT    => MUX_OUT_sig);
+        FROM_IMMED      => FROM_IMMED,
+        FROM_STACK      => FROM_STACK,
+        FROM_BR_PRED    => FROM_BR_PRED,
+        MUX_SEL         => PC_MUX_SEL,
+        MUX_OUT         => MUX_OUT_sig);
         
 end Behavioral;

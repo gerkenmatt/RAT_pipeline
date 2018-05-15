@@ -32,6 +32,7 @@ architecture Behavioral of RAT_CPU is
           PC_MUX_SEL  : in  STD_LOGIC_VECTOR (1 downto 0);
           FROM_IMMED  : in  STD_LOGIC_VECTOR (9 downto 0);
           FROM_STACK  : in  STD_LOGIC_VECTOR (9 downto 0);
+          FROM_BR_PRED: in  STD_LOGIC_VECTOR (9 downto 0);
           PC_COUNT    : out STD_LOGIC_VECTOR (9 downto 0);
           INSTRUCTION : out std_logic_vector(17 downto 0));
      
@@ -342,6 +343,10 @@ signal s_rst : STD_LOGIC;
    signal s_b1_clk  : STD_LOGIC := '1';
    signal s_instr_hzd : STD_LOGIC_VECTOR(17 downto 0) := (others => '0');
    
+   
+   --branch predictor signals
+   signal s_br_alt  : STD_LOGIC_VECTOR(9 downto 0) := (others => '0');
+   
 -----------------------------------------------------------------
 
 
@@ -360,6 +365,7 @@ fetch : stage1
         PC_MUX_SEL      => PC_MUX_SEL_sig,
         FROM_IMMED      => FROM_IMMED_sig,
         FROM_STACK      => s_buff3_scr_out,
+        FROM_BR_PRED    => s_br_alt,
         PC_COUNT        => PC_COUNT_sig,
         INSTRUCTION     => INSTRUCTION_sig);
 
