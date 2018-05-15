@@ -44,11 +44,12 @@ end branch_pred;
 
 architecture Behavioral of branch_pred is
     
-    signal  s_op            : STD_LOGIC_VECTOR(6 downto 0);
-    signal  s_brn_wait      : STD_LOGIC_VECTOR(1 downto 0) := (others => '0'); 
-    signal  s_op_prev       : STD_LOGIC_VECTOR(6 downto 0);
-    signal  s_op_tmp        : STD_LOGIC_VECTOR(6 downto 0);
-    
+    signal  s_op                : STD_LOGIC_VECTOR(6 downto 0);
+    signal  s_brn_wait          : STD_LOGIC_VECTOR(1 downto 0) := (others => '0'); --not sure if this should be one or two bits
+    signal  s_op_prev           : STD_LOGIC_VECTOR(6 downto 0);
+    signal  s_op_tmp            : STD_LOGIC_VECTOR(6 downto 0);
+    signal  s_pc_cnt_t_prev     : STD_LOGIC_VECTOR(9 downto 0);
+    signal  s_pc_cnt_nt_prev    : STD_LOGIC_VECTOR(9 downto 0);
     
     begin
     
@@ -57,36 +58,33 @@ architecture Behavioral of branch_pred is
         
         sync_process: process(CLK)
             begin
-                if(RISING_EDGE(CLK)) then\
+                if(RISING_EDGE(CLK)) then
                     s_op_prev   <= s_op_tmp;    
                     s_op_tmp    <= s_op;
                     if(s_brn_wait = "01") then
+                    
+                        --if branch was not taken
+                        --flush subsequent stages
+                        --and return to previous state
                         case s_op_prev is
                             when "0010101" => -- BRCC
-                                if(C = '0') then
---                                     PC_LD      <= '1';
---                                     PC_MUX_SEL <= "00";
-                                elsif(C = '1') then
+                                if(C = '1') then
+                                    PC_CNT_OUT <= s_pc_cnt_nt_prev;                                  
                                 end if;
                             when "0010100" => -- BRCS
-                                if(C = '1') then
---                                    PC_LD       <= '1';
---                                    PC_MUX_SEL  <= "00";
-                                elsif(C = '0') then
+                                if(C = '0') then
+                                    PC_CNT_OUT <= s_pc_cnt_nt_prev;
                                 end if;
                             when "0010010" => -- BREQ
-                                if(Z = '1') then
---                                    PC_LD       <= '1';
---                                    PC_MUX_SEL  <= "00";
-                                elsif(Z = '0') then
+                                if(Z = '0') then
+                                    PC_CNT_OUT <= s_pc_cnt_nt_prev;
                                 end if;
                             when "0010011" => -- BRNE
-                                if(Z = '0') then
---                                    PC_LD      <= '1';
---                                    PC_MUX_SEL <= "00";
-                                elsif(Z = '1') then
+                                if(Z = '1') then
+                                    PC_CNT_OUT <= s_pc_cnt_nt_prev;
                                 end if;
                         end case;
+                        s_brn_wait <= "00";
                     end if;                  
                 end if;
         end process sync_process;
@@ -94,7 +92,9 @@ architecture Behavioral of branch_pred is
         comb_proc: process(OPCODE_HI_5)
         begin
             if ((OPCODE_HI_5 = "00101" or OPCODE_HI_5 = "00100") and s_brn_wait="00") then
-                s_brn_wait = "01"               
+                s_brn_wait          <= "01";
+                s_pc_cnt_t_prev     <= PC_CNT_T;
+                s_pc_cnt_nt_prev    <= PC_CNT_NT;              
             end if;
         end process;
             
