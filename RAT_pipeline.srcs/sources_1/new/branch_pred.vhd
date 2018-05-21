@@ -39,7 +39,9 @@ entity branch_pred is
         PC_CNT_NT       : in  STD_LOGIC_VECTOR (9 downto 0);
         C               : in  STD_LOGIC;
         Z               : in  STD_LOGIC;
-        PC_CNT_OUT      : out STD_LOGIC_VECTOR(9 downto 0));
+        PC_CNT_OUT      : out STD_LOGIC_VECTOR(9 downto 0)
+        );
+        
 end branch_pred;
 
 architecture Behavioral of branch_pred is
@@ -69,7 +71,8 @@ architecture Behavioral of branch_pred is
                         case s_op_prev is
                             when "0010101" => -- BRCC
                                 if(C = '1') then
-                                    PC_CNT_OUT <= s_pc_cnt_nt_prev;                                  
+                                    PC_CNT_OUT <= s_pc_cnt_nt_prev;      
+                                                                
                                 end if;
                             when "0010100" => -- BRCS
                                 if(C = '0') then
@@ -80,13 +83,21 @@ architecture Behavioral of branch_pred is
                                     PC_CNT_OUT <= s_pc_cnt_nt_prev;
                                 end if;
                             when "0010011" => -- BRNE
-                                if(Z = '1') then
+                                if(Z = '1') then 
                                     PC_CNT_OUT <= s_pc_cnt_nt_prev;
                                 end if;
-                        end case;
-                        s_brn_wait <= "00";
-                    end if;                  
+                            end case;
+                        --send no op to alu
+                        
+                        s_brn_wait <= "10";
+                    elsif (s_brn_wait="10")
+                        
+                        --send no op to alu
+                        
+                    end if;  
+                                    
                 end if;
+                
         end process sync_process;
         
         comb_proc: process(OPCODE_HI_5)

@@ -17,6 +17,7 @@ entity CONTROL_UNIT is
            RESET         : in   STD_LOGIC;
            OPCODE_HI_5   : in   STD_LOGIC_VECTOR (4 downto 0);
            OPCODE_LO_2   : in   STD_LOGIC_VECTOR (1 downto 0);
+           BR_PRED_T     : in   STD_LOGIC_VECTOR;
            
            PC_LD         : out  STD_LOGIC;
 --           PC_INC        : out  STD_LOGIC;		  
