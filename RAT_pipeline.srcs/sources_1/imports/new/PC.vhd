@@ -14,13 +14,12 @@ entity PC is
     Port ( CLK         : in  STD_LOGIC;
            S1_EN       : in STD_LOGIC;
            S1_EN_2     : in STD_LOGIC;
---           PC_INC      : in  STD_LOGIC;
            PC_LD       : in  STD_LOGIC;
            RST         : in  STD_LOGIC;
            PC_MUX_SEL  : in  STD_LOGIC_VECTOR (1 downto 0);
            FROM_IMMED  : in  STD_LOGIC_VECTOR (9 downto 0);
            FROM_STACK  : in  STD_LOGIC_VECTOR (9 downto 0);
-           FROM_BR_PRED: in  STD_LOGIC_VECTOR (9 downto 0);
+           FROM_BRP    : in  STD_LOGIC_VECTOR (9 downto 0);
            PC_COUNT    : out STD_LOGIC_VECTOR (9 downto 0));
 end PC;
 
@@ -32,18 +31,17 @@ component ProgramCounter is
            CLK      : in  STD_LOGIC;
            S1_EN       : in STD_LOGIC;
            S1_EN_2     : in STD_LOGIC;
---           PC_INC   : in  STD_LOGIC;
            PC_LD    : in  STD_LOGIC;
            RST      : in  STD_LOGIC;
            PC_COUNT : out STD_LOGIC_VECTOR(9 downto 0));
 end component;
 
 component PC_MUX is
-    Port ( FROM_IMMED   : in  STD_LOGIC_VECTOR (9 downto 0);
-           FROM_STACK   : in  STD_LOGIC_VECTOR (9 downto 0);
-           FROM_BR_PRED : in  STD_LOGIC_VECTOR (9 downto 0);
-           MUX_SEL      : in  STD_LOGIC_VECTOR (1 downto 0);
-           MUX_OUT      : out STD_LOGIC_VECTOR (9 downto 0));
+    Port ( FROM_IMMED : in  STD_LOGIC_VECTOR (9 downto 0);
+           FROM_STACK : in  STD_LOGIC_VECTOR (9 downto 0);
+           FROM_BRP    : in  STD_LOGIC_VECTOR (9 downto 0);
+           MUX_SEL    : in  STD_LOGIC_VECTOR (1 downto 0);
+           MUX_OUT    : out STD_LOGIC_VECTOR (9 downto 0));
 end component;
 
 begin
@@ -54,17 +52,16 @@ cnt : ProgramCounter
         CLK      => CLK,
         S1_EN    => S1_EN,
         S1_EN_2     => S1_EN_2,
---        PC_INC   => PC_INC,
         PC_LD    => PC_LD,
         RST      => RST,
         PC_COUNT => PC_COUNT);
 
 mux : PC_MUX
     Port Map(
-        FROM_IMMED      => FROM_IMMED,
-        FROM_STACK      => FROM_STACK,
-        FROM_BR_PRED    => FROM_BR_PRED,
-        MUX_SEL         => PC_MUX_SEL,
-        MUX_OUT         => MUX_OUT_sig);
+        FROM_IMMED => FROM_IMMED,
+        FROM_STACK => FROM_STACK,
+        FROM_BRP   => FROM_BRP,
+        MUX_SEL    => PC_MUX_SEL,
+        MUX_OUT    => MUX_OUT_sig);
         
 end Behavioral;

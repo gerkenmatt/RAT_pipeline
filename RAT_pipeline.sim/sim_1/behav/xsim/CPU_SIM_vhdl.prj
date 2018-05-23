@@ -11,6 +11,7 @@ vhdl xil_defaultlib  \
 "../../../../RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd" \
 "../../../../RAT_pipeline.srcs/sources_1/imports/new/SCRATCH_RAM.vhd" \
 "../../../../RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd" \
+"../../../../RAT_pipeline.srcs/sources_1/new/branch_pred.vhd" \
 "../../../../RAT_pipeline.srcs/sources_1/new/buffer1.vhd" \
 "../../../../RAT_pipeline.srcs/sources_1/new/buffer2.vhd" \
 "../../../../RAT_pipeline.srcs/sources_1/new/buffer3.vhd" \

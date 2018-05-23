@@ -17,7 +17,6 @@ entity CONTROL_UNIT is
            RESET         : in   STD_LOGIC;
            OPCODE_HI_5   : in   STD_LOGIC_VECTOR (4 downto 0);
            OPCODE_LO_2   : in   STD_LOGIC_VECTOR (1 downto 0);
-           BR_PRED_T     : in   STD_LOGIC_VECTOR;
            
            PC_LD         : out  STD_LOGIC;
 --           PC_INC        : out  STD_LOGIC;		  
@@ -164,32 +163,32 @@ comb_proc: process(op, PS, NS, INT, C, Z)
                         FLG_C_LD    <= '1';
                         FLG_Z_LD    <= '1';
                     when "0010101" => -- BRCC
-                        if(C = '0') then
-                             PC_LD      <= '1';
-                             PC_MUX_SEL <= "00";
-                        elsif(C = '1') then
-                        end if;
+--                        if(C = '0') then
+--                             PC_LD      <= '1';
+--                             PC_MUX_SEL <= "00";
+--                        elsif(C = '1') then
+--                        end if;
                     when "0010100" => -- BRCS
-                        if(C = '1') then
-                            PC_LD       <= '1';
-                            PC_MUX_SEL  <= "00";
-                        elsif(C = '0') then
-                        end if;
+--                        if(C = '1') then
+--                            PC_LD       <= '1';
+--                            PC_MUX_SEL  <= "00";
+--                        elsif(C = '0') then
+--                        end if;
                     when "0010010" => -- BREQ
-                        if(Z = '1') then
-                            PC_LD       <= '1';
-                            PC_MUX_SEL  <= "00";
-                        elsif(Z = '0') then
-                        end if;
+--                        if(Z = '1') then
+--                            PC_LD       <= '1';
+--                            PC_MUX_SEL  <= "00";
+--                        elsif(Z = '0') then
+--                        end if;
                     when "0010000" => -- BRN
                         PC_LD      <= '1';
                         PC_MUX_SEL <= "00";
                     when "0010011" => -- BRNE
-                        if(Z = '0') then
-                            PC_LD      <= '1';
-                            PC_MUX_SEL <= "00";
-                        elsif(Z = '1') then
-                        end if;
+--                        if(Z = '0') then
+--                            PC_LD      <= '1';
+--                            PC_MUX_SEL <= "00";
+--                        elsif(Z = '1') then
+--                        end if;
                     when "0010001" => -- CALL
                         PC_LD        <= '1';
                         PC_MUX_SEL   <= "00";

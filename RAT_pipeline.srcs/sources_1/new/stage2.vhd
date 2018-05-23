@@ -31,7 +31,6 @@ entity stage2 is
       INSTRUCTION  : in  STD_LOGIC_VECTOR(17 downto 0);
       C_FLAG       : in STD_LOGIC;
       Z_FLAG       : in STD_LOGIC;
-      --RF_D_IN_WR   : in STD_LOGIC_VECTOR (7 downto 0);
       RF_D_IN_ADR  : in STD_LOGIC_VECTOR (4 downto 0);
       RF_WR        : in   STD_LOGIC;
       RF_WR_SEL    : in   STD_LOGIC_VECTOR (1 downto 0);
@@ -40,7 +39,6 @@ entity stage2 is
       SP_OUT       : in   STD_LOGIC_VECTOR (7 downto 0);
       RF_WR_OUT    : out  STD_LOGIC;
       RF_WR_SEL_OUT: out  STD_LOGIC_VECTOR (1 downto 0);
---      PC_INC       : out  STD_LOGIC;
       PC_LD        : out  STD_LOGIC;
       PC_MUX_SEL   : out  STD_LOGIC_VECTOR (1 downto 0);
       ALU_OPY_SEL  : out  STD_LOGIC;
@@ -60,8 +58,6 @@ entity stage2 is
       RST          : out STD_LOGIC;
       DX_OUT       : out STD_LOGIC_VECTOR (7 downto 0);
       DY_OUT       : out STD_LOGIC_VECTOR (7 downto 0);
-      --RF_D_IN      : out STD_LOGIC_VECTOR (7 downto 0);
-      --RF_D_ADR     : out STD_LOGIC_VECTOR (4 downto 0);
       IO_STRB      : out STD_LOGIC;
       PORT_ID      : out STD_LOGIC_VECTOR (7 downto 0));
 end stage2;

@@ -49,7 +49,7 @@ signal a_nine_sig : STD_LOGIC_VECTOR(8 downto 0);
 signal a_min_b_sig: STD_LOGIC_VECTOR(8 downto 0);
 begin
 
-muxing : process(A, B, CIN, SEL, a_nine_sig, a_min_b_sig)
+muxing : process(A, B, CIN, SEL, a_nine_sig, a_min_b_sig,ZIN)
 begin
  case(SEL) is
     when "0000" => result_sig <= a_nine_sig + B;                        -- ADD

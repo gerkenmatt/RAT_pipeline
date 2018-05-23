@@ -16,6 +16,8 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -40,6 +42,7 @@ read_vhdl -library xil_defaultlib {
   C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_WRAPPER.vhd
   C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/new/SCRATCH_RAM.vhd
   C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/SP.vhd
+  C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/branch_pred.vhd
   C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer1.vhd
   C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer2.vhd
   C:/Users/Carmelo/Documents/GitHub/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/buffer3.vhd
