@@ -399,7 +399,7 @@ comb_proc: process(op, PS, NS, INT, C, Z)
                         SP_LD        <= '1';
                     when "1111111" =>
 --                        PC_INC        <= '0';   
-                        PC_MUX_SEL    <= "00";   PC_LD       <= '0';
+                        PC_MUX_SEL    <= "00";  PC_LD       <= '0';
                         SP_LD         <= '0';   SP_INCR       <= '0';    SP_DECR     <= '0';
                         RF_WR         <= '0';   RF_WR_SEL     <= "00";
                         ALU_OPY_SEL   <= '0';   ALU_SEL       <= "1111";

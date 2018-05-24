@@ -214,15 +214,16 @@ architecture Behavioral of RAT_CPU is
           PC_LD             : out STD_LOGIC;
           PC_MUX_SEL        : out STD_LOGIC_VECTOR(1 downto 0);
           PC_COUNT          : out STD_LOGIC_VECTOR(9 downto 0);
-          PC_COUNT_ALT_OUT  : out STD_LOGIC_VECTOR(9 downto 0));
+          PC_COUNT_ALT_OUT  : out STD_LOGIC_VECTOR(9 downto 0);
+          INSTR_OUT         : out STD_LOGIC_VECTOR(17 downto 0));
     end component;
 
 -----------------------------------------------------------------
 -- PC signals
 -----------------------------------------------------------------
 --signal PC_INC_sig : STD_LOGIC;   
-signal PC_LD_sig : STD_LOGIC;   
-signal PC_MUX_sel_sig : STD_LOGIC_VECTOR(1 downto 0);
+signal PC_LD_sig : STD_LOGIC := '0';   
+signal PC_MUX_sel_sig : STD_LOGIC_VECTOR(1 downto 0) := (others => '0');
 signal PC_COUNT_sig : STD_LOGIC_VECTOR(9 downto 0);   
 signal INSTRUCTION_sig : STD_LOGIC_VECTOR(17 downto 0); 
 
@@ -351,6 +352,7 @@ signal s_rst : STD_LOGIC;
    signal s_PC_CNT_br : STD_LOGIC_VECTOR(9 downto 0) := (others => '0');
    signal s_PC_CNT_ALT_out : STD_LOGIC_VECTOR(9 downto 0) := (others => '0');
    signal s_PC_CNT_ALT_in : STD_LOGIC_VECTOR(9 downto 0) := (others => '0');
+   signal s_inst_br_out : STD_LOGIC_VECTOR(17 downto 0) := (others => '0');
    --signal s_INSTR_br : STD_LOGIC_VECTOR(17 downto 0) := (others => '0');
 -----------------------------------------------------------------
 
@@ -383,7 +385,7 @@ decode : stage2
         INT_IN          => INT_IN,
         RESET           => RST,
         IN_PORT         => IN_PORT,
-        INSTRUCTION     => s_instr_hzd,
+        INSTRUCTION     => s_instr_hzd,--s_inst_br_out,
         C_FLAG          => C_FLAG_alu_sig,
         Z_FLAG          => Z_FLAG_alu_sig, 
         ALU_RES         => s_buff3_alu_res,
@@ -534,7 +536,7 @@ hazard : hazard_unit
 
 branchs : branch_pred
     Port Map (CLK       => CLK,
-        INSTR           => INSTRUCTION_sig,
+        INSTR           => INSTRUCTION_sig,--s_instr_hzd,--
         INSTR_OLD       => s_buff2_inst_reg,
         GUESS           => s_buff2_pc_ld_br,
         PC_COUNT_IN     => PC_COUNT_sig,
@@ -545,7 +547,8 @@ branchs : branch_pred
         PC_LD            => s_PC_LD_br,
         PC_MUX_SEL       => s_PC_MUX_SEL_br,
         PC_COUNT         => s_PC_CNT_br,
-        PC_COUNT_ALT_OUT => s_PC_CNT_ALT_out);
+        PC_COUNT_ALT_OUT => s_PC_CNT_ALT_out,
+        INSTR_OUT        => s_inst_br_out);
 
     RF_WR_sig <= RF_WR_OUT_sig;
     RF_WR_SEL_sig <= RF_WR_SEL_OUT_sig;
