@@ -35,6 +35,7 @@ entity stage1 is
        FROM_IMMED  : in  STD_LOGIC_VECTOR (9 downto 0);
        FROM_STACK  : in  STD_LOGIC_VECTOR (9 downto 0);
        FROM_BR_PRED: in  STD_LOGIC_VECTOR (9 downto 0);
+       BR_LD       : in  STD_LOGIC;
        PC_COUNT    : out STD_LOGIC_VECTOR (9 downto 0);
        INSTRUCTION : out std_logic_vector(17 downto 0));
 end stage1;
@@ -53,6 +54,7 @@ component PC is
        FROM_IMMED  : in  STD_LOGIC_VECTOR (9 downto 0);
        FROM_STACK  : in  STD_LOGIC_VECTOR (9 downto 0);
        FROM_BR_PRED: in  STD_LOGIC_VECTOR (9 downto 0);
+       BR_LD       : in  STD_LOGIC;
        PC_COUNT    : out STD_LOGIC_VECTOR (9 downto 0));
 end component;
        
@@ -76,6 +78,7 @@ cnt : PC
         FROM_IMMED  => FROM_IMMED,
         FROM_STACK  => FROM_STACK,
         FROM_BR_PRED => FROM_BR_PRED,
+        BR_LD        => BR_LD,
         PC_COUNT    => PC_COUNT_sig);
         
 prog : prog_rom

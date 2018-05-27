@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 entity buffer2 is
   Port (CLK         : in STD_LOGIC;
-        IR_IN       : in STD_LOGIC_VECTOR(12 downto 0);
+        IR_IN       : in STD_LOGIC_VECTOR(17 downto 0);
         PC_CNT_IN   : in STD_LOGIC_VECTOR(9 downto 0);
         PC_LD_IN    : in STD_LOGIC;
         REG_DX_IN   : in STD_LOGIC_VECTOR(7 downto 0);
@@ -56,8 +56,9 @@ entity buffer2 is
         FLG_LD_SEL_IN   : in STD_LOGIC;
         FLG_SHAD_LD_IN  : in STD_LOGIC;
         RST_IN          : in STD_LOGIC; 
+        BR_NOP          : in STD_LOGIC;
         
-        IR_OUT      : out STD_LOGIC_VECTOR(12 downto 0); 
+        IR_OUT      : out STD_LOGIC_VECTOR(17 downto 0); 
         PC_CNT_OUT  : out STD_LOGIC_VECTOR(9 downto 0);
         PC_LD_OUT   : out STD_LOGIC;
         REG_DX_OUT  : out STD_LOGIC_VECTOR(7 downto 0);
@@ -84,7 +85,7 @@ end buffer2;
 
 architecture Behavioral of buffer2 is
 
-signal s_IR_IN       : STD_LOGIC_VECTOR(12 downto 0);
+signal s_IR_IN       : STD_LOGIC_VECTOR(17 downto 0);
 signal s_PC_CNT_IN   :  STD_LOGIC_VECTOR(9 downto 0);
 signal s_PC_LD_IN   :  STD_LOGIC;
 signal s_REG_DX_IN   :  STD_LOGIC_VECTOR(7 downto 0);
@@ -114,7 +115,11 @@ begin
     latch: process(CLK)
     begin
         if(RISING_EDGE(CLK)) then
-            s_IR_IN <= IR_IN;
+            if(BR_NOP = '1') then 
+                s_IR_IN <= "111111111111111111";
+            else 
+                s_IR_IN <= IR_IN;
+            end if;
             s_PC_CNT_IN <= PC_CNT_IN;
             s_PC_LD_IN <= PC_LD_IN;
             s_REG_DX_IN <= REG_DX_IN;

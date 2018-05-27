@@ -21,6 +21,7 @@ entity PC is
            FROM_IMMED  : in  STD_LOGIC_VECTOR (9 downto 0);
            FROM_STACK  : in  STD_LOGIC_VECTOR (9 downto 0);
            FROM_BR_PRED: in  STD_LOGIC_VECTOR (9 downto 0);
+           BR_LD       : in  STD_LOGIC;
            PC_COUNT    : out STD_LOGIC_VECTOR (9 downto 0));
 end PC;
 
@@ -28,13 +29,14 @@ architecture Behavioral of PC is
 signal MUX_OUT_sig  : STD_LOGIC_VECTOR (9 downto 0);
 
 component ProgramCounter is
-    Port ( D_IN     : in  STD_LOGIC_VECTOR(9 downto 0);
-           CLK      : in  STD_LOGIC;
+    Port ( CLK      : in  STD_LOGIC;
            S1_EN       : in STD_LOGIC;
            S1_EN_2     : in STD_LOGIC;
 --           PC_INC   : in  STD_LOGIC;
            PC_LD    : in  STD_LOGIC;
+           BR_LD    : in  STD_LOGIC;
            RST      : in  STD_LOGIC;
+           D_IN     : in  STD_LOGIC_VECTOR(9 downto 0);
            PC_COUNT : out STD_LOGIC_VECTOR(9 downto 0));
 end component;
 
@@ -43,6 +45,7 @@ component PC_MUX is
            FROM_STACK   : in  STD_LOGIC_VECTOR (9 downto 0);
            FROM_BR_PRED : in  STD_LOGIC_VECTOR (9 downto 0);
            MUX_SEL      : in  STD_LOGIC_VECTOR (1 downto 0);
+           BR_LD        : in  STD_LOGIC;
            MUX_OUT      : out STD_LOGIC_VECTOR (9 downto 0));
 end component;
 
@@ -56,6 +59,7 @@ cnt : ProgramCounter
         S1_EN_2     => S1_EN_2,
 --        PC_INC   => PC_INC,
         PC_LD    => PC_LD,
+        BR_LD    => BR_LD, 
         RST      => RST,
         PC_COUNT => PC_COUNT);
 
@@ -65,6 +69,7 @@ mux : PC_MUX
         FROM_STACK      => FROM_STACK,
         FROM_BR_PRED    => FROM_BR_PRED,
         MUX_SEL         => PC_MUX_SEL,
+        BR_LD           => BR_LD,
         MUX_OUT         => MUX_OUT_sig);
         
 end Behavioral;
