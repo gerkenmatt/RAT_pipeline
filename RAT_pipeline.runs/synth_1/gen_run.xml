@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1527183789">
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1527460618">
   <File Type="PA-TCL" Name="SYS_WRAPPER.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="SYS_WRAPPER_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="SYS_WRAPPER_reports.tcl"/>
   <File Type="RDS-RDS" Name="SYS_WRAPPER.vds"/>
+  <File Type="RDS-UTIL" Name="SYS_WRAPPER_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="SYS_WRAPPER_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="SYS_WRAPPER.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="SYS_WRAPPER_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="SYS_WRAPPER_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/imports/CPE 233/Exp. 6 ALU/Exp. 6 ALU.srcs/sources_1/new/ALU.vhd">

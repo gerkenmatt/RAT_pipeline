@@ -59,6 +59,7 @@ architecture Behavioral of branch_pred is
     signal  s_pc_cnt_t_prev     : STD_LOGIC_VECTOR(9 downto 0);
     signal  s_pc_cnt_nt_prev    : STD_LOGIC_VECTOR(9 downto 0);
     signal  s_br_pred_cu        : STD_LOGIC;
+    signal  s_br_nop_stall      : STD_LOGIC;
     
     TYPE state_type is (ST_EXEC, ST_INIT, ST_INT);
     signal PS, NS : state_type;
@@ -72,10 +73,14 @@ architecture Behavioral of branch_pred is
                 if(FALLING_EDGE(CLK)) then
 --                    s_op_prev   <= s_op_tmp;    
 --                    s_op_tmp    <= s_op;
---                    BR_PC_LD  <= '0';
+                    BR_PC_LD  <= '0';
 --                    BR_NOP_CU   <= '0';         
                     BR_NOP_CU  <= '0';                                             
                     if (s_brn_wait = "00") then
+                        if (s_br_nop_stall = '1') then
+                            BR_NOP_CU <= '1';
+                            s_br_nop_stall <= '0';
+                        end if;
                         if (OPCODE_HI_5 = "00101" or OPCODE_HI_5 = "00100") then
                             s_brn_wait          <= "01";
                             s_pc_cnt_t_prev     <= PC_CNT_T;
@@ -86,14 +91,7 @@ architecture Behavioral of branch_pred is
                             PC_CNT_OUT          <= PC_CNT_T;   
                             
                         end if;
-                    elsif(s_brn_wait = "01") then
-                        BR_PC_LD            <= '0'; 
-                        BR_NOP_CU  <= '0';
-                        --if branch was not taken
-                        --flush subsequent stages
-                        --and return to previous state
-                        s_brn_wait <= "10";
-                    elsif (s_brn_wait="10") then
+                    elsif (s_brn_wait="01") then
  
                         --if branch was not taken
                         --flush subsequent stages
@@ -105,28 +103,28 @@ architecture Behavioral of branch_pred is
                                     BR_PC_LD <= '1';
                                     BR_NOP_CU  <= '1';
                                     PC_CNT_OUT <= s_pc_cnt_nt_prev;    
-                                    s_brn_wait <= "11";  
+                                    s_brn_wait <= "10";  
                                 end if;
                             when "0010100" => -- BRCS
                                 if(C = '0') then
                                     BR_PC_LD <= '1';
                                     BR_NOP_CU  <= '1';
                                     PC_CNT_OUT <= s_pc_cnt_nt_prev;
-                                    s_brn_wait <= "11";
+                                    s_brn_wait <= "10";
                                 end if;
                             when "0010010" => -- BREQ
                                 if(Z = '0') then
                                     BR_PC_LD <= '1';
                                     BR_NOP_CU  <= '1';
                                     PC_CNT_OUT <= s_pc_cnt_nt_prev;
-                                    s_brn_wait <= "11";
+                                    s_brn_wait <= "10";
                                 end if;
                             when "0010011" => -- BRNE
                                 if(Z = '1') then 
                                     BR_PC_LD <= '1';
                                     BR_NOP_CU  <= '1';
                                     PC_CNT_OUT <= s_pc_cnt_nt_prev;
-                                    s_brn_wait <= "11";
+                                    s_brn_wait <= "10";
                                 end if;
                             when others => 
                                 BR_PC_LD <= '0';
@@ -135,10 +133,11 @@ architecture Behavioral of branch_pred is
                             end case;
                         --send no op to alu
 --                        s_br_pred_cu <= '0';
-                    elsif (s_brn_wait= "11") then
+                    elsif (s_brn_wait= "10") then
                           --send no op to alu
                           BR_PC_LD <= '0';
                           BR_NOP_CU  <= '1';
+                          s_br_nop_stall <= '1';
                           s_brn_wait <= "00";
                     end if;  
                                     

@@ -71,13 +71,6 @@ alias dst_reg : STD_LOGIC_VECTOR(4 downto 0) is PREV_INSTR (12 downto 8);
 alias OP_HI : STD_LOGIC_VECTOR(4 downto 0) is INSTR (17 downto 13);
 
 
---branch predictor signals
-signal  s_op                : STD_LOGIC_VECTOR(6 downto 0);
-signal  s_brn_wait          : STD_LOGIC_VECTOR(1 downto 0) := (others => '0'); --not sure if this should be one or two bits
-signal  s_op_prev           : STD_LOGIC_VECTOR(6 downto 0);
-signal  s_op_tmp            : STD_LOGIC_VECTOR(6 downto 0);
-signal  s_pc_cnt_t_prev     : STD_LOGIC_VECTOR(9 downto 0);
-signal  s_pc_cnt_nt_prev    : STD_LOGIC_VECTOR(9 downto 0);
 
 
 
@@ -88,25 +81,32 @@ begin
         if(RISING_EDGE(CLK)) then
             s_prev_instr <= INSTR;
             s_temp_instr <= INSTR;
-            if (data_flag = "11") then
-                PC_CLK <= '1'; 
-                B1_CLK <= '1';
-                s_temp_instr(17 downto 13) <= "11111";--no op 
-                s_temp_instr(1 downto 0) <= "11";
-                s_prev_instr <= PREV_INSTR;
-                data_flag <= "00";
-            elsif (data_flag = "10") then
+--            if (data_flag = "11") then
+--                PC_CLK <= '1'; 
+--                B1_CLK <= '1';
+--                s_temp_instr(17 downto 13) <= "11111";--no op 
+--                s_temp_instr(1 downto 0) <= "11";
+--                s_prev_instr <= PREV_INSTR;
+--                data_flag <= "00";
+            if (data_flag = "10") then
                 PC_CLK <= '1';
                 B1_CLK <= '1';
                 s_temp_instr <= PREV_INSTR;
                 s_prev_instr <= PREV_INSTR;
-                data_flag <= "11";
+                data_flag <= "00";
             elsif (data_flag = "01") then
-                PC_CLK <= '0';
-                B1_CLK <= '0';
-                s_temp_instr(17 downto 13) <= "11111";--no op 
-                s_temp_instr(1 downto 0) <= "11";
-                s_prev_instr <= PREV_INSTR;
+                PC_CLK <= '1';
+                B1_CLK <= '1';
+--                s_temp_instr(17 downto 13) <= "11111";--no op 
+--                s_temp_instr(1 downto 0) <= "11"
+                if (OP_HI = "00101" or OP_HI = "00100") then
+                    s_temp_instr <= INSTR;
+                    s_prev_instr <= INSTR;
+                else 
+                    s_temp_instr <= PREV_INSTR;
+                    s_prev_instr <= PREV_INSTR;
+                end if;
+                
                 data_flag <= "10";
             else
                 PC_CLK <= '1';
@@ -136,11 +136,7 @@ begin
 --                        and (OP_HI /="11011") 
 --                        and (OP_HI /="01100")) --TODO: handle CALL, RET, etc. (put control logic in branch pred unit?)s
                          then
---                    if ((src_reg = dst_reg) or (cur_dst_reg = dst_reg)) then
---                        B1_CLK <= '1';
---                    else 
---                        B1_CLK <= '0';
---                    end if;
+
                     s_d_p2_clk <= '0';
                     data_ind <= '1';
                 end if;
