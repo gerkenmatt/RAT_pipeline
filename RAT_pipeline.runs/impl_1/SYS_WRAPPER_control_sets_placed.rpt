@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Tue May 29 11:04:29 2018
+| Date         : Tue May 29 12:43:58 2018
 | Host         : LAPTOP-PQR7H391 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file SYS_WRAPPER_control_sets_placed.rpt
 | Design       : SYS_WRAPPER
@@ -33,44 +33,44 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              96 |           35 |
+| No           | No                    | No                     |              96 |           46 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              48 |           15 |
-| Yes          | No                    | No                     |              91 |           39 |
-| Yes          | No                    | Yes                    |               8 |            1 |
-| Yes          | Yes                   | No                     |              18 |            8 |
+| No           | Yes                   | No                     |              48 |           18 |
+| Yes          | No                    | No                     |              91 |           37 |
+| Yes          | No                    | Yes                    |               8 |            3 |
+| Yes          | Yes                   | No                     |              18 |            7 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 3. Detailed Control Set Information
 -----------------------------------
 
-+----------------+-----------------------------------------+--------------------------------------------+------------------+----------------+
-|  Clock Signal  |              Enable Signal              |              Set/Reset Signal              | Slice Load Count | Bel Load Count |
-+----------------+-----------------------------------------+--------------------------------------------+------------------+----------------+
-|  sg/my_clk/CLK |                                         |                                            |                2 |              2 |
-|  CLK_IBUF_BUFG |                                         |                                            |                2 |              3 |
-|  SCLK_BUFG     |                                         | rat/CPU/decode/my_cu/s_ALU_SEL_IN_reg[3]_1 |                3 |              4 |
-|  SCLK_BUFG     | rat/CPU/hazard/r_SSEG_VAL1_reg[9][1]    |                                            |                2 |              6 |
-|  SCLK_BUFG     | rat/CPU/hazard/r_SSEG_CR_reg[0][0]      |                                            |                3 |              7 |
-| ~SCLK_BUFG     |                                         |                                            |                3 |              7 |
-|  SCLK_BUFG     | rat/CPU/decode_buffer/E[0]              | rat/CPU/decode_buffer/AR[0]                |                1 |              8 |
-|  SCLK_BUFG     | rat/CPU/hazard/E[0]                     |                                            |                4 |              8 |
-|  SCLK_BUFG     | rat/CPU/hazard/r_LEDS_reg[8][0]         |                                            |                2 |              8 |
-|  SCLK_BUFG     | rat/CPU/hazard/r_SSEG_VAL2_reg[0][0]    |                                            |                3 |              8 |
-|  SCLK_BUFG     | rat/CPU/hazard/r_SSEG_VAL1_reg[9][0]    |                                            |                5 |              8 |
-|  SCLK_BUFG     | rat/CPU/hazard/r_LEDS_reg[8][1]         |                                            |                7 |              8 |
-|  SCLK_BUFG     | my_debouncer/bounce_counter/s_count_inc | my_debouncer/bounce_counter/s_count_rst    |                3 |              8 |
-|  SCLK_BUFG     | rat/CPU/hazard/count_sig_reg[0][0]      | rat/CPU/decode/my_cu/SR[0]                 |                5 |             10 |
-| ~SCLK_BUFG     | rat/CPU/br_pred/PC_CNT_OUT[9]_i_1_n_0   |                                            |                4 |             10 |
-| ~SCLK_BUFG     | rat/CPU/fetch/prog/E[0]                 |                                            |                3 |             10 |
-|  SCLK_BUFG     |                                         | rat/CPU/br_pred/s_br_nop_cu                |                4 |             13 |
-|  SCLK_BUFG     | rat/CPU/hazard/s_prev_instr[17]_i_1_n_0 |                                            |                6 |             18 |
-|  CLK_IBUF_BUFG |                                         | sg/my_clk/tmp_clk                          |                8 |             31 |
-|  SCLK_BUFG     | rat/CPU/decode_buffer/WE                |                                            |                8 |             32 |
-|  SCLK_BUFG     | rat/CPU/decode_buffer/s_RF_WR_IN        |                                            |                4 |             32 |
-|  SCLK_BUFG     |                                         |                                            |               28 |             84 |
-+----------------+-----------------------------------------+--------------------------------------------+------------------+----------------+
++----------------+-----------------------------------------------+--------------------------------------------+------------------+----------------+
+|  Clock Signal  |                 Enable Signal                 |              Set/Reset Signal              | Slice Load Count | Bel Load Count |
++----------------+-----------------------------------------------+--------------------------------------------+------------------+----------------+
+|  sg/my_clk/CLK |                                               |                                            |                1 |              2 |
+|  CLK_IBUF_BUFG |                                               |                                            |                2 |              3 |
+|  SCLK_BUFG     |                                               | rat/CPU/decode/my_cu/s_ALU_SEL_IN_reg[3]_1 |                4 |              4 |
+|  SCLK_BUFG     | rat/CPU/hazard/r_SSEG_VAL1_reg[9][1]          |                                            |                2 |              6 |
+|  SCLK_BUFG     | rat/CPU/hazard/r_SSEG_CR_reg[0][0]            |                                            |                5 |              7 |
+| ~SCLK_BUFG     |                                               |                                            |                3 |              7 |
+|  SCLK_BUFG     | rat/CPU/decode_buffer/E[0]                    | rat/CPU/decode_buffer/AR[0]                |                3 |              8 |
+|  SCLK_BUFG     | rat/CPU/hazard/E[0]                           |                                            |                3 |              8 |
+|  SCLK_BUFG     | rat/CPU/hazard/r_LEDS_reg[8][0]               |                                            |                5 |              8 |
+|  SCLK_BUFG     | rat/CPU/hazard/r_SSEG_VAL1_reg[9][0]          |                                            |                4 |              8 |
+|  SCLK_BUFG     | rat/CPU/hazard/r_SSEG_VAL2_reg[0][0]          |                                            |                4 |              8 |
+|  SCLK_BUFG     | rat/CPU/hazard/r_LEDS_reg[8][1]               |                                            |                4 |              8 |
+|  SCLK_BUFG     | my_debouncer/bounce_counter/s_count_inc       | my_debouncer/bounce_counter/s_count_rst    |                2 |              8 |
+|  SCLK_BUFG     | rat/CPU/hazard/count_sig_reg[0][0]            | rat/CPU/decode/my_cu/SR[0]                 |                5 |             10 |
+| ~SCLK_BUFG     | rat/CPU/fetch/prog/s_pc_cnt_nt_prev_reg[9][0] |                                            |                3 |             10 |
+| ~SCLK_BUFG     | rat/CPU/fetch/prog/E[0]                       |                                            |                3 |             10 |
+|  SCLK_BUFG     |                                               | rat/CPU/br_pred/s_br_nop_cu                |                6 |             13 |
+|  SCLK_BUFG     | rat/CPU/hazard/s_prev_instr[17]_i_1_n_0       |                                            |                4 |             18 |
+|  CLK_IBUF_BUFG |                                               | sg/my_clk/tmp_clk                          |                8 |             31 |
+|  SCLK_BUFG     | rat/CPU/decode_buffer/WE                      |                                            |                8 |             32 |
+|  SCLK_BUFG     | rat/CPU/decode_buffer/s_RF_WR_IN              |                                            |                4 |             32 |
+|  SCLK_BUFG     |                                               |                                            |               40 |             84 |
++----------------+-----------------------------------------------+--------------------------------------------+------------------+----------------+
 
 
 +--------+-----------------------+
