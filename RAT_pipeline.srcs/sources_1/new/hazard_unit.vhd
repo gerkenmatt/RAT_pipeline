@@ -66,6 +66,8 @@ signal s_pc_ld              : STD_LOGIC_VECTOR(1 downto 0) := (others => '0');
 signal ophi : STD_LOGIC_VECTOR(4 downto 0):= (others => '0');
 signal opimm : STD_LOGIC:= '0';
 
+signal src_flag : STD_LOGIC := '0';
+
 --signal test_ind            : STD_LOGIC := '0';
 alias src_reg : STD_LOGIC_VECTOR(4 downto 0) is INSTR (7 downto 3);
 alias cur_dst_reg : STD_LOGIC_VECTOR(4 downto 0) is INSTR (12 downto 8);
@@ -96,11 +98,7 @@ begin
                 PC_CLK <= '1';
                 B1_CLK <= '1';
                 DATA_NOP <= '1';
---                if (OP_HI = "00101" or OP_HI = "00100") then
---                    s_temp_instr <= INSTR;
---                    s_prev_instr <= INSTR;
---                else 
-                s_temp_instr <= PREV_INSTR;
+--                s_temp_instr <= PREV_INSTR;
                 s_prev_instr <= PREV_INSTR;
 --                end if;
                 
@@ -123,13 +121,18 @@ begin
     comb2: process(CLK)
             begin
             if(FALLING_EDGE(CLK)) then
-                if ( (((src_reg = dst_reg) or (cur_dst_reg = dst_reg))) 
+                if ( (((src_reg = dst_reg and OP_IMM = '0') or (cur_dst_reg = dst_reg))) 
                         and PREV_INSTR /= "000000000000000000" 
-                        and (data_flag = "00"))
+                        and (data_flag = "00") and OP_HI /="00100")
 --                        and (OP_HI /="11011") 
 --                        and (OP_HI /="01100")) --TODO: handle CALL, RET, etc. (put control logic in branch pred unit?)s
                          then
-
+                    if (cur_dst_reg = dst_reg) then
+                        src_flag <= '1';
+                    else 
+                        src_flag <= '0';
+                    end if;
+                    
                     s_d_p2_clk <= '0';
                     data_ind <= '1';
                 end if;

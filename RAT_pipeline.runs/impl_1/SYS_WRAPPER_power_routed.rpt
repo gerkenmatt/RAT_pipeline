@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Tue May 29 08:56:22 2018
+| Date             : Tue May 29 11:05:32 2018
 | Host             : LAPTOP-PQR7H391 running 64-bit major release  (build 9200)
 | Command          : report_power -file SYS_WRAPPER_power_routed.rpt -pb SYS_WRAPPER_power_summary_routed.pb -rpx SYS_WRAPPER_power_routed.rpx
 | Design           : SYS_WRAPPER
@@ -33,7 +33,7 @@ Table of Contents
 | Total On-Chip Power (W)  | 0.109        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.038        |
+| Dynamic (W)              | 0.037        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.5         |
@@ -54,7 +54,7 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |    <0.001 |        3 |       --- |             --- |
 | Slice Logic              |     0.006 |     2385 |       --- |             --- |
-|   LUT as Logic           |     0.005 |     1473 |     20800 |            7.08 |
+|   LUT as Logic           |     0.005 |     1475 |     20800 |            7.09 |
 |   CARRY4                 |    <0.001 |      180 |      8150 |            2.21 |
 |   LUT as Distributed RAM |    <0.001 |       48 |      9600 |            0.50 |
 |   Register               |    <0.001 |      261 |     41600 |            0.63 |
@@ -75,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.023 |       0.014 |      0.010 |
+| Vccint    |       1.000 |     0.023 |       0.013 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.001 |      0.013 |
 | Vcco33    |       3.300 |     0.008 |       0.007 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -144,12 +144,12 @@ Table of Contents
 +-------------------------------+-----------+
 | Name                          | Power (W) |
 +-------------------------------+-----------+
-| SYS_WRAPPER                   |     0.038 |
+| SYS_WRAPPER                   |     0.037 |
 |   div                         |    <0.001 |
 |   my_debouncer                |    <0.001 |
 |     bounce_counter            |    <0.001 |
 |   rat                         |     0.006 |
-|     CPU                       |     0.005 |
+|     CPU                       |     0.004 |
 |       br_pred                 |    <0.001 |
 |       decode                  |    <0.001 |
 |         my_cu                 |    <0.001 |
