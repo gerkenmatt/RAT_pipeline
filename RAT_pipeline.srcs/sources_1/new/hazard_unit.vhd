@@ -36,6 +36,7 @@ entity hazard_unit is
   Port (CLK             : in STD_LOGIC;
         INSTR           : in STD_LOGIC_VECTOR(17 downto 0);
         PREV_INSTR      : in STD_LOGIC_VECTOR(17 downto 0);
+        PC_LD           : in STD_LOGIC;
     
         PC_CLK          : out STD_LOGIC;
         PC_CLK_2        : out STD_LOGIC;
@@ -64,6 +65,8 @@ alias OP_HI : STD_LOGIC_VECTOR(4 downto 0) is INSTR (17 downto 13);
 
 
 
+
+
 begin
 
     stall: process(CLK)
@@ -71,25 +74,32 @@ begin
         if(RISING_EDGE(CLK)) then
             s_prev_instr <= INSTR;
             s_temp_instr <= INSTR;
-            if (data_flag = "11") then
-                PC_CLK <= '1'; 
-                B1_CLK <= '1';
-                s_temp_instr(17 downto 13) <= "11111";--no op 
-                s_temp_instr(1 downto 0) <= "11";
-                s_prev_instr <= PREV_INSTR;
-                data_flag <= "00";
-            elsif (data_flag = "10") then
+--            if (data_flag = "11") then
+--                PC_CLK <= '1'; 
+--                B1_CLK <= '1';
+--                s_temp_instr(17 downto 13) <= "11111";--no op 
+--                s_temp_instr(1 downto 0) <= "11";
+--                s_prev_instr <= PREV_INSTR;
+--                data_flag <= "00";
+            if (data_flag = "10") then
                 PC_CLK <= '1';
                 B1_CLK <= '1';
                 s_temp_instr <= PREV_INSTR;
                 s_prev_instr <= PREV_INSTR;
-                data_flag <= "11";
+                data_flag <= "00";
             elsif (data_flag = "01") then
-                PC_CLK <= '0';
-                B1_CLK <= '0';
-                s_temp_instr(17 downto 13) <= "11111";--no op 
-                s_temp_instr(1 downto 0) <= "11";
-                s_prev_instr <= PREV_INSTR;
+                PC_CLK <= '1';
+                B1_CLK <= '1';
+--                s_temp_instr(17 downto 13) <= "11111";--no op 
+--                s_temp_instr(1 downto 0) <= "11"
+                if (OP_HI = "00101" or OP_HI = "00100") then
+                    s_temp_instr <= INSTR;
+                    s_prev_instr <= INSTR;
+                else 
+                    s_temp_instr <= PREV_INSTR;
+                    s_prev_instr <= PREV_INSTR;
+                end if;
+                
                 data_flag <= "10";
             else
                 PC_CLK <= '1';
@@ -104,14 +114,18 @@ begin
             end if;
         end if;
     end process stall;
-      
+    
+     
     comb2: process(CLK)
             begin
             if(FALLING_EDGE(CLK)) then
-                if (((src_reg = dst_reg) or (cur_dst_reg = dst_reg)) and PREV_INSTR /= "000000000000000000" and
-                (data_flag = "00") and (OP_HI /="11011") and (PREV_INSTR(17 downto 13) /= "00100")
-                and (PREV_INSTR(17 downto 13) /= "00101") and (OP_HI /="00100") and (OP_HI /="00101") and
-                (OP_HI /="01100")) then
+                if ( ((src_reg = dst_reg) or (cur_dst_reg = dst_reg)) 
+                        and PREV_INSTR /= "000000000000000000" 
+                        and (data_flag = "00") )
+--                        and (OP_HI /="11011") 
+--                        and (OP_HI /="01100")) --TODO: handle CALL, RET, etc. (put control logic in branch pred unit?)s
+                         then
+
                     s_d_p2_clk <= '0';
                     data_ind <= '1';
                 end if;

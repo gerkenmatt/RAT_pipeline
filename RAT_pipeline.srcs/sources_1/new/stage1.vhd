@@ -34,7 +34,8 @@ entity stage1 is
        PC_MUX_SEL  : in  STD_LOGIC_VECTOR (1 downto 0);
        FROM_IMMED  : in  STD_LOGIC_VECTOR (9 downto 0);
        FROM_STACK  : in  STD_LOGIC_VECTOR (9 downto 0);
-       FROM_BRP    : in  STD_LOGIC_VECTOR (9 downto 0);
+       FROM_BR_PRED: in  STD_LOGIC_VECTOR (9 downto 0);
+       BR_LD       : in  STD_LOGIC;
        PC_COUNT    : out STD_LOGIC_VECTOR (9 downto 0);
        INSTRUCTION : out std_logic_vector(17 downto 0));
 end stage1;
@@ -51,7 +52,8 @@ component PC is
        PC_MUX_SEL  : in  STD_LOGIC_VECTOR (1 downto 0);
        FROM_IMMED  : in  STD_LOGIC_VECTOR (9 downto 0);
        FROM_STACK  : in  STD_LOGIC_VECTOR (9 downto 0);
-       FROM_BRP    : in  STD_LOGIC_VECTOR (9 downto 0);
+       FROM_BR_PRED: in  STD_LOGIC_VECTOR (9 downto 0);
+       BR_LD       : in  STD_LOGIC;
        PC_COUNT    : out STD_LOGIC_VECTOR (9 downto 0));
 end component;
        
@@ -65,16 +67,18 @@ begin
 
 cnt : PC
     Port Map(
-        CLK        => CLK,
-        S1_EN      => S1_EN,
-        S1_EN_2    => s1_EN_2,
-        PC_LD      => PC_LD,
-        RST        => RST,
-        PC_MUX_SEL => PC_MUX_SEL,
-        FROM_IMMED => FROM_IMMED,
-        FROM_STACK => FROM_STACK,
-        FROM_BRP   => FROM_BRP,
-        PC_COUNT   => PC_COUNT_sig);
+        CLK         => CLK,
+        S1_EN       => S1_EN,
+        S1_EN_2     => s1_EN_2,
+--        PC_INC     => PC_INC,
+        PC_LD       => PC_LD,
+        RST         => RST,
+        PC_MUX_SEL  => PC_MUX_SEL,
+        FROM_IMMED  => FROM_IMMED,
+        FROM_STACK  => FROM_STACK,
+        FROM_BR_PRED => FROM_BR_PRED,
+        BR_LD        => BR_LD,
+        PC_COUNT    => PC_COUNT_sig);
         
 prog : prog_rom
     Port Map(
