@@ -33,18 +33,20 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 --use UNISIM.VComponents.all;
 
 entity buffer2 is
-  Port (CLK         : in STD_LOGIC;
-        IR_IN       : in STD_LOGIC_VECTOR(17 downto 0);
-        PC_CNT_IN   : in STD_LOGIC_VECTOR(9 downto 0);
-        PC_LD_IN    : in STD_LOGIC;
-        REG_DX_IN   : in STD_LOGIC_VECTOR(7 downto 0);
-        REG_DY_IN   : in STD_LOGIC_VECTOR(7 downto 0);
-        RF_WR_IN    : in STD_LOGIC;
-        RF_WR_SEL_IN: in STD_LOGIC_VECTOR(1 downto 0);
-        ALU_OP_SEL_IN:in STD_LOGIC;
-        ALU_SEL_IN  : in STD_LOGIC_VECTOR(3 downto 0);
-        SP_LD_IN    : in STD_LOGIC;
-        SP_INCR_IN  : in STD_LOGIC;
+  Port (CLK             : in STD_LOGIC;
+        IR_IN           : in STD_LOGIC_VECTOR(17 downto 0);
+        PC_CNT_IN       : in STD_LOGIC_VECTOR(9 downto 0);
+        PC_LD_IN        : in STD_LOGIC;
+        PC_LD_BR_IN     : in STD_LOGIC;
+        PC_CNT_ALT_IN   : in STD_LOGIC_VECTOR(9 downto 0);
+        REG_DX_IN       : in STD_LOGIC_VECTOR(7 downto 0);
+        REG_DY_IN       : in STD_LOGIC_VECTOR(7 downto 0);
+        RF_WR_IN        : in STD_LOGIC;
+        RF_WR_SEL_IN    : in STD_LOGIC_VECTOR(1 downto 0);
+        ALU_OP_SEL_IN   : in STD_LOGIC;
+        ALU_SEL_IN      : in STD_LOGIC_VECTOR(3 downto 0);
+        SP_LD_IN        : in STD_LOGIC;
+        SP_INCR_IN      : in STD_LOGIC;
         SP_DECR_IN  : in STD_LOGIC;
         SCR_WE_IN   : in STD_LOGIC;
         SCR_ADDR_SEL_IN : in STD_LOGIC_VECTOR(1 downto 0);
@@ -56,21 +58,22 @@ entity buffer2 is
         FLG_LD_SEL_IN   : in STD_LOGIC;
         FLG_SHAD_LD_IN  : in STD_LOGIC;
         RST_IN          : in STD_LOGIC; 
-        BR_NOP          : in STD_LOGIC;
         
-        IR_OUT      : out STD_LOGIC_VECTOR(17 downto 0); 
-        PC_CNT_OUT  : out STD_LOGIC_VECTOR(9 downto 0);
-        PC_LD_OUT   : out STD_LOGIC;
-        REG_DX_OUT  : out STD_LOGIC_VECTOR(7 downto 0);
-        REG_DY_OUT  : out STD_LOGIC_VECTOR(7 downto 0);
-        RF_WR_OUT    : out STD_LOGIC;
-        RF_WR_SEL_OUT: out STD_LOGIC_VECTOR(1 downto 0);
-        ALU_OP_SEL_OUT:out STD_LOGIC;
-        ALU_SEL_OUT  : out STD_LOGIC_VECTOR(3 downto 0);
-        SP_LD_OUT    : out STD_LOGIC;
-        SP_INCR_OUT  : out STD_LOGIC;
-        SP_DECR_OUT  : out STD_LOGIC;
-        SCR_WE_OUT   : out STD_LOGIC;
+        IR_OUT           : out STD_LOGIC_VECTOR(17 downto 0); 
+        PC_CNT_OUT       : out STD_LOGIC_VECTOR(9 downto 0);
+        PC_LD_OUT        : out STD_LOGIC;
+        PC_LD_BR_OUT     : out STD_LOGIC;
+        PC_CNT_ALT_OUT   : out STD_LOGIC_VECTOR(9 downto 0);
+        REG_DX_OUT       : out STD_LOGIC_VECTOR(7 downto 0);
+        REG_DY_OUT       : out STD_LOGIC_VECTOR(7 downto 0);
+        RF_WR_OUT        : out STD_LOGIC;
+        RF_WR_SEL_OUT    : out STD_LOGIC_VECTOR(1 downto 0);
+        ALU_OP_SEL_OUT   : out STD_LOGIC;
+        ALU_SEL_OUT      : out STD_LOGIC_VECTOR(3 downto 0);
+        SP_LD_OUT        : out STD_LOGIC;
+        SP_INCR_OUT      : out STD_LOGIC;
+        SP_DECR_OUT      : out STD_LOGIC;
+        SCR_WE_OUT       : out STD_LOGIC;
         SCR_ADDR_SEL_OUT : out STD_LOGIC_VECTOR(1 downto 0);
         SCR_DATA_SEL_OUT : out STD_LOGIC;
         FLG_C_SET_OUT    : out STD_LOGIC;
@@ -117,11 +120,7 @@ begin
     latch: process(CLK)
     begin
         if(RISING_EDGE(CLK)) then
-            if(BR_NOP = '1') then 
-                s_IR_IN <= "111111111111111111";
-            else 
-                s_IR_IN <= IR_IN;
-            end if;
+            s_IR_IN <= IR_IN;
             s_PC_CNT_IN <= PC_CNT_IN;
             s_PC_LD_IN <= PC_LD_IN;
             s_PC_LD_BR_IN <= PC_LD_BR_IN;

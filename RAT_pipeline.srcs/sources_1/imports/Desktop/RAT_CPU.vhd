@@ -31,8 +31,7 @@ architecture Behavioral of RAT_CPU is
           PC_MUX_SEL  : in  STD_LOGIC_VECTOR (1 downto 0);
           FROM_IMMED  : in  STD_LOGIC_VECTOR (9 downto 0);
           FROM_STACK  : in  STD_LOGIC_VECTOR (9 downto 0);
-          FROM_BR_PRED: in  STD_LOGIC_VECTOR (9 downto 0);
-          BR_LD       : in  STD_LOGIC;
+          FROM_BRP    : in  STD_LOGIC_VECTOR (9 downto 0);
           PC_COUNT    : out STD_LOGIC_VECTOR (9 downto 0);
           INSTRUCTION : out std_logic_vector(17 downto 0));
      
@@ -52,9 +51,6 @@ architecture Behavioral of RAT_CPU is
          RF_D_IN_ADR  : in STD_LOGIC_VECTOR (4 downto 0);
          RF_WR        : in   STD_LOGIC;
          RF_WR_SEL    : in   STD_LOGIC_VECTOR (1 downto 0);
-         BR_TAKE_CU       : in   STD_LOGIC;
-         BR_NOP_CU        : in   STD_LOGIC;
-         
          RF_WR_OUT    : out  STD_LOGIC;
          RF_WR_SEL_OUT: out  STD_LOGIC_VECTOR (1 downto 0);
          PC_LD        : out  STD_LOGIC;
@@ -145,7 +141,6 @@ architecture Behavioral of RAT_CPU is
            FLG_LD_SEL_IN   : in STD_LOGIC;
            FLG_SHAD_LD_IN  : in STD_LOGIC;
            RST_IN          : in STD_LOGIC; 
-           BR_NOP          : in STD_LOGIC;
            
            IR_OUT      : out STD_LOGIC_VECTOR(17 downto 0); 
            PC_CNT_OUT  : out STD_LOGIC_VECTOR(9 downto 0);
@@ -175,20 +170,20 @@ architecture Behavioral of RAT_CPU is
    
    component buffer3 is
       Port (CLK             : in STD_LOGIC;
---         RF_WR_IN        : in STD_LOGIC;
---         RF_WR_SEL_IN    : in STD_LOGIC_VECTOR(1 downto 0);
---         ALU_RES_IN      : in STD_LOGIC_VECTOR(7 downto 0);
---         SCR_DATA_IN     : in STD_LOGIC_VECTOR(9 downto 0);
---         SP_DATA_IN      : in STD_LOGIC_VECTOR(7 downto 0);
+         RF_WR_IN        : in STD_LOGIC;
+         RF_WR_SEL_IN    : in STD_LOGIC_VECTOR(1 downto 0);
+         ALU_RES_IN      : in STD_LOGIC_VECTOR(7 downto 0);
+         SCR_DATA_IN     : in STD_LOGIC_VECTOR(9 downto 0);
+         SP_DATA_IN      : in STD_LOGIC_VECTOR(7 downto 0);
          IR_IN           : in STD_LOGIC_VECTOR(4 downto 0);
          C_FLAG_IN       : in STD_LOGIC;
          Z_FLAG_IN       : in STD_LOGIC;
          
---         RF_WR_OUT       : out STD_LOGIC;
---         RF_WR_SEL_OUT   : out STD_LOGIC_VECTOR(1 downto 0);
---         ALU_RES_OUT     : out STD_LOGIC_VECTOR(7 downto 0);
---         SCR_DATA_OUT    : out STD_LOGIC_VECTOR(9 downto 0);
---         SP_DATA_OUT     : out STD_LOGIC_VECTOR(7 downto 0);
+         RF_WR_OUT       : out STD_LOGIC;
+         RF_WR_SEL_OUT   : out STD_LOGIC_VECTOR(1 downto 0);
+         ALU_RES_OUT     : out STD_LOGIC_VECTOR(7 downto 0);
+         SCR_DATA_OUT    : out STD_LOGIC_VECTOR(9 downto 0);
+         SP_DATA_OUT     : out STD_LOGIC_VECTOR(7 downto 0);
          IR_OUT          : out STD_LOGIC_VECTOR(4 downto 0);
          C_FLAG_OUT      : out STD_LOGIC;
          Z_FLAG_OUT      : out STD_LOGIC);
@@ -207,19 +202,20 @@ architecture Behavioral of RAT_CPU is
     end component;
     
     component branch_pred is
-      Port ( CLK            : in  STD_LOGIC;
-            OPCODE_HI_5     : in  STD_LOGIC_VECTOR (4 downto 0);
-            OPCODE_LO_2     : in  STD_LOGIC_VECTOR (1 downto 0);
-            PREV_OP_CODE    : in  STD_LOGIC_VECTOR (6 downto 0);
-            PC_CNT_T        : in  STD_LOGIC_VECTOR (9 downto 0);
-            PC_CNT_NT       : in  STD_LOGIC_VECTOR (9 downto 0);
-            C               : in  STD_LOGIC;
-            Z               : in  STD_LOGIC;
-            PC_CNT_OUT      : out STD_LOGIC_VECTOR(9 downto 0);
-            BR_PC_LD        : out STD_LOGIC;
-            BR_NOP_CU       : out STD_LOGIC
-            );
-            
+        Port (CLK             : in STD_LOGIC;
+          INSTR             : in STD_LOGIC_VECTOR(17 downto 0);
+          INSTR_OLD         : in STD_LOGIC_VECTOR(17 downto 0);
+          GUESS             : in STD_LOGIC;
+          PC_COUNT_IN       : in STD_LOGIC_VECTOR(9 downto 0);
+          PC_COUNT_ALT_IN   : in STD_LOGIC_VECTOR(9 downto 0);
+          C_FLAG            : in STD_LOGIC;
+          Z_FLAG            : in STD_LOGIC;
+     
+          PC_LD             : out STD_LOGIC;
+          PC_MUX_SEL        : out STD_LOGIC_VECTOR(1 downto 0);
+          PC_COUNT          : out STD_LOGIC_VECTOR(9 downto 0);
+          PC_COUNT_ALT_OUT  : out STD_LOGIC_VECTOR(9 downto 0);
+          INSTR_OUT         : out STD_LOGIC_VECTOR(17 downto 0));
     end component;
 
 -----------------------------------------------------------------
@@ -346,14 +342,7 @@ signal s_rst : STD_LOGIC;
    signal s_pc_clk  : STD_LOGIC := '1';
    signal s_pc_clk_2 : STD_LOGIC := '1';
    signal s_b1_clk  : STD_LOGIC := '1';
-   signal s_instr_hzd : STD_LOGIC_VECTOR(17 downto 0) := (others => '0');
-   
-   
-   --branch predictor signals
-   signal s_br_alt      : STD_LOGIC_VECTOR(9 downto 0) := (others => '0');
-   signal s_br_ld       : STD_LOGIC;
-   signal s_br_nop_cu   : STD_LOGIC;
-   signal s_br_prev_op  : STD_LOGIC_VECTOR (6 downto 0) := (others => '0');
+   signal s_instr_hzd : STD_LOGIC_VECTOR(17 downto 0) := (others => '0');  
    
    --bracnh predictor signals
    signal s_PC_LD_br : STD_LOGIC :='0';
@@ -379,8 +368,7 @@ fetch : stage1
         PC_MUX_SEL      => PC_MUX_SEL_sig,
         FROM_IMMED      => FROM_IMMED_sig,
         FROM_STACK      => s_buff3_scr_out,
-        FROM_BR_PRED    => s_br_alt,
-        BR_LD           => s_br_ld,
+        FROM_BRP        => s_PC_CNT_br,
         PC_COUNT        => PC_COUNT_sig,
         INSTRUCTION     => INSTRUCTION_sig);
 
@@ -397,19 +385,15 @@ decode : stage2
         INT_IN          => INT_IN,
         RESET           => RST,
         IN_PORT         => IN_PORT,
-        INSTRUCTION     => s_instr_hzd,
-        C_FLAG          => C_FLAG_alu_sig, --s_buff3_c_flg,
-        Z_FLAG          => Z_FLAG_alu_sig, --s_buff3_z_flg,
-        ALU_RES         => ALU_RES_sig,
-        SCR_OUT         => FROM_STACK_sig(7 downto 0),
-        SP_OUT          => SP_OUT_sig,
-        --RF_D_IN_WR      => RF_D_IN_WR_sig,
-        RF_D_IN_ADR     => s_buff2_inst_reg(12 downto 8),
-        RF_WR           => s_buff2_rf_wr,
-        RF_WR_SEL       => s_buff2_rf_wr_sel,
-        BR_TAKE_CU      =>  s_br_ld,
-        BR_NOP_CU       =>  s_br_nop_cu,       
-        
+        INSTRUCTION     => s_instr_hzd,--s_inst_br_out,
+        C_FLAG          => C_FLAG_alu_sig,
+        Z_FLAG          => Z_FLAG_alu_sig, 
+        ALU_RES         => s_buff3_alu_res,
+        SCR_OUT         => s_buff3_scr_out(7 downto 0),
+        SP_OUT          => s_buff3_sp_out,
+        RF_D_IN_ADR     => s_buff3_inst_reg,
+        RF_WR           => s_buff3_rf_wr,
+        RF_WR_SEL       => s_buff3_rf_wr_sel,
         RF_WR_OUT       => RF_WR_OUT_sig,
         RF_WR_SEL_OUT   => RF_WR_SEL_OUT_sig,
         PC_LD           => s_PC_LD_cu,
@@ -437,7 +421,7 @@ decode : stage2
 decode_buffer : buffer2
     Port Map(
         CLK             => CLK,
-        IR_IN           => s_instr_hzd(17 downto 0),
+        IR_IN           => s_instr_hzd,
         PC_CNT_IN       => s_buff1_pc_count,
         PC_LD_IN        => s_PC_LD_cu,
         PC_LD_BR_IN     => s_PC_LD_br,
@@ -461,7 +445,6 @@ decode_buffer : buffer2
         FLG_LD_SEL_IN   => FLG_LD_SEL_sig,
         FLG_SHAD_LD_IN  => FLG_SHAD_LD_sig,
         RST_IN          => RST,
-        BR_NOP          => s_br_nop_cu,
               
         IR_OUT      => s_buff2_inst_reg, 
         PC_CNT_OUT  => s_buff2_pc_count,
@@ -522,20 +505,20 @@ exwr : stage34
 exec_buffer : buffer3
     Port Map(
         CLK          => CLK,   
---        RF_WR_IN        => s_buff2_rf_wr,
---        RF_WR_SEL_IN    => s_buff2_rf_wr_sel,
---        ALU_RES_IN      => ALU_RES_sig,
---        SCR_DATA_IN     => FROM_STACK_sig,
---        SP_DATA_IN      => SP_OUT_sig,
+        RF_WR_IN        => s_buff2_rf_wr,
+        RF_WR_SEL_IN    => s_buff2_rf_wr_sel,
+        ALU_RES_IN      => ALU_RES_sig,
+        SCR_DATA_IN     => FROM_STACK_sig,
+        SP_DATA_IN      => SP_OUT_sig,
         IR_IN           => s_buff2_inst_reg(12 downto 8),
         C_FLAG_IN       => C_FLAG_sig,
         Z_FLAG_IN       => Z_FLAG_sig,
         
---        RF_WR_OUT       => s_buff3_rf_wr,
---        RF_WR_SEL_OUT   => s_buff3_rf_wr_sel,
---        ALU_RES_OUT     => s_buff3_alu_res,
---        SCR_DATA_OUT    => s_buff3_scr_out,
---        SP_DATA_OUT     => s_buff3_sp_out,
+        RF_WR_OUT       => s_buff3_rf_wr,
+        RF_WR_SEL_OUT   => s_buff3_rf_wr_sel,
+        ALU_RES_OUT     => s_buff3_alu_res,
+        SCR_DATA_OUT    => s_buff3_scr_out,
+        SP_DATA_OUT     => s_buff3_sp_out,
         IR_OUT          => s_buff3_inst_reg,
         C_FLAG_OUT      => s_buff3_c_flg,
         Z_FLAG_OUT      => s_buff3_z_flg);
@@ -551,29 +534,27 @@ hazard : hazard_unit
         PREV_INSTR_OUT  => s_prev_instr,
         INSTR_OUT       => s_instr_hzd);
 
-br_pred : branch_pred
-    Port Map (CLK           => CLK, 
-            OPCODE_HI_5     => INSTRUCTION_sig(17 downto 13), 
-            OPCODE_LO_2     => INSTRUCTION_sig(1 downto 0), 
-            PREV_OP_CODE    => s_br_prev_op, 
-            PC_CNT_T        => INSTRUCTION_sig(12 downto 3), 
-            PC_CNT_NT       => PC_COUNT_sig, 
-            C               => C_FLAG_alu_sig,
-            Z               => Z_FLAG_alu_sig,
-            PC_CNT_OUT      => s_br_alt, 
-            BR_PC_LD        => s_br_ld, 
-            BR_NOP_CU       => s_br_nop_cu
-            );
-            
-   -- RF_D_IN_WR_sig <= RF_D_IN_sig;
-   -- RF_D_IN_ADR_sig <= RF_D_ADR_sig;
+branchs : branch_pred
+    Port Map (CLK       => CLK,
+        INSTR           => INSTRUCTION_sig,--s_instr_hzd,--
+        INSTR_OLD       => s_buff2_inst_reg,
+        GUESS           => s_buff2_pc_ld_br,
+        PC_COUNT_IN     => PC_COUNT_sig,
+        PC_COUNT_ALT_IN => s_PC_CNT_ALT_in,
+        C_FLAG          => C_FLAG_sig,
+        Z_FLAG          => Z_FLAG_sig,
+        
+        PC_LD            => s_PC_LD_br,
+        PC_MUX_SEL       => s_PC_MUX_SEL_br,
+        PC_COUNT         => s_PC_CNT_br,
+        PC_COUNT_ALT_OUT => s_PC_CNT_ALT_out,
+        INSTR_OUT        => s_inst_br_out);
+
     RF_WR_sig <= RF_WR_OUT_sig;
     RF_WR_SEL_sig <= RF_WR_SEL_OUT_sig;
     
     SCR_OUT_sig <= FROM_STACK_sig;
     C_FLAG_IN_sig <= C_FLAG_sig;
-    s_br_prev_op  <=  s_instr_hzd(17 downto 13) & s_instr_hzd(1 downto 0);
-
     
     OUT_PORT <= DX_OUT_sig(7 downto 0);
     

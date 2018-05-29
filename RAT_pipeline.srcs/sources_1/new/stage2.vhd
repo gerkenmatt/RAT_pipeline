@@ -37,8 +37,6 @@ entity stage2 is
       ALU_RES      : in   STD_LOGIC_VECTOR (7 downto 0);
       SCR_OUT      : in   STD_LOGIC_VECTOR (7 downto 0);
       SP_OUT       : in   STD_LOGIC_VECTOR (7 downto 0);
-      BR_TAKE_CU       : in   STD_LOGIC;
-      BR_NOP_CU        : in   STD_LOGIC;
       RF_WR_OUT    : out  STD_LOGIC;
       RF_WR_SEL_OUT: out  STD_LOGIC_VECTOR (1 downto 0);
       PC_LD        : out  STD_LOGIC;
@@ -77,8 +75,6 @@ component CONTROL_UNIT
           RESET         : in   STD_LOGIC;
           OPCODE_HI_5   : in   STD_LOGIC_VECTOR (4 downto 0);
           OPCODE_LO_2   : in   STD_LOGIC_VECTOR (1 downto 0);
-          BR_TAKE       : in   STD_LOGIC;
-          BR_NOP        : in   STD_LOGIC;
           
           PC_LD         : out  STD_LOGIC;
 --          PC_INC        : out  STD_LOGIC;		  
@@ -164,8 +160,6 @@ begin
               RESET         => RESET, 
               OPCODE_HI_5   => INSTRUCTION(17 downto 13), 
               OPCODE_LO_2   => INSTRUCTION(1  downto  0), 
-              BR_TAKE       => BR_TAKE_CU,
-              BR_NOP        => BR_NOP_CU,
               
               PC_LD         => PC_LD, 
 --              PC_INC        => PC_INC, 

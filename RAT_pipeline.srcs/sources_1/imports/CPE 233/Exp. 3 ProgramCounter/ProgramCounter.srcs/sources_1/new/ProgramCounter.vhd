@@ -15,7 +15,6 @@ entity ProgramCounter is
            S1_EN_2       : in STD_LOGIC;
 --           PC_INC   : in  STD_LOGIC;
            PC_LD    : in  STD_LOGIC;
-           BR_LD    : in  STD_LOGIC;
            RST      : in  STD_LOGIC;
            D_IN     : in  STD_LOGIC_VECTOR(9 downto 0);
            PC_COUNT : out STD_LOGIC_VECTOR(9 downto 0));
@@ -35,18 +34,15 @@ begin
 --        count_sig <= count_sig -1;
 --    end if;    
     if(RISING_EDGE(CLK)) then
-        if(PC_LD = '1' or BR_LD = '1')  then 
+        if(PC_LD = '1')  then 
             count_sig <= D_IN; 
         end if;
     end if;
     if(RISING_EDGE(CLK) and (S1_EN = '1') and (S1_EN_2 = '1')) then
-        if(RST = '1')       then 
-            count_sig <= "00" & x"00";
-        elsif(PC_LD = '1' or BR_LD = '1')  then 
-            count_sig <= D_IN;
+        if(RST = '1')       then count_sig <= "00" & x"00";
+        elsif(PC_LD = '1')  then count_sig <= D_IN;
 --        elsif(PC_INC = '1') then count_sig <= count_sig + 1;
-        else 
-            count_sig <= count_sig + 1;
+        else count_sig <= count_sig + 1;
         end if;
     end if;
 end process counter;
