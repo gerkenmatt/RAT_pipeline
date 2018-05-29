@@ -161,7 +161,7 @@ begin
    port map ( A => DX_OUT,       
               B => s_alu_b,
               Zin => s_z,       
-              Cin => C_FLAG_IN,     
+              Cin => s_c_flg,     
               SEL => ALU_SEL,     
               C => s_c,       
               Z => s_z,       
@@ -177,7 +177,7 @@ begin
               FLG_SHAD_LD => FLG_SHAD_LD,
               C           => s_c,
               Z           => s_z,
-              C_FLAG      => C_FLAG,
+              C_FLAG      => s_c_flg,
               Z_FLAG      => Z_FLAG);
                          
    my_SCR: SCRATCH_RAM
@@ -219,5 +219,6 @@ begin
     SP_OUT <= s_sp_out;
     C_FLAG_ALU <= s_c;
     Z_FLAG_ALU <= s_z;
+    C_FLAG <= s_c_flg;
 
 end Behavioral;

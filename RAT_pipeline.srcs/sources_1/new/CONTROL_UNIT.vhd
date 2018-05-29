@@ -19,6 +19,7 @@ entity CONTROL_UNIT is
            OPCODE_LO_2   : in   STD_LOGIC_VECTOR (1 downto 0);
            BR_TAKE       : in   STD_LOGIC;
            BR_NOP        : in   STD_LOGIC;
+           DATA_NOP      : in   STD_LOGIC;
            
            PC_LD         : out  STD_LOGIC;
 --           PC_INC        : out  STD_LOGIC;		  
@@ -73,7 +74,7 @@ sync_process: process(CLK, RESET)
         end if;
     end process sync_process;
     
-comb_proc: process(op, PS, NS, INT, C, Z, BR_NOP)
+comb_proc: process(op, PS, NS, INT, C, Z, BR_NOP, DATA_NOP)
     begin
 --        PC_INC        <= '0';  
         PC_MUX_SEL    <= "00";   PC_LD       <= '0';
@@ -109,6 +110,14 @@ comb_proc: process(op, PS, NS, INT, C, Z, BR_NOP)
                 RST           <= '0';
                 
                 if (BR_NOP = '1') then 
+                    RF_WR       <= '0';
+                    RF_WR_SEL   <= "00";
+                    ALU_SEL     <= x"F";
+                    ALU_OPY_SEL <= '0';
+                    FLG_LD_SEL  <= '0';
+                    FLG_C_LD    <= '0';
+                    FLG_Z_LD    <= '0';
+                elsif (DATA_NOP = '1') then 
                     RF_WR       <= '0';
                     RF_WR_SEL   <= "00";
                     ALU_SEL     <= x"F";

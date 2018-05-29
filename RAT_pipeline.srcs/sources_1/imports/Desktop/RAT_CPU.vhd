@@ -56,6 +56,7 @@ architecture Behavioral of RAT_CPU is
          RF_WR_SEL    : in   STD_LOGIC_VECTOR (1 downto 0);
          BR_TAKE_CU       : in   STD_LOGIC;
          BR_NOP_CU        : in   STD_LOGIC;
+         DATA_NOP         : in   STD_LOGIC;
          
          RF_WR_OUT    : out  STD_LOGIC;
          RF_WR_SEL_OUT: out  STD_LOGIC_VECTOR (1 downto 0);
@@ -205,7 +206,8 @@ architecture Behavioral of RAT_CPU is
           PC_CLK_2        : out STD_LOGIC;
           B1_CLK          : out STD_LOGIC;
           PREV_INSTR_OUT  : out STD_LOGIC_VECTOR(17 downto 0);
-          INSTR_OUT       : out STD_LOGIC_VECTOR(17 downto 0));
+          INSTR_OUT       : out STD_LOGIC_VECTOR(17 downto 0);
+          DATA_NOP        : out STD_LOGIC);
     end component;
     
     component branch_pred is
@@ -217,6 +219,7 @@ architecture Behavioral of RAT_CPU is
             PC_CNT_NT       : in  STD_LOGIC_VECTOR (9 downto 0);
             C               : in  STD_LOGIC;
             Z               : in  STD_LOGIC;
+            DATA_NOP        : in  STD_LOGIC;
             PC_CNT_OUT      : out STD_LOGIC_VECTOR(9 downto 0);
             BR_PC_LD        : out STD_LOGIC;
             BR_NOP_CU       : out STD_LOGIC
@@ -363,6 +366,7 @@ signal s_rst : STD_LOGIC;
    signal s_pc_clk_2 : STD_LOGIC := '1';
    signal s_b1_clk  : STD_LOGIC := '1';
    signal s_instr_hzd : STD_LOGIC_VECTOR(17 downto 0) := (others => '0');
+   signal s_data_nop   : STD_LOGIC := '0';
    
    
    --branch predictor signals
@@ -418,7 +422,8 @@ decode : stage2
         RF_WR           => s_buff2_rf_wr,
         RF_WR_SEL       => s_buff2_rf_wr_sel,
         BR_TAKE_CU      =>  s_br_ld,
-        BR_NOP_CU       =>  s_br_nop_cu,       
+        BR_NOP_CU       =>  s_br_nop_cu,     
+        DATA_NOP        => s_data_nop,  
         
         RF_WR_OUT       => RF_WR_OUT_sig,
         RF_WR_SEL_OUT   => RF_WR_SEL_OUT_sig,
@@ -559,7 +564,8 @@ hazard : hazard_unit
         PC_CLK_2        => s_pc_clk_2,
         B1_CLK          => s_b1_clk,
         PREV_INSTR_OUT  => s_prev_instr,
-        INSTR_OUT       => s_instr_hzd);
+        INSTR_OUT       => s_instr_hzd, 
+        DATA_NOP        => s_data_nop);
 
 br_pred : branch_pred
     Port Map (CLK           => CLK, 
@@ -570,6 +576,7 @@ br_pred : branch_pred
             PC_CNT_NT       => PC_COUNT_sig, 
             C               => C_FLAG_alu_sig,
             Z               => Z_FLAG_alu_sig,
+            DATA_NOP        => s_data_nop,
             PC_CNT_OUT      => s_br_alt, 
             BR_PC_LD        => s_br_ld, 
             BR_NOP_CU       => s_br_nop_cu

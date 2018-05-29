@@ -42,7 +42,8 @@ entity hazard_unit is
         PC_CLK_2        : out STD_LOGIC;
         B1_CLK          : out STD_LOGIC;
         PREV_INSTR_OUT  : out STD_LOGIC_VECTOR(17 downto 0);
-        INSTR_OUT       : out STD_LOGIC_VECTOR(17 downto 0));
+        INSTR_OUT       : out STD_LOGIC_VECTOR(17 downto 0);
+        DATA_NOP        : out STD_LOGIC);
         
 end hazard_unit;
 
@@ -81,13 +82,8 @@ begin
         if(RISING_EDGE(CLK)) then
             s_prev_instr <= INSTR;
             s_temp_instr <= INSTR;
---            if (data_flag = "11") then
---                PC_CLK <= '1'; 
---                B1_CLK <= '1';
---                s_temp_instr(17 downto 13) <= "11111";--no op 
---                s_temp_instr(1 downto 0) <= "11";
---                s_prev_instr <= PREV_INSTR;
---                data_flag <= "00";
+            DATA_NOP <= '0';
+            
             if (data_flag = "10") then
                 PC_CLK <= '1';
                 B1_CLK <= '1';
@@ -97,15 +93,14 @@ begin
             elsif (data_flag = "01") then
                 PC_CLK <= '1';
                 B1_CLK <= '1';
---                s_temp_instr(17 downto 13) <= "11111";--no op 
---                s_temp_instr(1 downto 0) <= "11"
-                if (OP_HI = "00101" or OP_HI = "00100") then
-                    s_temp_instr <= INSTR;
-                    s_prev_instr <= INSTR;
-                else 
-                    s_temp_instr <= PREV_INSTR;
-                    s_prev_instr <= PREV_INSTR;
-                end if;
+                DATA_NOP <= '1';
+--                if (OP_HI = "00101" or OP_HI = "00100") then
+--                    s_temp_instr <= INSTR;
+--                    s_prev_instr <= INSTR;
+--                else 
+                s_temp_instr <= PREV_INSTR;
+                s_prev_instr <= PREV_INSTR;
+--                end if;
                 
                 data_flag <= "10";
             else
@@ -113,16 +108,12 @@ begin
                 B1_CLK <= '1';
             end if;
             if (data_ind = '1') then
-                    PC_CLK <= '0';
-                    B1_CLK <= '0';
-                    s_temp_instr(17 downto 13) <= "11111";--no op 
-                    s_temp_instr(1 downto 0) <= "11";
-                    data_flag <= "01";
+                PC_CLK <= '0';
+                B1_CLK <= '0';
+                s_temp_instr <= PREV_INSTR;
+                DATA_NOP <= '1';
+                data_flag <= "01";
             end if;
---            if (branch_ind = '1') then
---                    PC_CLK <= '0';
---                    branch_flag <= "01";
---            end if;
         end if;
     end process stall;
     

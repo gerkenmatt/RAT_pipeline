@@ -3,6 +3,8 @@
 ## - uncomment the lines corresponding to used pins
 ## - rename the used ports (in each line, after get_ports) according to the top level signal names in the project
 
+set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets rat/CPU/decode_buffer/exwr/my_alu/result_sig__125[0]]
+
 ## Clock signal
 set_property PACKAGE_PIN W5 [get_ports CLK]							
 	set_property IOSTANDARD LVCMOS33 [get_ports CLK]
@@ -119,8 +121,6 @@ set_property PACKAGE_PIN W19 [get_ports INT]
 #set_property PACKAGE_PIN U17 [get_ports btnD]						
 	#set_property IOSTANDARD LVCMOS33 [get_ports btnD]
  
-
-
 ##Pmod Header JA
 ##Sch name = JA1
 #set_property PACKAGE_PIN J1 [get_ports {BTEST}]					

@@ -10,15 +10,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="704140000fs"></ZoomStartTime>
-      <ZoomEndTime time="789840001fs"></ZoomEndTime>
-      <Cursor1Time time="709540000fs"></Cursor1Time>
+      <ZoomStartTime time="894000000fs"></ZoomStartTime>
+      <ZoomEndTime time="1021200001fs"></ZoomEndTime>
+      <Cursor1Time time="1000000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="111"></NameColumnWidth>
+      <NameColumnWidth column_width="107"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="15" />
+   <WVObjectSize size="21" />
    <wvobject fp_name="/CPU_SIM/CLK_tb" type="logic">
       <obj_property name="ElementShortName">CLK_tb</obj_property>
       <obj_property name="ObjectShortName">CLK_tb</obj_property>
@@ -43,15 +43,61 @@
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/decode/my_cu/OPCODE_HI_5" type="array">
+      <obj_property name="ElementShortName">OPCODE_HI_5[4:0]</obj_property>
+      <obj_property name="ObjectShortName">OPCODE_HI_5[4:0]</obj_property>
+      <obj_property name="CustomSignalColor">#008080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/IO_STRB_tb" type="logic">
+      <obj_property name="ElementShortName">IO_STRB_tb</obj_property>
+      <obj_property name="ObjectShortName">IO_STRB_tb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/decode/my_regfile/REG[6]" type="array">
+      <obj_property name="ElementShortName">[6][7:0]</obj_property>
+      <obj_property name="ObjectShortName">[6][7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/exwr/my_alu/A" type="array">
+      <obj_property name="ElementShortName">A[7:0]</obj_property>
+      <obj_property name="ObjectShortName">A[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/exwr/my_alu/B" type="array">
+      <obj_property name="ElementShortName">B[7:0]</obj_property>
+      <obj_property name="ObjectShortName">B[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/exwr/my_alu/CIN" type="logic">
+      <obj_property name="ElementShortName">CIN</obj_property>
+      <obj_property name="ObjectShortName">CIN</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/exwr/my_alu/SEL" type="array">
+      <obj_property name="ElementShortName">SEL[3:0]</obj_property>
+      <obj_property name="ObjectShortName">SEL[3:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/exwr/my_alu/RESULT" type="array">
+      <obj_property name="ElementShortName">RESULT[7:0]</obj_property>
+      <obj_property name="ObjectShortName">RESULT[7:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
    <wvobject fp_name="/CPU_SIM/uut/br_pred/BR_PC_LD" type="logic">
       <obj_property name="ElementShortName">BR_PC_LD</obj_property>
       <obj_property name="ObjectShortName">BR_PC_LD</obj_property>
       <obj_property name="CustomSignalColor">#0000FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/br_pred/s_pc_cnt_nt_prev" type="array">
-      <obj_property name="ElementShortName">s_pc_cnt_nt_prev[9:0]</obj_property>
-      <obj_property name="ObjectShortName">s_pc_cnt_nt_prev[9:0]</obj_property>
+   <wvobject fp_name="/CPU_SIM/uut/br_pred/BR_NOP_CU" type="logic">
+      <obj_property name="ElementShortName">BR_NOP_CU</obj_property>
+      <obj_property name="ObjectShortName">BR_NOP_CU</obj_property>
+      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject fp_name="/CPU_SIM/uut/br_pred/s_brn_wait" type="array">
       <obj_property name="ElementShortName">s_brn_wait[1:0]</obj_property>
@@ -79,23 +125,14 @@
       <obj_property name="ElementShortName">Z</obj_property>
       <obj_property name="ObjectShortName">Z</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/exwr/my_alu/A" type="array">
-      <obj_property name="ElementShortName">A[7:0]</obj_property>
-      <obj_property name="ObjectShortName">A[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/exwr/my_alu/B" type="array">
-      <obj_property name="ElementShortName">B[7:0]</obj_property>
-      <obj_property name="ObjectShortName">B[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/exwr/my_alu/SEL" type="array">
-      <obj_property name="ElementShortName">SEL[3:0]</obj_property>
-      <obj_property name="ObjectShortName">SEL[3:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
-   </wvobject>
    <wvobject fp_name="/CPU_SIM/uut/hazard/data_flag" type="array">
       <obj_property name="ElementShortName">data_flag[1:0]</obj_property>
       <obj_property name="ObjectShortName">data_flag[1:0]</obj_property>
       <obj_property name="CustomSignalColor">#800080</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/OUT_PORT_tb" type="array">
+      <obj_property name="ElementShortName">OUT_PORT_tb[7:0]</obj_property>
+      <obj_property name="ObjectShortName">OUT_PORT_tb[7:0]</obj_property>
    </wvobject>
 </wave_config>

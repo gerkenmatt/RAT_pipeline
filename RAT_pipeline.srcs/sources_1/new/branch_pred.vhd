@@ -42,6 +42,8 @@ entity branch_pred is
         PC_CNT_NT       : in  STD_LOGIC_VECTOR (9 downto 0);
         C               : in  STD_LOGIC;
         Z               : in  STD_LOGIC;
+        DATA_NOP        : in  STD_LOGIC;
+        
         PC_CNT_OUT      : out STD_LOGIC_VECTOR(9 downto 0);
         BR_PC_LD        : out STD_LOGIC;
         BR_NOP_CU       : out STD_LOGIC
@@ -61,14 +63,14 @@ architecture Behavioral of branch_pred is
     signal  s_br_pred_cu        : STD_LOGIC;
     signal  s_br_nop_stall      : STD_LOGIC;
     
-    TYPE state_type is (ST_EXEC, ST_INIT, ST_INT);
-    signal PS, NS : state_type;
+--    TYPE state_type is (ST_EXEC, ST_INIT, ST_INT);
+--    signal PS, NS : state_type;
     
     begin
     
         s_op <= OPCODE_HI_5 & OPCODE_LO_2;
         
-        sync_process: process(CLK, OPCODE_HI_5)
+        sync_process: process(CLK, OPCODE_HI_5, DATA_NOP)
             begin
                 if(FALLING_EDGE(CLK)) then
 --                    s_op_prev   <= s_op_tmp;    
@@ -81,7 +83,7 @@ architecture Behavioral of branch_pred is
                             BR_NOP_CU <= '1';
                             s_br_nop_stall <= '0';
                         end if;
-                        if (OPCODE_HI_5 = "00101" or OPCODE_HI_5 = "00100") then
+                        if ((OPCODE_HI_5 = "00101" or OPCODE_HI_5 = "00100") and DATA_NOP = '0') then
                             s_brn_wait          <= "01";
                             s_pc_cnt_t_prev     <= PC_CNT_T;
                             s_pc_cnt_nt_prev    <= PC_CNT_NT;  
@@ -97,13 +99,16 @@ architecture Behavioral of branch_pred is
                         --flush subsequent stages
                         --and return to previous state
                         s_brn_wait <= "00";
+--                        s_br_nop_stall <= '1';
+                        s_br_nop_stall <= '1';
                         case PREV_OP_CODE is
                             when "0010101" => -- BRCC
                                 if(C = '1') then
                                     BR_PC_LD <= '1';
                                     BR_NOP_CU  <= '1';
-                                    PC_CNT_OUT <= s_pc_cnt_nt_prev;    
+                                    PC_CNT_OUT <= s_pc_cnt_nt_prev ;    
                                     s_brn_wait <= "10";  
+                                    s_br_nop_stall <= '0';
                                 end if;
                             when "0010100" => -- BRCS
                                 if(C = '0') then
@@ -111,6 +116,7 @@ architecture Behavioral of branch_pred is
                                     BR_NOP_CU  <= '1';
                                     PC_CNT_OUT <= s_pc_cnt_nt_prev;
                                     s_brn_wait <= "10";
+                                    s_br_nop_stall <= '0';
                                 end if;
                             when "0010010" => -- BREQ
                                 if(Z = '0') then
@@ -118,6 +124,7 @@ architecture Behavioral of branch_pred is
                                     BR_NOP_CU  <= '1';
                                     PC_CNT_OUT <= s_pc_cnt_nt_prev;
                                     s_brn_wait <= "10";
+                                    s_br_nop_stall <= '0';
                                 end if;
                             when "0010011" => -- BRNE
                                 if(Z = '1') then 
@@ -125,6 +132,7 @@ architecture Behavioral of branch_pred is
                                     BR_NOP_CU  <= '1';
                                     PC_CNT_OUT <= s_pc_cnt_nt_prev;
                                     s_brn_wait <= "10";
+                                    s_br_nop_stall <= '0';
                                 end if;
                             when others => 
                                 BR_PC_LD <= '0';
