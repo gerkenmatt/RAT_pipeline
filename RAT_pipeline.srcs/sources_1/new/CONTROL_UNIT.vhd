@@ -200,9 +200,9 @@ comb_proc: process(op, PS, NS, INT, C, Z, BR_NOP, DATA_NOP)
 --                                PC_MUX_SEL  <= "00";
 --                            elsif(Z = '0') then
 --                            end if;
-                        when "0010000" => -- BRN
-                            PC_LD      <= '1';
-                            PC_MUX_SEL <= "00";
+--                        when "0010000" => -- BRN
+--                            PC_LD      <= '1';
+--                            PC_MUX_SEL <= "00";
 --                        when "0010011" => -- BRNE
 --                            if(Z = '0') then
 --                                PC_LD      <= '1';

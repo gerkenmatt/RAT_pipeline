@@ -64,12 +64,14 @@ signal s_p2_clk               : STD_LOGIC := '1';
 --signal data_run            : STD_LOGIC := '0';
 signal s_pc_ld              : STD_LOGIC_VECTOR(1 downto 0) := (others => '0');
 signal ophi : STD_LOGIC_VECTOR(4 downto 0):= (others => '0');
+signal opimm : STD_LOGIC:= '0';
 
 --signal test_ind            : STD_LOGIC := '0';
 alias src_reg : STD_LOGIC_VECTOR(4 downto 0) is INSTR (7 downto 3);
 alias cur_dst_reg : STD_LOGIC_VECTOR(4 downto 0) is INSTR (12 downto 8);
 alias dst_reg : STD_LOGIC_VECTOR(4 downto 0) is PREV_INSTR (12 downto 8);
 alias OP_HI : STD_LOGIC_VECTOR(4 downto 0) is INSTR (17 downto 13);
+alias OP_IMM : STD_LOGIC is INSTR (17);
 
 
 
@@ -121,9 +123,9 @@ begin
     comb2: process(CLK)
             begin
             if(FALLING_EDGE(CLK)) then
-                if ( ((src_reg = dst_reg) or (cur_dst_reg = dst_reg)) 
+                if ( (((src_reg = dst_reg) or (cur_dst_reg = dst_reg))) 
                         and PREV_INSTR /= "000000000000000000" 
-                        and (data_flag = "00") )
+                        and (data_flag = "00"))
 --                        and (OP_HI /="11011") 
 --                        and (OP_HI /="01100")) --TODO: handle CALL, RET, etc. (put control logic in branch pred unit?)s
                          then
@@ -139,6 +141,7 @@ begin
         end process comb2;
         
     ophi <= OP_HI;
+    opimm <= OP_IMM;
 --    s_p2_clk <=  (s_d_p2_clk AND s_b_p2_clk);
     INSTR_OUT       <= s_temp_instr;
     PREV_INSTR_OUT  <= s_prev_instr;
