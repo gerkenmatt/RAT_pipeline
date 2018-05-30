@@ -73,7 +73,6 @@ alias src_reg : STD_LOGIC_VECTOR(4 downto 0) is INSTR (7 downto 3);
 alias cur_dst_reg : STD_LOGIC_VECTOR(4 downto 0) is INSTR (12 downto 8);
 alias dst_reg : STD_LOGIC_VECTOR(4 downto 0) is PREV_INSTR (12 downto 8);
 alias OP_HI : STD_LOGIC_VECTOR(4 downto 0) is INSTR (17 downto 13);
-alias PREV_OP_HI : STD_LOGIC_VECTOR(4 downto 0) is PREV_INSTR (17 downto 13);
 alias OP_IMM : STD_LOGIC is INSTR (17);
 
 
@@ -122,12 +121,9 @@ begin
     comb2: process(CLK)
             begin
             if(FALLING_EDGE(CLK)) then
-                if ( (((src_reg = dst_reg) or (cur_dst_reg = dst_reg))) 
+                if ( (((src_reg = dst_reg and OP_IMM = '0') or (cur_dst_reg = dst_reg))) 
                         and PREV_INSTR /= "000000000000000000" 
-                        and (data_flag = "00") 
-                        and OP_HI /="00100"
-                        and OP_HI /="00101"
-                        and PREV_OP_HI /= "00100")
+                        and (data_flag = "00") and OP_HI /="00100")
 --                        and (OP_HI /="11011") 
 --                        and (OP_HI /="01100")) --TODO: handle CALL, RET, etc. (put control logic in branch pred unit?)s
                          then
