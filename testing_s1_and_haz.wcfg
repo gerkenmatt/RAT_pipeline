@@ -10,12 +10,12 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="1533000000fs"></ZoomStartTime>
-      <ZoomEndTime time="2398000001fs"></ZoomEndTime>
-      <Cursor1Time time="1765000000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="101000000001fs"></ZoomEndTime>
+      <Cursor1Time time="101000000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="103"></NameColumnWidth>
+      <NameColumnWidth column_width="99"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="14" />
@@ -42,10 +42,6 @@
       <obj_property name="Radix">BINARYRADIX</obj_property>
       <obj_property name="CustomSignalColor">#00FFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_SIM/IO_STRB_tb" type="logic">
-      <obj_property name="ElementShortName">IO_STRB_tb</obj_property>
-      <obj_property name="ObjectShortName">IO_STRB_tb</obj_property>
    </wvobject>
    <wvobject fp_name="/CPU_SIM/uut/br_pred/BR_PC_LD" type="logic">
       <obj_property name="ElementShortName">BR_PC_LD</obj_property>
@@ -94,5 +90,9 @@
    <wvobject fp_name="/CPU_SIM/OUT_PORT_tb" type="array">
       <obj_property name="ElementShortName">OUT_PORT_tb[7:0]</obj_property>
       <obj_property name="ObjectShortName">OUT_PORT_tb[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/IO_STRB_tb" type="logic">
+      <obj_property name="ElementShortName">IO_STRB_tb</obj_property>
+      <obj_property name="ObjectShortName">IO_STRB_tb</obj_property>
    </wvobject>
 </wave_config>
