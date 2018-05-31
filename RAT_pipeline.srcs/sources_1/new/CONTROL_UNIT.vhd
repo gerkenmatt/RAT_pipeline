@@ -17,6 +17,7 @@ entity CONTROL_UNIT is
            RESET         : in   STD_LOGIC;
            OPCODE_HI_5   : in   STD_LOGIC_VECTOR (4 downto 0);
            OPCODE_LO_2   : in   STD_LOGIC_VECTOR (1 downto 0);
+           INSTR         : in   STD_LOGIC_VECTOR (17 downto 0);
            BR_TAKE       : in   STD_LOGIC;
            BR_NOP        : in   STD_LOGIC;
            DATA_NOP      : in   STD_LOGIC;
@@ -74,7 +75,7 @@ sync_process: process(CLK, RESET)
         end if;
     end process sync_process;
     
-comb_proc: process(op, PS, NS, INT, C, Z, BR_NOP, DATA_NOP)
+comb_proc: process(INSTR, op, PS, NS, INT, C, Z)
     begin
 --        PC_INC        <= '0';  
         PC_MUX_SEL    <= "00";   PC_LD       <= '0';
@@ -210,8 +211,8 @@ comb_proc: process(op, PS, NS, INT, C, Z, BR_NOP, DATA_NOP)
 --                            elsif(Z = '1') then
 --                            end if;
                         when "0010001" => -- CALL
-                            PC_LD        <= '1';
-                            PC_MUX_SEL   <= "00";
+--                            PC_LD        <= '1';
+--                            PC_MUX_SEL   <= "00";
                             SP_LD        <= '0';
                             SP_INCR      <= '0';
                             SP_DECR      <= '1';

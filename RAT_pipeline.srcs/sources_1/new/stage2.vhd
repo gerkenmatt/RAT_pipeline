@@ -83,6 +83,7 @@ component CONTROL_UNIT
           RESET         : in   STD_LOGIC;
           OPCODE_HI_5   : in   STD_LOGIC_VECTOR (4 downto 0);
           OPCODE_LO_2   : in   STD_LOGIC_VECTOR (1 downto 0);
+          INSTR         : in   STD_LOGIC_VECTOR (17 downto 0);
           BR_TAKE       : in   STD_LOGIC;
           BR_NOP        : in   STD_LOGIC;
           DATA_NOP      : in   STD_LOGIC;
@@ -171,6 +172,7 @@ begin
               RESET         => RESET, 
               OPCODE_HI_5   => INSTRUCTION(17 downto 13), 
               OPCODE_LO_2   => INSTRUCTION(1  downto  0), 
+              INSTR         => INSTRUCTION,
               BR_TAKE       => BR_TAKE_CU,
               BR_NOP        => BR_NOP_CU,
               DATA_NOP      => DATA_NOP, 

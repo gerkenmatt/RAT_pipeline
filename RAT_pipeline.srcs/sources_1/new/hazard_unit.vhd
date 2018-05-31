@@ -127,7 +127,12 @@ begin
                         and (data_flag = "00") 
                         and OP_HI /="00100"
                         and OP_HI /="00101"
-                        and PREV_OP_HI /= "00100")
+                        and PREV_OP_HI /= "00100"
+                        and OP_HI /= "11111"
+                        and PREV_OP_HI /= "11111"
+                        and OP_HI /= "01100"
+                        and PREV_OP_HI /= "01100"
+                        )
 --                        and (OP_HI /="11011") 
 --                        and (OP_HI /="01100")) --TODO: handle CALL, RET, etc. (put control logic in branch pred unit?)s
                          then

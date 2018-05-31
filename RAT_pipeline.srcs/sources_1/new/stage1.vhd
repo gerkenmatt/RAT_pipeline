@@ -36,6 +36,7 @@ entity stage1 is
        FROM_STACK  : in  STD_LOGIC_VECTOR (9 downto 0);
        FROM_BR_PRED: in  STD_LOGIC_VECTOR (9 downto 0);
        BR_LD       : in  STD_LOGIC;
+       
        PC_COUNT    : out STD_LOGIC_VECTOR (9 downto 0);
        INSTRUCTION : out std_logic_vector(17 downto 0));
 end stage1;

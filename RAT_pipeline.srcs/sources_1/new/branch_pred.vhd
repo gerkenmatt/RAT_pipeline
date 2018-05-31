@@ -43,10 +43,12 @@ entity branch_pred is
         C               : in  STD_LOGIC;
         Z               : in  STD_LOGIC;
         DATA_NOP        : in  STD_LOGIC;
+        DATA_PC_EN      : in  STD_LOGIC;
         
         PC_CNT_OUT      : out STD_LOGIC_VECTOR(9 downto 0);
         BR_PC_LD        : out STD_LOGIC;
-        BR_NOP_CU       : out STD_LOGIC
+        BR_NOP_CU       : out STD_LOGIC;
+        INSTR_NULL      : out STD_LOGIC
         );
         
 end branch_pred;
@@ -62,6 +64,7 @@ architecture Behavioral of branch_pred is
     signal  s_pc_cnt_nt_prev    : STD_LOGIC_VECTOR(9 downto 0);
     signal  s_br_pred_cu        : STD_LOGIC;
     signal  s_br_nop_stall      : STD_LOGIC;
+    signal  s_ret_null_flag     : STD_LOGIC;
     
     TYPE state_type is (IDLE, BRN_VALID, BRN_STALL1, RET1, RET2, RET3, RET4, RET5, RET6, RET7);
     signal PS, NS : state_type;
@@ -69,8 +72,23 @@ architecture Behavioral of branch_pred is
     begin
     
         s_op <= OPCODE_HI_5 & OPCODE_LO_2;
+
+        
         sync_process: process(CLK, OPCODE_HI_5, DATA_NOP)
             begin
+                if (RISING_EDGE(CLK)) then
+                    INSTR_NULL <= '0';
+                    if ((OPCODE_HI_5 = "00101" or OPCODE_HI_5 = "00100" or s_op = "0110010")) then
+                        INSTR_NULL <= '1';
+                        if (s_op = "0110010" and DATA_PC_EN = '1') then
+                            s_ret_null_flag <= '1';
+                        end if;
+                    end if;
+                    if (s_ret_null_flag = '1') then
+                        INSTR_NULL <= '1';
+                        s_ret_null_flag <= '0';
+                    end if;
+                end if;
                 if(FALLING_EDGE(CLK)) then
 --                    s_op_prev   <= s_op_tmp;    
 --                    s_op_tmp    <= s_op;
@@ -80,18 +98,21 @@ architecture Behavioral of branch_pred is
                     case PS is
                         when IDLE =>                                           
                             if (s_br_nop_stall = '1') then
-                                BR_NOP_CU <= '1';
-                                s_br_nop_stall <= '0';
+                                 BR_NOP_CU <= '1';
+                                 s_br_nop_stall <= '0';
+                            end if;
+                            if (s_op = "0110010" and DATA_PC_EN = '1') then
+                                 BR_NOP_CU <= '0';
+                                 PS <= RET1;
                             end if;
                             if ((OPCODE_HI_5 = "00101" or OPCODE_HI_5 = "00100") and DATA_NOP = '0') then
-                                PS <= BRN_VALID;
-                                s_pc_cnt_t_prev     <= PC_CNT_T;
-                                s_pc_cnt_nt_prev    <= PC_CNT_NT;  
-                                
-                                --take the branch every time
-                                BR_PC_LD            <= '1';     
-                                PC_CNT_OUT          <= PC_CNT_T;   
-                                
+                                 PS <= BRN_VALID;
+                                 s_pc_cnt_t_prev     <= PC_CNT_T;
+                                 s_pc_cnt_nt_prev    <= PC_CNT_NT;  
+     --                            BR_NOP_CU <= '0';    
+                                 --take the branch every time
+                                 BR_PC_LD            <= '1';     
+                                 PC_CNT_OUT          <= PC_CNT_T;   
                             end if;
                         when BRN_VALID => 
      
@@ -99,8 +120,8 @@ architecture Behavioral of branch_pred is
                             --flush subsequent stages
                             --and return to previous state
                             PS <= IDLE;
-    --                        s_br_nop_stall <= '1';
-                            s_br_nop_stall <= '1';
+                            BR_NOP_CU <= '1';
+--                            s_br_nop_stall <= '1';
                             case PREV_OP_CODE is
                                 when "0010101" => -- BRCC
                                     if(C = '1') then
@@ -145,9 +166,32 @@ architecture Behavioral of branch_pred is
                           --send no op to alu
                           BR_PC_LD <= '0';
                           BR_NOP_CU  <= '1';
-                          s_br_nop_stall <= '1';
+                          s_br_nop_stall <= '0';
                           PS <= IDLE; 
-                    when others => 
+                    when RET1 => 
+                        s_ret_null_flag <= '1';
+                        BR_NOP_CU <= '0';
+                        PS <= RET2;
+                    when RET2 => 
+                        s_ret_null_flag <= '1';
+                        BR_NOP_CU <= '0';
+                        PS <= RET3;
+                    when RET3 => 
+--                        s_ret_null_flag <= '1';
+                        BR_NOP_CU <= '0';
+                        PS <= IDLE;
+                    when RET4 => 
+                        s_ret_null_flag <= '1';
+                        BR_NOP_CU <= '0';
+                        PS <= IDLE;
+                    when RET5 => 
+                        BR_NOP_CU <= '1';
+                        PS <= IDLE;
+                    when RET6 => 
+                        BR_NOP_CU <= '1';
+                        PS <= RET7;
+                    when RET7 => 
+                        BR_NOP_CU <= '1';
                         PS <= IDLE; 
                 end case; 
                                 
