@@ -58,6 +58,7 @@ architecture Behavioral of CONTROL_UNIT is
 TYPE state_type is (ST_EXEC, ST_INIT, ST_INT);
 signal PS, NS : state_type;
 
+
 signal op : STD_LOGIC_VECTOR(6 downto 0);
 
 begin
@@ -75,7 +76,7 @@ sync_process: process(CLK, RESET)
         end if;
     end process sync_process;
     
-comb_proc: process(INSTR, op, PS, NS, INT, C, Z)
+comb_proc: process(INSTR, op, PS, NS, INT, C, Z, DATA_NOP)
     begin
 --        PC_INC        <= '0';  
         PC_MUX_SEL    <= "00";   PC_LD       <= '0';
@@ -119,6 +120,8 @@ comb_proc: process(INSTR, op, PS, NS, INT, C, Z)
                     FLG_C_LD    <= '0';
                     FLG_Z_LD    <= '0';
                 elsif (DATA_NOP = '1') then 
+                    SP_DECR     <= '0';
+                    SP_INCR     <= '0';     
                     RF_WR       <= '0';
                     RF_WR_SEL   <= "00";
                     ALU_SEL     <= x"F";
@@ -126,6 +129,7 @@ comb_proc: process(INSTR, op, PS, NS, INT, C, Z)
                     FLG_LD_SEL  <= '0';
                     FLG_C_LD    <= '0';
                     FLG_Z_LD    <= '0';
+                    
                 else
                     case op is
                         when "0000100" => -- ADD RR

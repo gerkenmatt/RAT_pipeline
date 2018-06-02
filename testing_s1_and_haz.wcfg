@@ -10,12 +10,12 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="9789500000fs"></ZoomStartTime>
-      <ZoomEndTime time="9879200001fs"></ZoomEndTime>
-      <Cursor1Time time="9835000000fs"></Cursor1Time>
+      <ZoomStartTime time="7574499000fs"></ZoomStartTime>
+      <ZoomEndTime time="7575400001fs"></ZoomEndTime>
+      <Cursor1Time time="7575000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="87"></NameColumnWidth>
+      <NameColumnWidth column_width="83"></NameColumnWidth>
       <ValueColumnWidth column_width="58"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="21" />
@@ -60,6 +60,14 @@
       <obj_property name="CustomSignalColor">#0000FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/exwr/my_alu/A" type="array">
+      <obj_property name="ElementShortName">A[7:0]</obj_property>
+      <obj_property name="ObjectShortName">A[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_SIM/uut/exwr/my_alu/B" type="array">
+      <obj_property name="ElementShortName">B[7:0]</obj_property>
+      <obj_property name="ObjectShortName">B[7:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/CPU_SIM/uut/exwr/my_alu/SEL" type="array">
       <obj_property name="ElementShortName">SEL[3:0]</obj_property>
       <obj_property name="ObjectShortName">SEL[3:0]</obj_property>
@@ -67,17 +75,9 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="Radix">BINARYRADIX</obj_property>
    </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/exwr/my_flgs/FLG_C_SET" type="logic">
-      <obj_property name="ElementShortName">FLG_C_SET</obj_property>
-      <obj_property name="ObjectShortName">FLG_C_SET</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/br_pred/C" type="logic">
-      <obj_property name="ElementShortName">C</obj_property>
-      <obj_property name="ObjectShortName">C</obj_property>
-   </wvobject>
-   <wvobject fp_name="/CPU_SIM/uut/br_pred/C_SET" type="logic">
-      <obj_property name="ElementShortName">C_SET</obj_property>
-      <obj_property name="ObjectShortName">C_SET</obj_property>
+   <wvobject fp_name="/CPU_SIM/uut/exwr/my_alu/Z" type="logic">
+      <obj_property name="ElementShortName">Z</obj_property>
+      <obj_property name="ObjectShortName">Z</obj_property>
    </wvobject>
    <wvobject fp_name="/CPU_SIM/uut/decode/my_regfile/REG[0]" type="array">
       <obj_property name="ElementShortName">[0][7:0]</obj_property>
