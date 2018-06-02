@@ -227,7 +227,8 @@ architecture Behavioral of RAT_CPU is
             PC_CNT_OUT      : out STD_LOGIC_VECTOR(9 downto 0);
             BR_PC_LD        : out STD_LOGIC;
             BR_NOP_CU       : out STD_LOGIC;
-            INSTR_NULL      : out STD_LOGIC
+            INSTR_NULL      : out STD_LOGIC;
+            INSTR_NULL2     : out STD_LOGIC
             );
             
     end component;
@@ -382,6 +383,7 @@ signal s_rst : STD_LOGIC;
    signal s_br_nop_cu   : STD_LOGIC;
    signal s_br_prev_op  : STD_LOGIC_VECTOR (6 downto 0) := (others => '0');
    signal s_instr_null  : STD_LOGIC := '0';
+   signal s_instr_null2 : STD_LOGIC := '0';
    
 -----------------------------------------------------------------
 
@@ -591,11 +593,13 @@ br_pred : branch_pred
             PC_CNT_OUT      => s_br_alt, 
             BR_PC_LD        => s_br_ld, 
             BR_NOP_CU       => s_br_nop_cu,
-            INSTR_NULL      => s_instr_null
+            INSTR_NULL      => s_instr_null,
+            INSTR_NULL2     => s_instr_null2
             );
 
-    INSTRUCTION_sig <= s_instr when (s_instr_null = '0') else
+    INSTRUCTION_sig <= s_instr when (s_instr_null = '0' and s_instr_null2 = '0') else
                         (others => '1');
+                        
 
     
    -- RF_D_IN_WR_sig <= RF_D_IN_sig;

@@ -4,7 +4,8 @@
 ## - rename the used ports (in each line, after get_ports) according to the top level signal names in the project
 
 set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets rat/CPU/decode_buffer/exwr/my_alu/result_sig__125[0]]
-
+#set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets rat/CPU/decode_buffer/Z_FLAG_alu_sig]
+#set_property ALLOW_COMBINATORIAL_LOOPS TRUE [get_nets rat/CPU/decode_buffer/FSM_sequential_PS[1]_i_7]
 ## Clock signal
 set_property PACKAGE_PIN W5 [get_ports CLK]							
 	set_property IOSTANDARD LVCMOS33 [get_ports CLK]
