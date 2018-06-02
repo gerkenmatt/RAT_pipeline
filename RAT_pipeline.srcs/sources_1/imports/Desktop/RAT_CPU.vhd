@@ -221,6 +221,8 @@ architecture Behavioral of RAT_CPU is
             PC_CNT_T        : in  STD_LOGIC_VECTOR (9 downto 0);
             PC_CNT_NT       : in  STD_LOGIC_VECTOR (9 downto 0);
             C               : in  STD_LOGIC;
+            C_SET           : in  STD_LOGIC;
+            
             Z               : in  STD_LOGIC;
             DATA_NOP        : in  STD_LOGIC;
             DATA_PC_EN      : in  STD_LOGIC;
@@ -587,6 +589,7 @@ br_pred : branch_pred
             PC_CNT_T        => INSTRUCTION_sig(12 downto 3), 
             PC_CNT_NT       => PC_COUNT_sig, 
             C               => C_FLAG_alu_sig,
+            C_SET           => s_buff2_flg_c_set,--FLG_C_SET_sig,
             Z               => Z_FLAG_alu_sig,
             DATA_NOP        => s_data_nop,
             DATA_PC_EN      => s_pc_clk, 

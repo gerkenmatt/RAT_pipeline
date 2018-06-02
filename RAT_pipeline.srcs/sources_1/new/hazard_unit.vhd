@@ -67,12 +67,15 @@ signal ophi : STD_LOGIC_VECTOR(4 downto 0):= (others => '0');
 signal opimm : STD_LOGIC:= '0';
 
 signal src_flag : STD_LOGIC := '0';
+signal s_op : STD_LOGIC_VECTOR(6 downto 0) := (others => '0');
 
 --signal test_ind            : STD_LOGIC := '0';
 alias src_reg : STD_LOGIC_VECTOR(4 downto 0) is INSTR (7 downto 3);
 alias cur_dst_reg : STD_LOGIC_VECTOR(4 downto 0) is INSTR (12 downto 8);
 alias dst_reg : STD_LOGIC_VECTOR(4 downto 0) is PREV_INSTR (12 downto 8);
+
 alias OP_HI : STD_LOGIC_VECTOR(4 downto 0) is INSTR (17 downto 13);
+alias OP_LO : STD_LOGIC_VECTOR(1 downto 0) is INSTR (1 downto 0);
 alias PREV_OP_HI : STD_LOGIC_VECTOR(4 downto 0) is PREV_INSTR (17 downto 13);
 alias OP_IMM : STD_LOGIC is INSTR (17);
 
@@ -84,6 +87,8 @@ begin
 
     stall: process(CLK)
     begin
+        s_op <= OP_HI & OP_LO;
+    
         if(RISING_EDGE(CLK)) then
             s_prev_instr <= INSTR;
             s_temp_instr <= INSTR;
@@ -131,6 +136,7 @@ begin
                         and OP_HI /= "11111"
                         and PREV_OP_HI /= "11111"
                         and OP_HI /= "01100"
+--                        and s_op /= "0110010"
                         and PREV_OP_HI /= "01100"
                         )
 --                        and (OP_HI /="11011") 

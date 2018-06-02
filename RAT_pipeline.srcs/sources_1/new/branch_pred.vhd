@@ -41,6 +41,7 @@ entity branch_pred is
         PC_CNT_T        : in  STD_LOGIC_VECTOR (9 downto 0);
         PC_CNT_NT       : in  STD_LOGIC_VECTOR (9 downto 0);
         C               : in  STD_LOGIC;
+        C_SET           : in  STD_LOGIC;
         Z               : in  STD_LOGIC;
         DATA_NOP        : in  STD_LOGIC;
         DATA_PC_EN      : in  STD_LOGIC;
@@ -145,7 +146,7 @@ architecture Behavioral of branch_pred is
                                         s_br_nop_stall <= '0';
                                     end if;
                                 when "0010100" => -- BRCS
-                                    if(C = '0') then
+                                    if(C = '0' and C_SET = '0') then
                                         BR_PC_LD <= '1';
                                         BR_NOP_CU  <= '1';
                                         PC_CNT_OUT <= s_pc_cnt_nt_prev;
