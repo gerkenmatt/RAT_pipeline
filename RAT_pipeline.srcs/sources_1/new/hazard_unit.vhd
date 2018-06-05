@@ -77,6 +77,7 @@ alias dst_reg : STD_LOGIC_VECTOR(4 downto 0) is PREV_INSTR (12 downto 8);
 alias OP_HI : STD_LOGIC_VECTOR(4 downto 0) is INSTR (17 downto 13);
 alias OP_LO : STD_LOGIC_VECTOR(1 downto 0) is INSTR (1 downto 0);
 alias PREV_OP_HI : STD_LOGIC_VECTOR(4 downto 0) is PREV_INSTR (17 downto 13);
+alias PREV_OP_LO : STD_LOGIC_VECTOR(1 downto 0) is PREV_INSTR (1 downto 0);
 alias OP_IMM : STD_LOGIC is INSTR (17);
 
 
@@ -119,6 +120,9 @@ begin
                 s_temp_instr <= PREV_INSTR;
                 DATA_NOP <= '1';
                 data_flag <= "01";
+            end if;
+            if ((PREV_OP_HI = "00100" and PREV_OP_LO = "00")) then
+                s_temp_instr <= (others => '1');
             end if;
         end if;
     end process stall;

@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Fri Jun  1 20:51:08 2018
+| Date             : Tue Jun  5 09:54:55 2018
 | Host             : LAPTOP-PQR7H391 running 64-bit major release  (build 9200)
 | Command          : report_power -file SYS_WRAPPER_power_routed.rpt -pb SYS_WRAPPER_power_summary_routed.pb -rpx SYS_WRAPPER_power_routed.rpx
 | Design           : SYS_WRAPPER
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.110        |
+| Total On-Chip Power (W)  | 0.109        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.038        |
+| Dynamic (W)              | 0.037        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.5         |
@@ -53,19 +53,19 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |    <0.001 |        3 |       --- |             --- |
-| Slice Logic              |     0.006 |     2441 |       --- |             --- |
-|   LUT as Logic           |     0.005 |     1493 |     20800 |            7.18 |
+| Slice Logic              |     0.006 |     2435 |       --- |             --- |
+|   LUT as Logic           |     0.005 |     1495 |     20800 |            7.19 |
 |   CARRY4                 |    <0.001 |      180 |      8150 |            2.21 |
 |   LUT as Distributed RAM |    <0.001 |       56 |      9600 |            0.58 |
-|   Register               |    <0.001 |      271 |     41600 |            0.65 |
-|   F7/F8 Muxes            |    <0.001 |       49 |     32600 |            0.15 |
+|   Register               |    <0.001 |      261 |     41600 |            0.63 |
+|   F7/F8 Muxes            |    <0.001 |       48 |     32600 |            0.15 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
 |   Others                 |     0.000 |       38 |       --- |             --- |
-| Signals                  |     0.006 |     2053 |       --- |             --- |
+| Signals                  |     0.006 |     2040 |       --- |             --- |
 | Block RAM                |    <0.001 |      0.5 |        50 |            1.00 |
 | I/O                      |     0.025 |       47 |       106 |           44.34 |
 | Static Power             |     0.072 |          |           |                 |
-| Total                    |     0.110 |          |           |                 |
+| Total                    |     0.109 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -144,7 +144,7 @@ Table of Contents
 +-------------------------------+-----------+
 | Name                          | Power (W) |
 +-------------------------------+-----------+
-| SYS_WRAPPER                   |     0.038 |
+| SYS_WRAPPER                   |     0.037 |
 |   div                         |    <0.001 |
 |   my_debouncer                |    <0.001 |
 |     bounce_counter            |    <0.001 |
