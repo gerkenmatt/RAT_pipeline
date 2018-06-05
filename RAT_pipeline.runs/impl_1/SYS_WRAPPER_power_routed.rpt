@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date             : Tue Jun  5 09:54:55 2018
+| Date             : Tue Jun  5 11:00:18 2018
 | Host             : LAPTOP-PQR7H391 running 64-bit major release  (build 9200)
 | Command          : report_power -file SYS_WRAPPER_power_routed.rpt -pb SYS_WRAPPER_power_summary_routed.pb -rpx SYS_WRAPPER_power_routed.rpx
 | Design           : SYS_WRAPPER
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.109        |
+| Total On-Chip Power (W)  | 0.110        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.037        |
+| Dynamic (W)              | 0.038        |
 | Device Static (W)        | 0.072        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 84.5         |
@@ -53,19 +53,19 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |    <0.001 |        3 |       --- |             --- |
-| Slice Logic              |     0.006 |     2435 |       --- |             --- |
-|   LUT as Logic           |     0.005 |     1495 |     20800 |            7.19 |
+| Slice Logic              |     0.006 |     2458 |       --- |             --- |
+|   LUT as Logic           |     0.005 |     1500 |     20800 |            7.21 |
 |   CARRY4                 |    <0.001 |      180 |      8150 |            2.21 |
 |   LUT as Distributed RAM |    <0.001 |       56 |      9600 |            0.58 |
-|   Register               |    <0.001 |      261 |     41600 |            0.63 |
+|   Register               |    <0.001 |      281 |     41600 |            0.68 |
 |   F7/F8 Muxes            |    <0.001 |       48 |     32600 |            0.15 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
 |   Others                 |     0.000 |       38 |       --- |             --- |
-| Signals                  |     0.006 |     2040 |       --- |             --- |
+| Signals                  |     0.007 |     2083 |       --- |             --- |
 | Block RAM                |    <0.001 |      0.5 |        50 |            1.00 |
-| I/O                      |     0.025 |       47 |       106 |           44.34 |
+| I/O                      |     0.024 |       47 |       106 |           44.34 |
 | Static Power             |     0.072 |          |           |                 |
-| Total                    |     0.109 |          |           |                 |
+| Total                    |     0.110 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,8 +75,8 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.023 |       0.013 |      0.010 |
-| Vccaux    |       1.800 |     0.014 |       0.001 |      0.013 |
+| Vccint    |       1.000 |     0.024 |       0.014 |      0.010 |
+| Vccaux    |       1.800 |     0.013 |       0.001 |      0.013 |
 | Vcco33    |       3.300 |     0.008 |       0.007 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
@@ -144,7 +144,7 @@ Table of Contents
 +-------------------------------+-----------+
 | Name                          | Power (W) |
 +-------------------------------+-----------+
-| SYS_WRAPPER                   |     0.037 |
+| SYS_WRAPPER                   |     0.038 |
 |   div                         |    <0.001 |
 |   my_debouncer                |    <0.001 |
 |     bounce_counter            |    <0.001 |
@@ -160,7 +160,7 @@ Table of Contents
 |           REG_reg_r1_0_31_6_7 |    <0.001 |
 |           REG_reg_r2_0_31_0_5 |    <0.001 |
 |           REG_reg_r2_0_31_6_7 |    <0.001 |
-|       decode_buffer           |     0.002 |
+|       decode_buffer           |     0.003 |
 |       exwr                    |    <0.001 |
 |         my_SCR                |    <0.001 |
 |           REG_reg_0_255_0_0   |    <0.001 |

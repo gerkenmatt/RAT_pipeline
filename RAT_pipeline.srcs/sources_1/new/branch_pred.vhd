@@ -99,6 +99,10 @@ architecture Behavioral of branch_pred is
                         INSTR_NULL <= '1';
                         s_ret_null_flag <= '0';
                     end if;
+                    if (s_brn_null_flag = '1') then
+                        INSTR_NULL <= '1';
+                        s_brn_null_flag <= '0';
+                    end if;
                 end if;
                 if(FALLING_EDGE(CLK)) then
 --                    s_op_prev   <= s_op_tmp;    
@@ -107,6 +111,7 @@ architecture Behavioral of branch_pred is
 --                    BR_NOP_CU   <= '0';         
                     BR_NOP_CU  <= '0';  
                     INSTR_NULL2 <= '0'; 
+                    s_brn_null_flag <= '0';
                     case PS is
                         when IDLE =>                                           
                             if (s_br_nop_stall = '1') then
@@ -119,11 +124,42 @@ architecture Behavioral of branch_pred is
                             end if;
                             if ((OPCODE_HI_5 = "00101" or OPCODE_HI_5 = "00100") and DATA_NOP = '0') then
                                  PS <= BRN_VALID;
-                                 -- take the branch every time
                                  s_pc_cnt_t_prev     <= PC_CNT_T;
                                  s_pc_cnt_nt_prev    <= PC_CNT_NT;  
                                  BR_PC_LD           <= '1';     
-                                 PC_CNT_OUT          <= PC_CNT_T;   
+                                 PC_CNT_OUT          <= PC_CNT_T; 
+                                 s_brn_null_flag <= '1';
+                                 
+                                 case s_op is
+                                     when "0010101" => -- BRCC --taken
+                                          s_pc_cnt_t_prev     <= PC_CNT_T;
+                                          s_pc_cnt_nt_prev    <= PC_CNT_NT;  
+                                          BR_PC_LD           <= '1';     
+                                          PC_CNT_OUT          <= PC_CNT_T; 
+                                     when "0010100" => -- BRCS -- not taken
+                                        s_pc_cnt_t_prev     <= PC_CNT_T;
+                                        s_pc_cnt_nt_prev    <= PC_CNT_NT;  
+                                        BR_PC_LD           <= '0';     
+                                        PC_CNT_OUT          <= PC_CNT_NT; 
+                                     when "0010010" => -- BREQ --not taken
+                                         s_pc_cnt_t_prev     <= PC_CNT_T;
+                                          s_pc_cnt_nt_prev    <= PC_CNT_NT;  
+                                          BR_PC_LD           <= '0';     
+                                          PC_CNT_OUT          <= PC_CNT_NT; 
+                                     when "0010011" => -- BRNE --taken
+                                         s_pc_cnt_t_prev     <= PC_CNT_T;
+                                          s_pc_cnt_nt_prev    <= PC_CNT_NT;  
+                                          BR_PC_LD           <= '1';     
+                                          PC_CNT_OUT          <= PC_CNT_T; 
+                                     when others => 
+                                        s_pc_cnt_t_prev     <= PC_CNT_T;
+                                        s_pc_cnt_nt_prev    <= PC_CNT_NT;  
+                                        BR_PC_LD           <= '1';     
+                                        PC_CNT_OUT          <= PC_CNT_T;  
+                                         
+                                 end case;
+                                 -- take the branch every time
+  
                             end if;
                         when BRN_VALID => 
      
@@ -138,7 +174,7 @@ architecture Behavioral of branch_pred is
                             end if;
                             case PREV_OP_CODE is
                                 when "0010101" => -- BRCC
-                                    if(C = '1') then
+                                    if(C = '1') then --if not taken
                                         BR_PC_LD <= '1';
                                         BR_NOP_CU  <= '1';
                                         PC_CNT_OUT <= s_pc_cnt_nt_prev ;    
@@ -146,23 +182,23 @@ architecture Behavioral of branch_pred is
                                         s_br_nop_stall <= '0';
                                     end if;
                                 when "0010100" => -- BRCS
-                                    if(C = '0' and C_SET = '0') then
+                                    if(C = '1' or C_SET = '1') then --if taken
                                         BR_PC_LD <= '1';
                                         BR_NOP_CU  <= '1';
-                                        PC_CNT_OUT <= s_pc_cnt_nt_prev;
+                                        PC_CNT_OUT <= s_pc_cnt_t_prev;
                                         PS <= BRN_STALL1; 
                                         s_br_nop_stall <= '0';
                                     end if;
                                 when "0010010" => -- BREQ
-                                    if(Z = '0') then
+                                    if(Z = '1') then -- if taken
                                         BR_PC_LD  <= '1';
                                         BR_NOP_CU  <= '1';
-                                        PC_CNT_OUT <= s_pc_cnt_nt_prev;
+                                        PC_CNT_OUT <= s_pc_cnt_t_prev;
                                         PS <= BRN_STALL1; 
                                         s_br_nop_stall <= '0';
                                     end if;
                                 when "0010011" => -- BRNE
-                                    if(Z = '1') then 
+                                    if(Z = '1') then --if not taken
                                         BR_PC_LD  <= '1';
                                         BR_NOP_CU  <= '1';
                                         PC_CNT_OUT <= s_pc_cnt_nt_prev;

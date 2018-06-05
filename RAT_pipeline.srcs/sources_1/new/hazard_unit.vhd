@@ -121,9 +121,9 @@ begin
                 DATA_NOP <= '1';
                 data_flag <= "01";
             end if;
-            if ((PREV_OP_HI = "00100" and PREV_OP_LO = "00")) then
-                s_temp_instr <= (others => '1');
-            end if;
+--            if ((PREV_OP_HI = "00100" and PREV_OP_LO = "00")) then
+--                s_temp_instr <= (others => '1');
+--            end if;
         end if;
     end process stall;
     
