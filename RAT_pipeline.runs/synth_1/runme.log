@@ -14,9 +14,15 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: Launching helper process for spawning children vivado processes
+<<<<<<< HEAD
 INFO: Helper process launched with PID 4680 
 ---------------------------------------------------------------------------------
 Starting RTL Elaboration : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 345.875 ; gain = 101.957
+=======
+INFO: Helper process launched with PID 3540 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 346.070 ; gain = 102.102
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'SYS_WRAPPER' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:23]
 INFO: [Synth 8-3491] module 'RAT_wrapper' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_WRAPPER.vhd:9' bound to instance 'rat' of component 'RAT_wrapper' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:79]
@@ -174,8 +180,12 @@ WARNING: [Synth 8-6014] Unused sequential element B1_CLK_reg was removed.  [C:/U
 INFO: [Synth 8-256] done synthesizing module 'hazard_unit' (19#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/hazard_unit.vhd:50]
 INFO: [Synth 8-3491] module 'branch_pred' declared at 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/branch_pred.vhd:36' bound to instance 'br_pred' of component 'branch_pred' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:584]
 INFO: [Synth 8-638] synthesizing module 'branch_pred' [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/branch_pred.vhd:59]
+<<<<<<< HEAD
 WARNING: [Synth 8-6014] Unused sequential element s_brn_null_flag_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/branch_pred.vhd:102]
 WARNING: [Synth 8-6014] Unused sequential element s_pc_cnt_t_prev_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/branch_pred.vhd:127]
+=======
+WARNING: [Synth 8-6014] Unused sequential element s_pc_cnt_t_prev_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/branch_pred.vhd:123]
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 INFO: [Synth 8-256] done synthesizing module 'branch_pred' (20#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/branch_pred.vhd:59]
 INFO: [Synth 8-256] done synthesizing module 'RAT_CPU' (21#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_CPU.vhd:22]
 INFO: [Synth 8-256] done synthesizing module 'RAT_wrapper' (22#1) [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/Desktop/RAT_WRAPPER.vhd:20]
@@ -229,7 +239,11 @@ WARNING: [Synth 8-3331] design CONTROL_UNIT has unconnected port INSTR[1]
 WARNING: [Synth 8-3331] design CONTROL_UNIT has unconnected port INSTR[0]
 WARNING: [Synth 8-3331] design CONTROL_UNIT has unconnected port BR_TAKE
 ---------------------------------------------------------------------------------
+<<<<<<< HEAD
 Finished RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:30 . Memory (MB): peak = 405.375 ; gain = 161.457
+=======
+Finished RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 405.355 ; gain = 161.387
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -239,7 +253,11 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
+<<<<<<< HEAD
 Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:31 . Memory (MB): peak = 405.375 ; gain = 161.457
+=======
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 405.355 ; gain = 161.387
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -264,22 +282,36 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 1 instances were transformed.
   RAMB16_S18 => RAMB18E1: 1 instances
 
+<<<<<<< HEAD
 Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 738.828 ; gain = 0.000
 ---------------------------------------------------------------------------------
 Finished Constraint Validation : Time (s): cpu = 00:00:46 ; elapsed = 00:01:05 . Memory (MB): peak = 738.828 ; gain = 494.910
+=======
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 738.746 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 738.746 ; gain = 494.777
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-1
 ---------------------------------------------------------------------------------
+<<<<<<< HEAD
 Finished Loading Part and Timing Information : Time (s): cpu = 00:00:46 ; elapsed = 00:01:06 . Memory (MB): peak = 738.828 ; gain = 494.910
+=======
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 738.746 ; gain = 494.777
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
+<<<<<<< HEAD
 Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:46 ; elapsed = 00:01:07 . Memory (MB): peak = 738.828 ; gain = 494.910
+=======
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 738.746 ; gain = 494.777
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-6014] Unused sequential element count_sig_reg was removed.  [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 3 ProgramCounter/ProgramCounter.srcs/sources_1/new/ProgramCounter.vhd:39]
 INFO: [Synth 8-5546] ROM "PC_LD" won't be mapped to RAM because it is too sparse
@@ -343,7 +375,11 @@ INFO: [Synth 8-3354] encoded FSM with state register 'PS_reg' using encoding 'se
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'PS_reg' using encoding 'sequential' in module 'db_1shot_FSM'
 ---------------------------------------------------------------------------------
+<<<<<<< HEAD
 Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:49 ; elapsed = 00:01:13 . Memory (MB): peak = 738.828 ; gain = 494.910
+=======
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 738.746 ; gain = 494.777
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -407,9 +443,15 @@ Detailed RTL Component Info :
 	   2 Input      2 Bit        Muxes := 16    
 	  44 Input      1 Bit        Muxes := 12    
 	   4 Input      1 Bit        Muxes := 18    
+<<<<<<< HEAD
 	   2 Input      1 Bit        Muxes := 85    
 	   5 Input      1 Bit        Muxes := 2     
 	   6 Input      1 Bit        Muxes := 13    
+=======
+	   2 Input      1 Bit        Muxes := 84    
+	   5 Input      1 Bit        Muxes := 2     
+	   6 Input      1 Bit        Muxes := 12    
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -517,9 +559,15 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   6 Input     10 Bit        Muxes := 1     
 	  16 Input      3 Bit        Muxes := 1     
+<<<<<<< HEAD
 	   2 Input      1 Bit        Muxes := 7     
 	   5 Input      1 Bit        Muxes := 2     
 	   6 Input      1 Bit        Muxes := 10    
+=======
+	   2 Input      1 Bit        Muxes := 6     
+	   5 Input      1 Bit        Muxes := 2     
+	   6 Input      1 Bit        Muxes := 9     
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 Module RAT_CPU 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -638,7 +686,11 @@ WARNING: [Synth 8-3332] Sequential element (rat/CPU/exwr/my_flgs/SHAD_Z/OUT_FLAG
 WARNING: [Synth 8-3332] Sequential element (rat/CPU/decode_buffer/s_FLG_Z_LD_IN_reg) is unused and will be removed from module SYS_WRAPPER.
 INFO: [Synth 8-3886] merging instance 'rat/CPU/decode_buffer/s_FLG_SHAD_LD_IN_reg' (FD) to 'rat/CPU/decode_buffer/s_PC_MUX_SEL_IN_reg[1]'
 ---------------------------------------------------------------------------------
+<<<<<<< HEAD
 Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:49 ; elapsed = 00:03:16 . Memory (MB): peak = 738.828 ; gain = 494.910
+=======
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:38 ; elapsed = 00:02:42 . Memory (MB): peak = 738.746 ; gain = 494.777
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -681,12 +733,17 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
+<<<<<<< HEAD
 Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:06 ; elapsed = 00:03:33 . Memory (MB): peak = 768.512 ; gain = 524.594
+=======
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:54 ; elapsed = 00:02:59 . Memory (MB): peak = 772.520 ; gain = 528.551
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 Found timing loop:
+<<<<<<< HEAD
      0: i_9/i_225/Z (MUX1)
      1: i_9/i_225/B (MUX1)
      2: i_9/i_209/O (GATE_2_2)
@@ -710,6 +767,29 @@ CRITICAL WARNING: [Synth 8-295] found timing loop. [C:/Users/gerke/workspace/RAT
 Inferred a: "set_disable_timing -from B -to Z i_9/i_225"
 ---------------------------------------------------------------------------------
 Finished Timing Optimization : Time (s): cpu = 00:03:07 ; elapsed = 00:03:33 . Memory (MB): peak = 791.406 ; gain = 547.488
+=======
+     0: i_10/i_236/Z (MUX1)
+     1: i_10/i_236/B (MUX1)
+     2: i_10/i_223/Z (MUX1)
+     3: i_10/i_223/A (MUX1)
+     4: i_10/i_349/O (GATE_2_2)
+     5: i_10/i_349/I0 (GATE_2_2)
+     6: i_10/i_348/O (GATE_2_14_OR)
+     7: i_10/i_348/I1 (GATE_2_14_OR)
+     8: i_10/i_347/O (GATE_2_2)
+     9: i_10/i_347/I0 (GATE_2_2)
+    10: i_10/i_346/O (GATE_2_2)
+    11: i_10/i_346/I1 (GATE_2_2)
+    12: i_10/i_256/O (GATE_2_14_OR)
+    13: i_10/i_256/I0 (GATE_2_14_OR)
+    14: i_10/i_255/O (GATE_2_14_OR)
+    15: i_10/i_255/I1 (GATE_2_14_OR)
+    16: i_10/i_236/Z (MUX1)
+CRITICAL WARNING: [Synth 8-295] found timing loop. [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/imports/CPE 233/Exp. 6 ALU/Exp. 6 ALU.srcs/sources_1/new/ALU.vhd:60]
+Inferred a: "set_disable_timing -from B -to Z i_10/i_236"
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:02:55 ; elapsed = 00:02:59 . Memory (MB): peak = 794.922 ; gain = 550.953
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -736,6 +816,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 Found timing loop:
+<<<<<<< HEAD
      0: i_1451/O (LUT5)
      1: i_1451/I4 (LUT5)
      2: i_1455/O (LUT4)
@@ -751,6 +832,23 @@ CRITICAL WARNING: [Synth 8-295] found timing loop. [C:/Users/gerke/workspace/RAT
 Inferred a: "set_disable_timing -from I4 -to O i_1451"
 ---------------------------------------------------------------------------------
 Finished Technology Mapping : Time (s): cpu = 00:03:09 ; elapsed = 00:03:35 . Memory (MB): peak = 832.617 ; gain = 588.699
+=======
+     0: i_1450/O (LUT5)
+     1: i_1450/I4 (LUT5)
+     2: i_1451/O (LUT4)
+     3: i_1451/I0 (LUT4)
+     4: i_1725/O (LUT3)
+     5: i_1725/I2 (LUT3)
+     6: i_1446/O (MUXF7)
+     7: i_1446/I1 (MUXF7)
+     8: i_1447/O (LUT5)
+     9: i_1447/I0 (LUT5)
+    10: i_1450/O (LUT5)
+CRITICAL WARNING: [Synth 8-295] found timing loop. [C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.srcs/sources_1/new/SYS_WRAPPER.vhd:13]
+Inferred a: "set_disable_timing -from I4 -to O i_1450"
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:02:57 ; elapsed = 00:03:01 . Memory (MB): peak = 853.512 ; gain = 609.543
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -774,7 +872,11 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
+<<<<<<< HEAD
 Finished IO Insertion : Time (s): cpu = 00:03:11 ; elapsed = 00:03:38 . Memory (MB): peak = 832.617 ; gain = 588.699
+=======
+Finished IO Insertion : Time (s): cpu = 00:02:59 ; elapsed = 00:03:04 . Memory (MB): peak = 853.512 ; gain = 609.543
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -787,7 +889,11 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
+<<<<<<< HEAD
 Finished Renaming Generated Instances : Time (s): cpu = 00:03:11 ; elapsed = 00:03:38 . Memory (MB): peak = 832.617 ; gain = 588.699
+=======
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:59 ; elapsed = 00:03:04 . Memory (MB): peak = 853.512 ; gain = 609.543
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -799,25 +905,41 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
+<<<<<<< HEAD
 Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:12 ; elapsed = 00:03:39 . Memory (MB): peak = 832.617 ; gain = 588.699
+=======
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:03:00 ; elapsed = 00:03:04 . Memory (MB): peak = 853.512 ; gain = 609.543
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
+<<<<<<< HEAD
 Finished Renaming Generated Ports : Time (s): cpu = 00:03:13 ; elapsed = 00:03:40 . Memory (MB): peak = 832.617 ; gain = 588.699
+=======
+Finished Renaming Generated Ports : Time (s): cpu = 00:03:01 ; elapsed = 00:03:05 . Memory (MB): peak = 853.512 ; gain = 609.543
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
+<<<<<<< HEAD
 Finished Handling Custom Attributes : Time (s): cpu = 00:03:13 ; elapsed = 00:03:40 . Memory (MB): peak = 832.617 ; gain = 588.699
+=======
+Finished Handling Custom Attributes : Time (s): cpu = 00:03:01 ; elapsed = 00:03:05 . Memory (MB): peak = 853.512 ; gain = 609.543
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
+<<<<<<< HEAD
 Finished Renaming Generated Nets : Time (s): cpu = 00:03:13 ; elapsed = 00:03:40 . Memory (MB): peak = 832.617 ; gain = 588.699
+=======
+Finished Renaming Generated Nets : Time (s): cpu = 00:03:01 ; elapsed = 00:03:05 . Memory (MB): peak = 853.512 ; gain = 609.543
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -836,19 +958,33 @@ Report Cell Usage:
 |1     |BUFG       |     2|
 |2     |CARRY4     |   180|
 |3     |LUT1       |   108|
+<<<<<<< HEAD
 |4     |LUT2       |   518|
 |5     |LUT3       |   339|
 |6     |LUT4       |    98|
 |7     |LUT5       |   340|
 |8     |LUT6       |   505|
 |9     |MUXF7      |    14|
+=======
+|4     |LUT2       |   519|
+|5     |LUT3       |   343|
+|6     |LUT4       |    97|
+|7     |LUT5       |   346|
+|8     |LUT6       |   504|
+|9     |MUXF7      |    15|
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 |10    |MUXF8      |     3|
 |11    |RAM256X1S  |    10|
 |12    |RAM32M     |     4|
 |13    |RAMB16_S18 |     1|
 |14    |FDCE       |     8|
+<<<<<<< HEAD
 |15    |FDRE       |   240|
 |16    |FDSE       |    19|
+=======
+|15    |FDRE       |   217|
+|16    |FDSE       |    31|
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 |17    |FD_1       |     3|
 |18    |IBUF       |    19|
 |19    |OBUF       |    28|
@@ -858,6 +994,7 @@ Report Instance Areas:
 +------+--------------------+---------------+------+
 |      |Instance            |Module         |Cells |
 +------+--------------------+---------------+------+
+<<<<<<< HEAD
 |1     |top                 |               |  2439|
 |2     |  div               |MAIN_CLK_DIV   |     2|
 |3     |  my_debouncer      |db_1shot_FSM   |    35|
@@ -871,6 +1008,21 @@ Report Instance Areas:
 |11    |          I_REG     |FlagReg_2      |     1|
 |12    |        my_regfile  |RegisterFile   |     4|
 |13    |      decode_buffer |buffer2        |   215|
+=======
+|1     |top                 |               |  2438|
+|2     |  div               |MAIN_CLK_DIV   |     2|
+|3     |  my_debouncer      |db_1shot_FSM   |    35|
+|4     |    bounce_counter  |counter        |    31|
+|5     |  rat               |RAT_wrapper    |  1441|
+|6     |    CPU             |RAT_CPU        |   555|
+|7     |      br_pred       |branch_pred    |    78|
+|8     |      decode        |stage2         |    15|
+|9     |        my_cu       |CONTROL_UNIT   |    10|
+|10    |        my_i_flag   |I_FLAG         |     1|
+|11    |          I_REG     |FlagReg_2      |     1|
+|12    |        my_regfile  |RegisterFile   |     4|
+|13    |      decode_buffer |buffer2        |   213|
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 |14    |      exwr          |stage34        |    49|
 |15    |        my_SCR      |SCRATCH_RAM    |    10|
 |16    |        my_SP       |SP             |    24|
@@ -879,22 +1031,38 @@ Report Instance Areas:
 |19    |          C_REG     |FlagReg        |     3|
 |20    |          SHAD_C    |FlagReg_1      |     1|
 |21    |      fetch         |stage1         |    35|
+<<<<<<< HEAD
 |22    |        cnt         |PC             |    19|
 |23    |          cnt       |ProgramCounter |    19|
 |24    |        prog        |prog_rom       |    16|
 |25    |      fetch_buffer  |buffer1        |    10|
 |26    |      hazard        |hazard_unit    |   157|
+=======
+|22    |        cnt         |PC             |    20|
+|23    |          cnt       |ProgramCounter |    20|
+|24    |        prog        |prog_rom       |    15|
+|25    |      fetch_buffer  |buffer1        |    10|
+|26    |      hazard        |hazard_unit    |   155|
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 |27    |  sg                |sseg_dec_uni   |   911|
 |28    |    my_clk          |clk_div        |    52|
 |29    |    my_conv1        |bin2bcdconv    |   533|
 |30    |    my_conv2        |bin2bcdconv_0  |   313|
 +------+--------------------+---------------+------+
 ---------------------------------------------------------------------------------
+<<<<<<< HEAD
 Finished Writing Synthesis Report : Time (s): cpu = 00:03:13 ; elapsed = 00:03:40 . Memory (MB): peak = 832.617 ; gain = 588.699
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 2 critical warnings and 18 warnings.
 Synthesis Optimization Runtime : Time (s): cpu = 00:02:40 ; elapsed = 00:03:22 . Memory (MB): peak = 832.617 ; gain = 255.246
 Synthesis Optimization Complete : Time (s): cpu = 00:03:13 ; elapsed = 00:03:40 . Memory (MB): peak = 832.617 ; gain = 588.699
+=======
+Finished Writing Synthesis Report : Time (s): cpu = 00:03:01 ; elapsed = 00:03:05 . Memory (MB): peak = 853.512 ; gain = 609.543
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 2 critical warnings and 18 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:02:33 ; elapsed = 00:02:51 . Memory (MB): peak = 853.512 ; gain = 276.152
+Synthesis Optimization Complete : Time (s): cpu = 00:03:01 ; elapsed = 00:03:06 . Memory (MB): peak = 853.512 ; gain = 609.543
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 234 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -908,6 +1076,7 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   RAMB16_S18 => RAMB18E1: 1 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
+<<<<<<< HEAD
 171 Infos, 52 Warnings, 4 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
 synth_design: Time (s): cpu = 00:03:16 ; elapsed = 00:03:51 . Memory (MB): peak = 832.617 ; gain = 601.461
@@ -915,3 +1084,12 @@ INFO: [Common 17-1381] The checkpoint 'C:/Users/gerke/workspace/RAT_pipeline/RAT
 INFO: [runtcl-4] Executing : report_utilization -file SYS_WRAPPER_utilization_synth.rpt -pb SYS_WRAPPER_utilization_synth.pb
 report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.650 . Memory (MB): peak = 832.617 ; gain = 0.000
 INFO: [Common 17-206] Exiting Vivado at Thu Jun  7 16:40:27 2018...
+=======
+171 Infos, 50 Warnings, 3 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:03:04 ; elapsed = 00:03:12 . Memory (MB): peak = 853.512 ; gain = 622.676
+INFO: [Common 17-1381] The checkpoint 'C:/Users/gerke/workspace/RAT_pipeline/RAT_pipeline.runs/synth_1/SYS_WRAPPER.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file SYS_WRAPPER_utilization_synth.rpt -pb SYS_WRAPPER_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.081 . Memory (MB): peak = 853.512 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Jun  5 09:52:38 2018...
+>>>>>>> parent of 40cbf29... just added null when branches are taken

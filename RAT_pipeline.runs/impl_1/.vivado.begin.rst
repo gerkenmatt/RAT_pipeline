@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
+<<<<<<< HEAD
     <Process Command="vivado.bat" Owner="gerke" Host="LAPTOP-PQR7H391" Pid="10832">
+=======
+    <Process Command="vivado.bat" Owner="gerke" Host="LAPTOP-PQR7H391" Pid="8792">
+>>>>>>> parent of 40cbf29... just added null when branches are taken
     </Process>
 </ProcessHandle>

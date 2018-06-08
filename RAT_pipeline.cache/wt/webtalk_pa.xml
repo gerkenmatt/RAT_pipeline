@@ -3,10 +3,17 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
+<<<<<<< HEAD
 <application name="pa" timeStamp="Thu Jun  7 16:46:02 2018">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="c80b42ae24064735887878b9c4d9da54" type="ProjectID"/>
 <property name="ProjectIteration" value="200" type="ProjectIteration"/>
+=======
+<application name="pa" timeStamp="Tue Jun  5 09:49:12 2018">
+<section name="Project Information" visible="false">
+<property name="ProjectID" value="c80b42ae24064735887878b9c4d9da54" type="ProjectID"/>
+<property name="ProjectIteration" value="190" type="ProjectIteration"/>
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -18,7 +25,11 @@ This means code written to parse this file will need to be revisited each subseq
 </item>
 <item name="Java Command Handlers">
 <property name="AddSources" value="67" type="JavaHandler"/>
+<<<<<<< HEAD
 <property name="AutoConnectTarget" value="59" type="JavaHandler"/>
+=======
+<property name="AutoConnectTarget" value="48" type="JavaHandler"/>
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 <property name="CloseProject" value="4" type="JavaHandler"/>
 <property name="CreateHardwareDashboards" value="2" type="JavaHandler"/>
 <property name="EditCopy" value="1" type="JavaHandler"/>
@@ -27,31 +38,51 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="EditProperties" value="1" type="JavaHandler"/>
 <property name="EditUndo" value="10" type="JavaHandler"/>
 <property name="LaunchOpenTarget" value="1" type="JavaHandler"/>
+<<<<<<< HEAD
 <property name="LaunchProgramFpga" value="134" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
 <property name="OpenHardwareManager" value="94" type="JavaHandler"/>
+=======
+<property name="LaunchProgramFpga" value="125" type="JavaHandler"/>
+<property name="NewProject" value="1" type="JavaHandler"/>
+<property name="OpenHardwareManager" value="88" type="JavaHandler"/>
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 <property name="OpenProject" value="30" type="JavaHandler"/>
 <property name="OpenRecentTarget" value="21" type="JavaHandler"/>
 <property name="ProgramDevice" value="5" type="JavaHandler"/>
 <property name="ProjectSettingsCmdHandler" value="16" type="JavaHandler"/>
+<<<<<<< HEAD
 <property name="ReportTimingSummary" value="1" type="JavaHandler"/>
 <property name="RunBitgen" value="156" type="JavaHandler"/>
+=======
+<property name="RunBitgen" value="143" type="JavaHandler"/>
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 <property name="RunImplementation" value="57" type="JavaHandler"/>
 <property name="RunNoiseAnalysis" value="1" type="JavaHandler"/>
 <property name="RunSchematic" value="29" type="JavaHandler"/>
-<property name="RunSynthesis" value="69" type="JavaHandler"/>
+<property name="RunSynthesis" value="68" type="JavaHandler"/>
 <property name="SaveFileProxyHandler" value="22" type="JavaHandler"/>
 <property name="SaveProjectAs" value="3" type="JavaHandler"/>
 <property name="ShowHierarchy" value="1" type="JavaHandler"/>
 <property name="ShowSource" value="1" type="JavaHandler"/>
+<<<<<<< HEAD
 <property name="ShowView" value="69" type="JavaHandler"/>
+=======
+<property name="ShowView" value="66" type="JavaHandler"/>
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 <property name="SimulationBreak" value="1" type="JavaHandler"/>
 <property name="SimulationClose" value="14" type="JavaHandler"/>
-<property name="SimulationRelaunch" value="360" type="JavaHandler"/>
+<property name="SimulationRelaunch" value="358" type="JavaHandler"/>
 <property name="SimulationRestart" value="47" type="JavaHandler"/>
+<<<<<<< HEAD
 <property name="SimulationRun" value="123" type="JavaHandler"/>
 <property name="SimulationRunAll" value="2" type="JavaHandler"/>
 <property name="SimulationRunForTime" value="401" type="JavaHandler"/>
+=======
+<property name="SimulationRun" value="116" type="JavaHandler"/>
+<property name="SimulationRunAll" value="2" type="JavaHandler"/>
+<property name="SimulationRunForTime" value="393" type="JavaHandler"/>
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 <property name="TimingConstraintsWizard" value="1" type="JavaHandler"/>
 <property name="ToggleSelectAreaMode" value="1" type="JavaHandler"/>
 <property name="ToggleViewNavigator" value="1" type="JavaHandler"/>
@@ -68,16 +99,24 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="AbstractCombinedPanel_REMOVE_SELECTED_ELEMENTS" value="1" type="GuiHandlerData"/>
 <property name="AbstractFileView_CLOSE" value="1" type="GuiHandlerData"/>
 <property name="AbstractSearchablePanel_SHOW_SEARCH" value="2" type="GuiHandlerData"/>
+<<<<<<< HEAD
 <property name="BaseDialog_CANCEL" value="23" type="GuiHandlerData"/>
 <property name="BaseDialog_OK" value="358" type="GuiHandlerData"/>
 <property name="BaseDialog_YES" value="72" type="GuiHandlerData"/>
 <property name="CmdMsgDialog_OK" value="32" type="GuiHandlerData"/>
+=======
+<property name="BaseDialog_CANCEL" value="20" type="GuiHandlerData"/>
+<property name="BaseDialog_OK" value="333" type="GuiHandlerData"/>
+<property name="BaseDialog_YES" value="61" type="GuiHandlerData"/>
+<property name="CmdMsgDialog_OK" value="30" type="GuiHandlerData"/>
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 <property name="CmdMsgDialog_OPEN_MESSAGES_VIEW" value="1" type="GuiHandlerData"/>
 <property name="ConfirmSaveTextEditsDialog_NO" value="1" type="GuiHandlerData"/>
 <property name="ConfirmSaveTextEditsDialog_YES" value="1" type="GuiHandlerData"/>
 <property name="CreateSrcFileDialog_FILE_NAME" value="9" type="GuiHandlerData"/>
 <property name="DefaultOptionPane_CLOSE" value="1" type="GuiHandlerData"/>
 <property name="DefineModulesDialog_NEW_SOURCE_FILES" value="2" type="GuiHandlerData"/>
+<<<<<<< HEAD
 <property name="ExpRunTreePanel_EXP_RUN_TREE_TABLE" value="2" type="GuiHandlerData"/>
 <property name="FileSetPanel_FILE_SET_PANEL_TREE" value="1021" type="GuiHandlerData"/>
 <property name="FileSetPanel_MESSAGES" value="4" type="GuiHandlerData"/>
@@ -86,6 +125,15 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="GraphicalView_ZOOM_FIT" value="224" type="GuiHandlerData"/>
 <property name="GraphicalView_ZOOM_IN" value="1839" type="GuiHandlerData"/>
 <property name="GraphicalView_ZOOM_OUT" value="843" type="GuiHandlerData"/>
+=======
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="996" type="GuiHandlerData"/>
+<property name="FileSetPanel_MESSAGES" value="4" type="GuiHandlerData"/>
+<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="549" type="GuiHandlerData"/>
+<property name="GettingStartedView_OPEN_PROJECT" value="1" type="GuiHandlerData"/>
+<property name="GraphicalView_ZOOM_FIT" value="214" type="GuiHandlerData"/>
+<property name="GraphicalView_ZOOM_IN" value="1800" type="GuiHandlerData"/>
+<property name="GraphicalView_ZOOM_OUT" value="822" type="GuiHandlerData"/>
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 <property name="HCodeEditor_BLANK_OPERATIONS" value="5" type="GuiHandlerData"/>
 <property name="HCodeEditor_CLOSE" value="1" type="GuiHandlerData"/>
 <property name="HCodeEditor_COMMANDS_TO_FOLD_TEXT" value="2" type="GuiHandlerData"/>
@@ -113,7 +161,11 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="NetPropPanels_LOAD_DIRECT_ROUTING_CONSTRAINT" value="1" type="GuiHandlerData"/>
 <property name="NetlistTreeView_NETLIST_TREE" value="32" type="GuiHandlerData"/>
 <property name="PACommandNames_ADD_SOURCES" value="18" type="GuiHandlerData"/>
+<<<<<<< HEAD
 <property name="PACommandNames_AUTO_CONNECT_TARGET" value="46" type="GuiHandlerData"/>
+=======
+<property name="PACommandNames_AUTO_CONNECT_TARGET" value="34" type="GuiHandlerData"/>
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 <property name="PACommandNames_AUTO_UPDATE_HIER" value="31" type="GuiHandlerData"/>
 <property name="PACommandNames_GOTO_IMPLEMENTED_DESIGN" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_GOTO_INSTANTIATION" value="1" type="GuiHandlerData"/>
@@ -122,35 +174,53 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PACommandNames_RUN_BITGEN" value="5" type="GuiHandlerData"/>
 <property name="PACommandNames_SELECT_AREA" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_SHOW_HIERARCHY" value="1" type="GuiHandlerData"/>
+<<<<<<< HEAD
 <property name="PACommandNames_SIMULATION_LIVE_RUN" value="390" type="GuiHandlerData"/>
 <property name="PACommandNames_SIMULATION_OBJECTS_WINDOW" value="8" type="GuiHandlerData"/>
 <property name="PACommandNames_SIMULATION_RELAUNCH" value="405" type="GuiHandlerData"/>
 <property name="PACommandNames_SIMULATION_RUN_BEHAVIORAL" value="89" type="GuiHandlerData"/>
+=======
+<property name="PACommandNames_SIMULATION_LIVE_RUN" value="382" type="GuiHandlerData"/>
+<property name="PACommandNames_SIMULATION_OBJECTS_WINDOW" value="8" type="GuiHandlerData"/>
+<property name="PACommandNames_SIMULATION_RELAUNCH" value="403" type="GuiHandlerData"/>
+<property name="PACommandNames_SIMULATION_RUN_BEHAVIORAL" value="82" type="GuiHandlerData"/>
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 <property name="PACommandNames_SIMULATION_SETTINGS" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_SRC_REPLACE_FILE" value="1" type="GuiHandlerData"/>
 <property name="PACommandNames_ZOOM_IN" value="20" type="GuiHandlerData"/>
 <property name="PACommandNames_ZOOM_OUT" value="13" type="GuiHandlerData"/>
-<property name="PAViews_CODE" value="171" type="GuiHandlerData"/>
+<property name="PAViews_CODE" value="170" type="GuiHandlerData"/>
 <property name="PAViews_FLOW_NAVIGATOR" value="1" type="GuiHandlerData"/>
 <property name="PAViews_HIERARCHY" value="1" type="GuiHandlerData"/>
 <property name="PAViews_PROJECT_SUMMARY" value="21" type="GuiHandlerData"/>
 <property name="PAViews_SCHEMATIC" value="12" type="GuiHandlerData"/>
 <property name="PlanAhead_CONTINUE" value="1" type="GuiHandlerData"/>
+<<<<<<< HEAD
 <property name="ProgramDebugTab_OPEN_TARGET" value="28" type="GuiHandlerData"/>
 <property name="ProgramDebugTab_PROGRAM_DEVICE" value="54" type="GuiHandlerData"/>
 <property name="ProgramFpgaDialog_PROGRAM" value="58" type="GuiHandlerData"/>
 <property name="ProgressDialog_CANCEL" value="4" type="GuiHandlerData"/>
 <property name="ProjectTab_RELOAD" value="1" type="GuiHandlerData"/>
+=======
+<property name="ProgramDebugTab_OPEN_TARGET" value="18" type="GuiHandlerData"/>
+<property name="ProgramDebugTab_PROGRAM_DEVICE" value="45" type="GuiHandlerData"/>
+<property name="ProgramFpgaDialog_PROGRAM" value="50" type="GuiHandlerData"/>
+<property name="ProgressDialog_CANCEL" value="3" type="GuiHandlerData"/>
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 <property name="RDICommands_COPY" value="1" type="GuiHandlerData"/>
 <property name="RDICommands_DELETE" value="4" type="GuiHandlerData"/>
 <property name="RDICommands_PROPERTIES" value="1" type="GuiHandlerData"/>
 <property name="RDICommands_REDO" value="3" type="GuiHandlerData"/>
 <property name="RDICommands_UNDO" value="1" type="GuiHandlerData"/>
 <property name="RDICommands_WAVEFORM_SAVE_CONFIGURATION" value="21" type="GuiHandlerData"/>
-<property name="RDIViews_WAVEFORM_VIEWER" value="1954" type="GuiHandlerData"/>
+<property name="RDIViews_WAVEFORM_VIEWER" value="1922" type="GuiHandlerData"/>
 <property name="RemoveSourcesDialog_ALSO_DELETE" value="2" type="GuiHandlerData"/>
+<<<<<<< HEAD
 <property name="ReportTimingSummaryDialog_REPORT_TIMING_SUMMARY_DIALOG_TABBED" value="4" type="GuiHandlerData"/>
 <property name="SaveProjectUtils_SAVE" value="14" type="GuiHandlerData"/>
+=======
+<property name="SaveProjectUtils_SAVE" value="12" type="GuiHandlerData"/>
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 <property name="SelectMenu_HIGHLIGHT" value="2" type="GuiHandlerData"/>
 <property name="SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS" value="3" type="GuiHandlerData"/>
 <property name="SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE" value="316" type="GuiHandlerData"/>
@@ -164,11 +234,15 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="StateMonitor_RESET_RUN" value="2" type="GuiHandlerData"/>
 <property name="SyntheticaGettingStartedView_RECENT_PROJECTS" value="62" type="GuiHandlerData"/>
 <property name="SyntheticaStateMonitor_CANCEL" value="11" type="GuiHandlerData"/>
+<<<<<<< HEAD
 <property name="TaskBanner_CLOSE" value="79" type="GuiHandlerData"/>
+=======
+<property name="TaskBanner_CLOSE" value="68" type="GuiHandlerData"/>
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 <property name="TclConsoleView_TCL_CONSOLE_CODE_EDITOR" value="3" type="GuiHandlerData"/>
 <property name="TouchpointSurveyDialog_NO" value="1" type="GuiHandlerData"/>
 <property name="WaveformFindBar_CLOSE" value="1" type="GuiHandlerData"/>
-<property name="WaveformNameTree_WAVEFORM_NAME_TREE" value="556" type="GuiHandlerData"/>
+<property name="WaveformNameTree_WAVEFORM_NAME_TREE" value="555" type="GuiHandlerData"/>
 <property name="WaveformView_ADD_MARKER" value="1" type="GuiHandlerData"/>
 </item>
 <item name="Other">

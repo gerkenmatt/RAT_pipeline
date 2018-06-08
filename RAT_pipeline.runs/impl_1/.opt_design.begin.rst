@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <ProcessHandle Version="1" Minor="0">
+<<<<<<< HEAD
     <Process Command=".planAhead." Owner="gerke" Host="LAPTOP-PQR7H391" Pid="4180">
+=======
+    <Process Command=".planAhead." Owner="gerke" Host="LAPTOP-PQR7H391" Pid="5052">
+>>>>>>> parent of 40cbf29... just added null when branches are taken
     </Process>
 </ProcessHandle>

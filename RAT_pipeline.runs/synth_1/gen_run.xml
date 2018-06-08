@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1528414568">
+=======
+<GenRun Id="synth_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1528217351">
+>>>>>>> parent of 40cbf29... just added null when branches are taken
   <File Type="PA-TCL" Name="SYS_WRAPPER.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="SYS_WRAPPER_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="SYS_WRAPPER_reports.tcl"/>

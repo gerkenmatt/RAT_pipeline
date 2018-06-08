@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Running: xsim.dir/CPU_SIM_behav/xsimk.exe -simmode gui -wdb CPU_SIM_behav.wdb -simrunnum 0 -socket 50234
 Design successfully loaded
 Design Loading Memory Usage: 7020 KB (Peak: 7020 KB)
@@ -5,3 +6,9 @@ Design Loading CPU Usage: 31 ms
 Simulation completed
 Simulation Memory Usage: 12128 KB (Peak: 12128 KB)
 Simulation CPU Usage: 593 ms
+=======
+Running: xsim.dir/CPU_SIM_behav/xsimk.exe -simmode gui -wdb CPU_SIM_behav.wdb -simrunnum 0 -socket 54297
+Design successfully loaded
+Design Loading Memory Usage: 7032 KB (Peak: 7032 KB)
+Design Loading CPU Usage: 31 ms
+>>>>>>> parent of 40cbf29... just added null when branches are taken

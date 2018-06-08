@@ -1,7 +1,11 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
+<<<<<<< HEAD
 | Date         : Thu Jun  7 16:41:53 2018
+=======
+| Date         : Tue Jun  5 09:53:45 2018
+>>>>>>> parent of 40cbf29... just added null when branches are taken
 | Host         : LAPTOP-PQR7H391 running 64-bit major release  (build 9200)
 | Command      : report_drc -file SYS_WRAPPER_drc_opted.rpt -pb SYS_WRAPPER_drc_opted.pb -rpx SYS_WRAPPER_drc_opted.rpx
 | Design       : SYS_WRAPPER
