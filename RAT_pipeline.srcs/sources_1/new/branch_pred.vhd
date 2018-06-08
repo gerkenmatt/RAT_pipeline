@@ -123,43 +123,7 @@ architecture Behavioral of branch_pred is
                                  s_pc_cnt_t_prev     <= PC_CNT_T;
                                  s_pc_cnt_nt_prev    <= PC_CNT_NT;  
                                  BR_PC_LD           <= '1';     
-<<<<<<< HEAD
-                                 PC_CNT_OUT          <= PC_CNT_T; 
-                                 s_brn_null_flag <= '1';
-                                 
---                                 case s_op is
---                                     when "0010101" => -- BRCC --taken
---                                          s_pc_cnt_t_prev     <= PC_CNT_T;
---                                          s_pc_cnt_nt_prev    <= PC_CNT_NT;  
---                                          BR_PC_LD           <= '1';     
---                                          PC_CNT_OUT          <= PC_CNT_T; 
---                                     when "0010100" => -- BRCS -- not taken
---                                        s_pc_cnt_t_prev     <= PC_CNT_T;
---                                        s_pc_cnt_nt_prev    <= PC_CNT_NT;  
---                                        BR_PC_LD           <= '0';     
---                                        PC_CNT_OUT          <= PC_CNT_NT; 
---                                     when "0010010" => -- BREQ --not taken
---                                         s_pc_cnt_t_prev     <= PC_CNT_T;
---                                          s_pc_cnt_nt_prev    <= PC_CNT_NT;  
---                                          BR_PC_LD           <= '0';     
---                                          PC_CNT_OUT          <= PC_CNT_NT; 
---                                     when "0010011" => -- BRNE --taken
---                                         s_pc_cnt_t_prev     <= PC_CNT_T;
---                                          s_pc_cnt_nt_prev    <= PC_CNT_NT;  
---                                          BR_PC_LD           <= '1';     
---                                          PC_CNT_OUT          <= PC_CNT_T; 
---                                     when others => 
---                                        s_pc_cnt_t_prev     <= PC_CNT_T;
---                                        s_pc_cnt_nt_prev    <= PC_CNT_NT;  
---                                        BR_PC_LD           <= '1';     
---                                        PC_CNT_OUT          <= PC_CNT_T;  
-                                         
---                                 end case;
-                                 -- take the branch every time
-  
-=======
                                  PC_CNT_OUT          <= PC_CNT_T;   
->>>>>>> parent of 40cbf29... just added null when branches are taken
                             end if;
                         when BRN_VALID => 
      
@@ -182,12 +146,7 @@ architecture Behavioral of branch_pred is
                                         s_br_nop_stall <= '0';
                                     end if;
                                 when "0010100" => -- BRCS
-<<<<<<< HEAD
-                                    if (C = '0' and C_SET = '0') then
-                                    --if(C = '1' or C_SET = '1') then --if taken
-=======
                                     if(C = '0' and C_SET = '0') then
->>>>>>> parent of 40cbf29... just added null when branches are taken
                                         BR_PC_LD <= '1';
                                         BR_NOP_CU  <= '1';
                                         PC_CNT_OUT <= s_pc_cnt_nt_prev;
@@ -196,10 +155,6 @@ architecture Behavioral of branch_pred is
                                     end if;
                                 when "0010010" => -- BREQ
                                     if(Z = '0') then
-<<<<<<< HEAD
-                                    --if(Z = '1') then -- if taken
-=======
->>>>>>> parent of 40cbf29... just added null when branches are taken
                                         BR_PC_LD  <= '1';
                                         BR_NOP_CU  <= '1';
                                         PC_CNT_OUT <= s_pc_cnt_nt_prev;
